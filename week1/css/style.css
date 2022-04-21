@@ -1,0 +1,25 @@
+body {
+    margin: 1rem auto;
+    max-width: 800px;
+    background-color: #bed;
+}
+body h1, body span, body section, body textarea {
+    margin: 1rem;
+}
+input {
+    margin-left: 1rem;
+    border-radius: .25rem;
+}
+.button1, .button2, .button3 {
+    border-radius: .25rem;
+    padding: .5rem;
+}
+.button2, .button3 {
+    margin-left: 1rem;  
+}
+textarea{
+    width:800px;
+    height: 250px;
+    background-color: lightyellow;
+    border-radius: .25rem;
+}
