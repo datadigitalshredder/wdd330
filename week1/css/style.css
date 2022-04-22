@@ -42,4 +42,6 @@ section#story_display {
     border: 1px solid #fcbc0b;
     background-color: antiquewhite;
     padding: 1rem;
+    font-family: 'Noto sans', sans-serif;
+    width: 800px;
 }
