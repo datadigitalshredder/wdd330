@@ -38,3 +38,8 @@ textarea{
     font-family: 'Noto sans', sans-serif;
     padding: 1rem;
 }
+section#story_display {
+    border: 1px solid #fcbc0b;
+    background-color: antiquewhite;
+    padding: 1rem;
+}
