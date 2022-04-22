@@ -11,4 +11,12 @@ function saveStory(){
 function dsiplayStory(){
     let storyHTML = document.getElementById('story_editor').value;
     document.getElementById('story_display').innerHTML = storyHTML;
+
+    let x = document.getElementById("story_display");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+
 }
