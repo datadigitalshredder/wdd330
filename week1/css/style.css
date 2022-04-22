@@ -6,6 +6,18 @@ body {
 body h1, body span, body section, body textarea {
     margin: 1rem;
 }
+h1 {
+    font-family: 'Montserrat', sans-serif;
+}
+h2, .questions, .story-name {
+    font-family: 'Noto sans', sans-serif;
+}
+.questions, .story-name {
+    font-weight: 900;
+}
+.questions {
+    color: red;
+}
 input {
     margin-left: 1rem;
     border-radius: .25rem;
@@ -13,6 +25,7 @@ input {
 .button1, .button2, .button3 {
     border-radius: .25rem;
     padding: .5rem;
+    font-family: 'Noto sans', sans-serif;
 }
 .button2, .button3 {
     margin-left: 1rem;  
@@ -22,4 +35,6 @@ textarea{
     height: 250px;
     background-color: lightyellow;
     border-radius: .25rem;
+    font-family: 'Noto sans', sans-serif;
+    padding: 1rem;
 }

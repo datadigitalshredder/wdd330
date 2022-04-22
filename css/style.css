@@ -1,0 +1,41 @@
+* {
+    max-width: 560px;
+    margin: 0 auto;
+}
+header {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+    background-color: aqua;
+    border-radius: .5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+picture {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+picture img {
+    border-radius: .25rem;
+    margin: 1rem;
+}
+h1 {
+    margin: 1rem; 
+}
+h2 {
+    font-family: 'Noto sans', sans-serif;
+    margin-bottom: 1rem;
+}
+ol {
+    font-family: 'Noto sans', sans-serif;
+}
+li {
+    margin: .5rem auto;
+}
+footer {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 1rem;
+    background-color: #bed;
+    text-align: center;
+    padding: .5rem;
+    border-radius: .5rem;
+}
