@@ -8,15 +8,15 @@ function saveStory(){
     let storyHTML = document.getElementById('story_editor').value;
     localStorage.setItem(storyName, storyHTML);
 }
-function dsiplayStory(){
+function displayStory(){
     let storyHTML = document.getElementById('story_editor').value;
     document.getElementById('story_display').innerHTML = storyHTML;
 
-    let x = document.getElementById("story_display");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+    // let x = document.getElementById("story_display");
+    // if (x.style.display === "none") {
+    //   x.style.display = "block";
+    // } else {
+    //   x.style.display = "none";
+    // }
 
 }
