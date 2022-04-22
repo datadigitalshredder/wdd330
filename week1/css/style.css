@@ -22,7 +22,7 @@ input {
     margin-left: 1rem;
     border-radius: .25rem;
 }
-.button1, .button2, .button3 {
+.story-name input, .button1, .button2, .button3 {
     border-radius: .25rem;
     padding: .5rem;
     font-family: 'Noto sans', sans-serif;
