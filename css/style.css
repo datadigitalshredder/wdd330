@@ -1,12 +1,11 @@
 * {
-    max-width: 560px;
-    width: 95%;
+    width: 560px;
+    max-width: 95%;
     margin: .5rem auto;
 }
 header {
     display: flex;
     align-items: center;
-    margin: 2rem 0;
     background-color: aqua;
     border-radius: .5rem;
     font-family: 'Montserrat', sans-serif;
