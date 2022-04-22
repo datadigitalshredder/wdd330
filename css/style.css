@@ -1,6 +1,7 @@
 * {
     max-width: 560px;
-    margin: 0 auto;
+    width: 95%;
+    margin: .5rem auto;
 }
 header {
     display: flex;
