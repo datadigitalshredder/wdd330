@@ -55,6 +55,102 @@
             points = 40;<br>
             console.log(points);<br>
             ~ 40<br>
+            <strong>Local Scope examples</strong><br>
+            const a = 1;<br>
+            
+            { const a = 3;<br>
+              a; <br>
+              console.log(a);<br>
+              ~ 3<br>
+            }<br>
+            console.log(a);<br>
+            ~ 1<br>
+            <p>In the example, a is initially defined globally outside the block and is given the value of 1. This 
+                means it has global scope and is available inside and outside the block. But then a is defined inside 
+                the local block using let. This gives it local scope inside the block where it has a value of 3, but 
+                it retains the value of 1 outside the block. For all intents and purposes, the two a variables are 
+                different variables.</p>
+
+            let b = 2;<br>
+            { b = 4; <br>
+            b; <br>
+            console.log(b);<br>
+            ~ 4<br>
+            }<br>
+            console.log(b);<br>
+            ~ 4<br>
+            <p>In this example, b is defined globally outside the block and given the value of 2. Then we reassign the 
+                value of b to 4 inside the block, but without using let. This means that it still refers to the global 
+                variable outside the block, so the value of b is the same both inside and outside the block and it 
+                gets overwritten globally to be a value of 4.</p>
+
+            { c = 5; <br>
+              c; <br>
+            }<br>
+            console.log(c);<br>
+            ~ 5<br>
+            <p>In this example, c is defined inside the block, but because this is done without using let or const, it 
+                has global scope and is also available outside the block.</p>
+
+            { const d = 6; d; }<br>
+            console.log(d);<br>
+            ~ ReferenceError: d is not defined<br>
+            <p>In this example, d is defined inside the block, but by using const so it has local scope and is only 
+                accessible inside the block. When we try to log the value of d outside the block, it causes an error 
+                because d is not defined globally.</p>
+            <p><em>Using let or const to declare variables will ensure they are block scoped, and it is good practice 
+                to always use them to declare variables. In general, if a value is unlikely to change in your code 
+                then you should declare it using const, and let should only be used for storing values that will need 
+                to be reassigned while the program is running.</em></p>
+        </li>
+        <li>Direct Assignment and Assignment By Reference<br>
+            <em>Direct assignement</em><br>
+            const a = 1;<br>
+            let b = a;<br> ~ a = 1, b = 1<br>
+            <p>In the example above, a references the primitive number 1. We then assign b to the same value as a. At 
+                this point a and b both have the same value of 1. Then we reassign the value of 2 to b, but the a 
+                still has a value of 1.</p>
+
+            b = 2;<br> ~ a = 1, b = 2<br>
+            <em>Assignment by reference</em><br>
+            const c = { value: 1 };<br>
+            let d = c;<br> ~ c.value = 1, d.value = 1<br>
+            d.value = 2;<br> ~ c.value = 2, d.value = 2<br>
+            <p>In the example above, the change to the value property of d also results in the value property of c 
+                changing as well. This is because the variables c and d are both referencing the same object, so any 
+                changes to one of them will also affect the other.</p>
+        </li>
+        <li>Strings<br>
+            new String("hello")<br>
+            [String: 'hello']<br>
+        </li>
+        <li>String Properties and Methods<br>
+        <p>Primitive data types and objects have properties and methods. Properties are information about the object 
+            or value, while methods perform an action on the object or value ― either to change it or to tell us 
+            something about it.</p>
+        <p><em>We can access the properties of a string using dot notation. This involves writing a dot followed by 
+            the property we are interested in. For example, every string has a length property that tells us how many 
+            characters are in the string:</em></p>
+            const name = 'Alexa'; // declare and assign a variable<br>
+            ~ 'Alexa'<br>
+            
+            name.length; // retrieve the name variable's length property<br>
+            ~ 5<br>
+            <p>All properties of primitive data types are immutable, meaning they're unable to be changed.</p>
+        </li>
+        <li>Converting Strings to Numbers<br>
+            Number('23');<br>
+            const answer = '5' * 1;<br>
+            const answer = +'5';<br>
+        </li>
+        <li>Converting Numbers to Strings<br>
+            String(3);<br>
+            3 +'';<br>
+            10..toString();<br>
+            10..toString(2);<br>
+            parseInt('23',10); // 23 is the string to convert to a number in base 10<br>
+            parseInt('2.4',10);<br>
+            parseFloat('2.9',10);<br>
         </li>
     </p>
     <p class="questions">Questions:
