@@ -14,8 +14,9 @@
 </head>
 <body>
     <h1>Week 2</h1>
-    <h2 class="notes-header">Notes - Basic programming</h2>
-    <p class="notes"><li>The syntax used by JavaScript is known as a C-style syntax because of its similarities
+    <h2 class="notes-header">Notes</h2>
+    <section class="notes"><h3>Prgramming basics</h3>
+        <li>The syntax used by JavaScript is known as a C-style syntax because of its similarities
         with the C programming language. It's considered best practice to combine the two and write each 
         statement on a new line, terminated by a semi-colon.</li>
         <li>JavaScript has seven different data types. Six of them are primitive data types and are listed below:
@@ -171,7 +172,131 @@
         <li>In ES6, blocks can be used to create a local scope. This means that any variables defined inside a block 
             using the let or const will only be available inside that block and not be accessible outside of that 
             block.</li>
-    </p>
+        <h3>Arrays, Logic and Loops</h3>
+        <li>Arrays<br> No notes on arrays</li>
+        <li>Sets
+            <p>A set is a data structure that represents a collection of unique values, so it cannot include any 
+                duplicate values.<br> Sets offer a useful way to keep track of data without having to check if any 
+                values have been duplicated. It's also quick and easy to check if a particular value is in a set, 
+                which can be a slow operation if an array is used.</p>
+            <p>Creating a set</p>
+            <p>const list = new Set();</p>
+            <p>Adding values to a Set<br>list.add(1);</p>
+            <p>OR<br>list.add(2).add(3).add(4);</p>
+            <p>If you try to add a value that is already contained in the set, then the operation is simply ignored</p>
+            <p>If a string is used as the argument then each character will be added as a separate element, with any 
+                repeated characters ignored:<br> const letters = new Set('hello');<br>Set { 'h', 'e', 'l', 'o' }</p>
+            <p>Use this instead for strings<br>const words = new Set().add('the').add('quick').add('brown').add('fox');</p>
+            <p>All non-primitive values, such as arrays and objects, are considered unique values, even if they contain 
+                the same values.</p>
+            <p>const arrays = new Set().add([1]).add([1]);<br>
+                arrays<br>
+                Set { [ 1 ], [ 1 ] }</p>
+        </li>
+        <li>Converting Sets to Arrays
+            <p>A set can be converted into an array by placing the set, along with the spread operator directly inside 
+                an array literal.<br>const shoppingSet = new Set().add('Apples').add('Bananas').add('Beans');<br>
+                const shoppingArray = [...shoppingSet];<br> ~ [ 'Apples', 'Bananas', 'Beans' ]<br> OR use:<br>
+                const shoppingArray = Array.from(shoppingSet);</p>
+            <p>Creating a copy of an array with any duplicate values removed:<br>
+                const duplicate = [3, 1, 4, 1, 5, 9, 2, 6 ,5,3,5,9];<br>
+                const nonDuplicate = [...new Set(repeatedArray)];<br>
+                ~ [ 3, 1, 4, 5, 9, 2, 6 ]</p>
+        </li>
+        <li>Maps
+            <p>An empty map object can be created using the new operator and Map() constructor. There is, at the time 
+                of writing, no literal notation for creating maps.<br>const romanNumerals = new Map();</p>
+        </li>
+        <li>Converting Maps to Arrays
+            <p>Maps can be converted into a nested array of key-value pairs in a similar way to sets; using either the 
+                spread operator:</p>
+        </li>
+        <li>Logic
+            if (condition) {<br>
+                // code to run if condition is true<br>
+                } else {<br>
+                // code to run if condition is false<br>
+                }<br>
+            Example<br>
+            const n = 12;<br>
+            if (n%2 === 0) {<br>
+                console.log('n is an even number');<br>
+            } else {<br>
+                console.log('n is an odd number');<br>
+            }<br>
+            ~ 'n is an even number'<br>
+            <p>Ternary operators can be used instead<br>
+                condition ? (//code to run if condition is true) : (//code to run if condition is false)<br>
+                const n = 5;<br>
+                n%2 === 0 ? console.log('n is an even number') : console.log('n is an odd number');<br>
+                ~ 'n is an odd number'<br></p>
+            <p>Switch Statements</p>
+            <p>You can actually string lots of if and else statements together to make a logical decision tree</p>
+            <p>You can actually string lots of if and else statements together to make a logical decision tree</p>
+        </li>
+        <li>Loops
+            <p>The while loop<br>
+                This will repeatedly run a block of code while a certain condition is true, and takes the following structure:<br>
+                while (condition) {<br>
+                    // do something<br>
+                }<br>
+                Infinite loops<br>
+                It is important that the condition in a while loop will be met at some point, otherwise your code will 
+                get stuck in an infinite loop that could possibly crash the program.<br>
+                Example, <br>
+                let n = 1;<br>
+                while(n>0){<br>
+                    console.log('Hello');<br>
+                    n++;<br>
+                }<br>
+                This loop will keep running, as the variable n will always be above zero. Most browsers will warn you 
+                that there is a slow running script when this happens and give you the option to stop it. If not, you 
+                can kill the process by closing the tab or restarting the browser. Obviously you want to avoid this 
+                happening, though; especially with public-facing code.
+            </p>
+            <p>do while Loop<br>
+                A do ... while loop is similar to a while loop. The only difference is that the condition comes after 
+                the block of code:<br>
+                do {<br>
+                    do something<br>
+                } while(condition)<br>
+            </p>
+            <p>For loop<br>
+                for (initialization ; condition ; after) { do something }<br>
+                The initialization code is run before the loop starts and is usually employed to initialize any 
+                variables used in the loop. The condition has to be satisfied for the loop to continue. The after code 
+                is what to do after each iteration of the loop, and it is typically used to increment a counter of 
+                some sort. Here's the green bottles example written as a for loop: <br>
+                for (let bottles = 10 ; bottles > 0 ; bottles--) {<br>
+                    console.log(`There were ${bottles} green bottles, hanging on a wall. And if one green bottle <br>
+                    should accidentally fall, there'd be ${bottles-1} green bottles hanging on the wall`);<br>
+                }<br>
+            </p>
+            <p><strong>A while loop, a do ... while loop, or a for loop can be used to achieve the same results.</strong></p>
+        </li>
+        <li><p>Nested for Loops</p>
+            <p>Loops inside loops
+            </p>
+        </li>
+        <li><p>Looping over Arrays</p>
+            <p>Array indices start their numbering at zero, so make sure the value of the initial counter in the for 
+                loop also starts at zero. We want the loop to continue until it reaches the length of the array; this 
+                can be set as the variable max in the initialization part of the for loop, then the condition becomes 
+                i less than max. This is preferable to using i less than avengers.length because then the length of the avengers array 
+                would have to be calculated after every pass through the loop. This might not sound all that 
+                important, but it can make a big difference to the speed of the program when using large arrays.</p>
+            <p><strong>ES6 introduced an improved iterator function for arrays called a for-of loop that uses a slightly different syntax</strong></p>
+        </li>
+        <li><p>Looping Over Sets</p>
+            <p>Sets are enumerable, which means they have methods that allow you to loop over each value in the set. 
+                The loop will iterate over each value in the same order they were added to the set.</p>
+        </li>
+        <li><p>Looping Over Maps</p>
+            <p>Maps are also enumerable, so it's also possible to loop over a map in a similar way to a set. The loop 
+                will iterate over each key-value pair in the same order as they were added to the map.</p>
+
+        </li>
+    </section>
     <p class="questions">Questions:
         <ol>
             <li>How can use JS to create two elements which will need to be appended to one child? That is having a 
