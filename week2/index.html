@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week1 - notes and exercises</title>
+    <title>Week2 - notes and exercises</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,6 +56,25 @@
             console.log(points);<br>
             ~ 40<br>
         </li>
+        <li>In contrast, using <em>const</em>means you can't reassign the variable to another value.</em></li>
+        <li>Using <em>const</em> does not it immutable when working with non-primitive data types, for example: <br>
+            const name = { value: 'Alexa' }; // an object <br>
+            name.value = 'Siri'; // change the value <br>
+            ~ Siri</li>
+        <li>The <em>const</em> variabel should be used to declare most variables. This helps to prevent bugs from 
+            reassigning the varibles unexpectedly</li>
+        <li>let and const have block scope.</li>
+        <li>A core tenet of the JavaScript language is that it has to remain backwardly compatible. This 
+            means that the behavior of var had to remain consistent, so couldn't just be changed in ES6. For 
+            that reason, the new keyword let was introduced.</li>
+        <li>Using const and let to declare variables means they are block scoped, so their value only exists 
+            inside the block they are declared in.</li>
+        <li>Scope refers to where a constant or variable is accessible by the program.</li>
+        <li>Any variable declared outside of a block is said to have global scope. This means it is 
+            accessible everywhere in the program. NOT a good approach.</li>
+        <li>In ES6, blocks can be used to create a local scope. This means that any variables defined inside a block 
+            using the let or const will only be available inside that block and not be accessible outside of that 
+            block.</li>
     </p>
     <p class="questions">Questions:
         <ol>

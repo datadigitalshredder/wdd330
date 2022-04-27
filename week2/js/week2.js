@@ -14,3 +14,13 @@ console.log(points);
 
 points = 100;
 console.log(points);
+
+// GLOBAL VS LOCAL SCOPE
+const a = 1;
+console.log(a);
+
+{ 
+    const a = 3; 
+    a; 
+    console.log(a);
+}
