@@ -296,6 +296,40 @@
                 will iterate over each key-value pair in the same order as they were added to the map.</p>
 
         </li>
+        <h3>Functions</h3>
+        <li>
+            See the console for examples on Functions.
+        </li>
+        <li>
+            <p>Arrow Functions</p>
+            <p>ES6 introduced a new syntax for declaring functions called the arrow syntax. These make declaring 
+                functions much more succinct by using less verbose syntax.</p>
+            <p>Arrow functions can be identified by the 'arrow' symbol, => that gives them their name. The parameters 
+                come before the arrow and the main body of the function comes after. Arrow functions are always 
+                anonymous, so if you want to refer to them, you must assign them to a variable. For example, the 
+                square function we wrote earlier can be written like so:<br>
+                const square = x => x*x;</p>
+            <p>Callbacks</p>
+            <p>This means that functions can also be given as a parameter to another function. A function that is 
+                passed as an argument to another is known as a callback.</p>
+            <p>Sorting Arrays With A Callback</p>
+            <p>The reason for this is that the numbers are converted into strings and then placed in alphabetical order.</p>
+        </li>
+        <li>Array Iterators
+            <p>The forEach loop is the most convenient way to loop over an Array.</p>
+            <p>The map() method is very similar to the forEach() method. It also iterates over an array, and takes a 
+                callback function as a parameter that is invoked on each item in the array. This is often used to 
+                process data returned from databases in array form, such as adding HTML tags to plain text.<br>
+                The difference is that it returns a new array that replaces each value with the return value of the 
+                callback function.
+            </p>
+        </li>
+        <li>Filter
+            <p>The filter() method returns a new array that only contains items from the original array that return 
+                true when passed to the callback. For example, we can filter an array of numbers to just the even 
+                numbers</p>
+        </li>
+
     </section>
     <p class="questions">Questions:
         <ol>

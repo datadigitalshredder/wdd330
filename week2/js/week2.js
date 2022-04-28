@@ -223,3 +223,85 @@ for(const value of romanNumerals2.values()) {
 for(const [key,value] of romanNumerals2.entries()) {
   console.log(`${key} in Roman numerals is ${value}`);
 }
+
+//FUNCTIONS
+function arguments(){
+  return arguments;
+}
+
+console.log(arguments(1,2,3,4,5));
+
+// function rest(...args){
+//   return args;
+// }
+let arg = ``
+function rest(...args){
+  for(arg of args){
+      console.log(arg);
+  }
+}
+rest(2,4,6,8,10);
+
+// Improved Mean Function
+// We can use a rest parameter to improve our mean() function so it accepts any number of values
+function mean(...values) {
+  let total = 0;
+  for(const value of values) {
+      total += value;
+  }
+  return total/values.length;
+}
+console.log(mean(2,8,13,11,4,2));
+
+// FUNCTIONS
+const tax = (salary) => {
+  let taxable = salary - 8000;
+  let lowerRate = 0.25 * taxable;
+  taxable = taxable - 20000;
+  let higherRate = 0.4 * taxable;
+  return lowerRate + higherRate;
+}
+annualSalary = 100000
+console.log(tax(100000));
+
+// Sorting numbers with a CallBack function
+const sortArray = [-22, 20, 1, 0, 13, 9, 33];
+const sortFunction = (a, b) => {
+  if (a < b) {
+    return -1
+  } else if (a > b) {
+    return 1
+  } else {
+    return 0
+  }
+}
+
+console.log(sortArray.sort(sortFunction));
+
+// Array Iterators simplified with the forEach
+const colors = ['Red', 'Green', 'Blue'];
+colors.forEach( (color,index) =>
+  console.log(`Color at position ${index}  is ${color}`) );
+
+// Using an Map()
+const map = [1,2,3].map( x => x * x);
+console.log(map);
+
+const reduce2 = ['red','green','blue'].map( color => `<p> ${color.toUpperCase()}</p>` );
+console.log(reduce2);
+
+// Using Reduce()
+const reduce = [1,2,3,4,5].reduce( (acc,val) => acc + val );
+console.log(reduce);
+
+//The reduce() method also takes a second parameter after the callback, which is the initial value of the 
+//accumulator, acc. For example, we could total the numbers in an array, but starting at 10, instead of zero:
+const reduce3 = [1,2,3,4,5].reduce( (acc,val) => acc + val, 10); // the starting number can be -ve or +ve
+console.log(reduce3);
+
+// FILTER
+const numbers = [ 2, 7, 6, 5, 11, 23, 12 ]
+
+console.log(numbers.filter(x => x%2 === 0 )); // this returns true if the number is even
+
+
