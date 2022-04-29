@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WDD 230 Team activity - Week2">
+    <title>Team Activity - Week 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/week2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans&display=swap" rel="stylesheet">
+    <script defer src="js/week2.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Week2 Team 5 Activity</h1>
+    </header>
+    <main>
+        <section class="requirement-1">
+            <h2>Core requirement 1</h2>
+            <button onclick="read(this)">Click me!</button>
+            <input type="text" name="button-1" id="button-1">
+            <div>This was your input: <span id="text-1"></span></div>
+        </section>
+        <section class="requirement-2">
+            <h2>Core requirement 2</h2>
+            <button onclick="readNumber(this)">Click me!</button>
+            <input type="number" name="button-2" pattern="^[0-9]+$" id="button-2">
+            <div>The cumulative total of your number is: <span id="number-1"></span></div>
+        </section>
+        <section class="requirement-3">
+            <h2>Core requirement 3</h2>
+            <button onclick="addNumbers(this)">Click me!</button>
+            <input type="number" name="button-3" pattern="^[0-9]+$" id="number-1">
+            <input type="number" name="button-4" pattern="^[0-9]+$" id="number-2">
+            <div>The total is: <span id="add-numbers"></span></div>
+        </section>
+    </main>
+</body>
+</html>
