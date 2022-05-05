@@ -67,6 +67,40 @@
             A regular expression (or RegExp, for short) is a pattern that can be used to search strings for matches to the pattern. A common use is 'find and replace' type operations. For example, say you were looking for any word ending in 'ing', you could use the regular expression /[a-zA-Z]+ing$/.
         <p>At the most basic level, a regular expression will just be a string of characters, so the following will match the string, eg const vowels = /[aeiou]/</p>
         <p>A bit advanced: pattern = /[Jj][aeiou]v[aeiou]/;</p></li>
+        <li>Special Characters or metacharacters<br>
+            . matches any character, except line breaks<br>
+
+            \w matches any word character, and is equivalent to [A-Za-z0-9_]<br>
+
+            \W matches any non-word character, and is equivalent to [\^A-Za-z0-9_]<br>
+
+            \d matches any digit character, and is equivalent to [0-9]<br>
+
+            \D matches any non-digit character, and is equivalent to [^0-9]<br>
+
+            \s matches any whitespace character, and is equivalent to [ \t\r\n\f]<br>
+
+            \S matches any non-whitespace character, and is equivalent to [^ \t\r\n\f]<br>
+        </li>
+        <li>Modifiers<br>
+            ? makes the preceding token in the regular expression optional<br>
+
+            * matches one or more occurrences of the preceding token<br>
+
+            + matches one or more occurrences of the preceding token<br>
+
+            {n} matches n occurrences of the preceding token<br>
+
+            {n,} matches at least n occurrences of the pattern<br>
+
+            {,m} matches at most m occurrences of the preceding token<br>
+
+            {n,m} matches at least n and at most m occurrences of the preceding token<br>
+
+            ^ marks the position immediately before the first character in the string<br>
+
+            $ marks the position immediately after the last character in the string<br>
+        </li>
     </section>
     <section class="week2-examples">
         <h3>Examples</h3>

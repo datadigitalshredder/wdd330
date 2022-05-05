@@ -86,6 +86,16 @@ console.log(JSON.stringify(wonderWoman));
 // RegExp
 // Creating a RegExp
 const pattern = /[a-zA-Z]+ing$/;
+console.log(pattern.test('innocent'));
+console.log(pattern.test('studying'));
 
 // Basic RegExp
 const pattern1 = /JavaScript/;
+
+// Practical Example
+const pdf = /.*\.pdf$/;
+console.log(pdf.test('chapter5.pdf'));
+
+console.log(pdf.test('report.doc'));
+
+
