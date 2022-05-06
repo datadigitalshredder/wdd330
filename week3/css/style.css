@@ -51,10 +51,10 @@ section#story_display {
     width: 800px;
     max-width: 95%;
 }
-.week2-examples {
+.week2-examples, .week3-examples {
     list-style-type: none;
     line-height: 1.5rem;
 }
-.week2-examples a {
+.week2-examples a, .week3-examples a {
     text-decoration: none;
 }
