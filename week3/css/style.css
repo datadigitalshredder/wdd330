@@ -1,0 +1,60 @@
+body {
+    margin: 1rem auto;
+    max-width: 60%;
+    background-color: #bed;
+    box-sizing: border-box;
+}
+body h1, body span, body section, body textarea {
+    margin: 1rem;
+}
+h1 {
+    font-family: 'Montserrat', sans-serif;
+}
+h2, .questions, .story-name {
+    font-family: 'Noto sans', sans-serif;
+}
+.questions, .story-name {
+    font-weight: 900;
+}
+.questions {
+    color: red;
+}
+input {
+    margin-left: 1rem;
+    border-radius: .25rem;
+}
+.story-name input, .button1, .button2, .button3 {
+    border-radius: .25rem;
+    padding: .5rem;
+    font-family: 'Noto sans', sans-serif;
+    max-width: 95%;
+}
+.button1, .button2, .button3 {
+    margin-left: 1rem; 
+    margin-bottom: 1rem; 
+}
+textarea {
+    width:800px;
+    height: 250px;
+    max-width: 95%;
+    background-color: lightyellow;
+    border-radius: .25rem;
+    font-family: 'Noto sans', sans-serif;
+    padding: 1rem;
+}
+section#story_display {
+    border: 1px solid #fcbc0b;
+    border-radius: .25rem;
+    background-color: lightskyblue;
+    padding: 1rem;
+    font-family: 'Noto sans', sans-serif;
+    width: 800px;
+    max-width: 95%;
+}
+.week2-examples, .week3-examples {
+    list-style-type: none;
+    line-height: 1.5rem;
+}
+.week2-examples a, .week3-examples a {
+    text-decoration: none;
+}

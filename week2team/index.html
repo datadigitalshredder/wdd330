@@ -37,6 +37,7 @@
             <input type="number" name="button-4" pattern="^[0-9]+$" id="number-3">
             <div>The total is: <span id="add-numbers"></span></div>
         </section>
+<<<<<<< HEAD
         <section class="calculator">
             <h2>The Calculator</h2>
             <div id="total"></div>
@@ -56,6 +57,68 @@
             <button>0</button>
             <button>&equals;</button>
             <button value='+' onclick="number(this)" id="plus">&plus;</button>
+=======
+        <section class="team work">
+            <h2>Team collaboration</h2>
+            <input type="text" id="istep1"/>
+            <button type="button" onclick="step1()">Step 1</button>
+            <div id="step1"></div>
+            <br/>
+            <input type="text" id="istep2"/>
+            <button type="button" onclick="step2()">Step 2</button>
+            <div id="step2"></div>
+            <br/>
+            <input type="text" id="istep3"/>
+            <button type="button" onclick="step3()">Step 3</button>
+            <div id="step3"></div>
+            <br/>
+            <h2>Calculator</h2>
+            <input type="text" id="num1"/>
+            <input type="text" id="num2"/>
+            <button type="button" onclick="calculate(sum)">Sum</button>
+            <button type="button" onclick="calculate(subs)">Substract</button>
+            <button type="button" onclick="calculate(mult)">Multiple</button>
+            <div id="result"></div>
+            <script>
+                function step1 () {            
+                    document.getElementById("step1").innerHTML = document.getElementById("istep1").value
+                }
+                function step2 () {            
+                    const number = Number(document.getElementById("istep2").value)
+                    let sum = 0;
+                    for(let i=1; i<=number; i++){
+                        sum += i;
+                    }
+                    document.getElementById("step2").innerHTML = sum
+                }
+                function step3 () {            
+                    const number1 = Number(document.getElementById("istep1").value)
+                    const number2 = Number(document.getElementById("istep2").value)
+                    const number3 = Number(document.getElementById("istep3").value)
+                    document.getElementById("step3").innerHTML = number1 + number2 + number3
+                }
+
+                function calculate (operation) {
+                    const number1 = Number(document.getElementById("num1").value)
+                    const number2 = Number(document.getElementById("num2").value)
+                    let result = 0
+                    result = operation(number1, number2)
+                    document.getElementById("result").innerHTML = result
+                }
+                // Declaration function
+                function subs (num1, num2) {
+                    return num1 - num2
+                }
+                // Function Expression
+                const mult = function (num1, num2) {
+                    return num1 * num2
+                }
+                // Arrow function
+                const sum = (num1, num2) => {
+                    return num1 + num2
+                }
+            </script>
+>>>>>>> 183a0a190a3acdf5c1c7a4c85aa0c578b5c06b56
         </section>
     </main>
 </body>

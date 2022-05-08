@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week2 - notes and exercises</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans&display=swap" rel="stylesheet">
+    <script defer src="js/week3.js"></script>
+</head>
+<body>
+    <h1>Week 3</h1>
+    <h2 class="notes-header">Notes</h2>
+    <section class="notes"><h3>this Method</h3>
+        <p>see notes below...</p>
+        <h3>Objects</h3>
+        <li>Arrays and Functions are objects - they are language built-in objects</li>
+        <li>An object in JavaScript is a self-contained set of related values and functions. They act as a collection of named properties that map to any JavaScript value such as strings, numbers, booleans, arrays and functions. If a property's value is a function, it is known as a method.</li>
+        <li>Objects are often used to keep any related information and functionality together in the same place.</li>
+        <li>Basic object operations quite straightforward and is a review.</li>
+        <li>Finding all the Properties of an Object<br>
+            for(const key in superman) {<br>
+                console.log(key + ": " + superman[key]);<br>
+            OR simply use: <br>
+            console.log(superman);
+        </li>
+        <li>Adding Properties<br>
+            superman.city = 'Metropolis';
+        </li>
+        <li>Change a property<br>
+            superman['real name'] = 'Kal-El'
+        </li>
+        <li>Remove a property<br>
+            delete superman.fly</li>
+        <li><h3>Nested Objects</h3>
+        Objects within objects</li>
+        <li>Objects as Parameters to Functions<br>
+            function greet({greeting,name,age}) {<br>
+                return `${greeting}! My name is ${name} and I am ${age} years old.`;<br>
+            }<br>
+        </li>
+        <li>this Method<br>
+            The keyword this refers to the object that it is within. It can be used inside methods to gain access to the object's properties.</li>
+        <li><h3>Namespacing</h3><br>
+            Naming collisions occur when the same variable or function name is used for different purposes by code sharing the same scope. <br>
+            A solution to this problem is to use the object literal pattern to create a namespace for groups of related functions.
+            For example, in the last chapter we created some functions for squaring numbers and finding the mean. One of the functions used was called square(). This is quite a generic name and it wouldn't be too far fetched to imagine a situation where a square() function also existed for drawing squares using the Canvas API (this is covered in Chapter 14). To prevent this happening, we can place all our functions inside an object, thereby creating a namespace for them. In the example below, the namespace is myMaths, which is the name of the variable the object that contains the functions has been assigned to
+        </li>
+        <h3>More built-in Objects</h3>
+        <p>JSON</p>
+        <p>It is an extremely popular lightweight data-storage format that is used by a large number of services for data serialization and configuration.</p>
+        <ol>
+            <li>Property names must be double-quoted</li>
+            <li>Permitted values are double-quoted strings, numbers, true, false, null, arrays and objects</li>
+            <li>Functions are not permitted values</li>
+        </ol>
+        <p>The parse() method takes a string of data in JSON format and returns a JavaScript object</p>
+        <p>The stringify() method does the opposite, taking a JavaScript object and returning a string of JSON data</p>
+        <li>The Math Object<br>
+        Quite clear</li>
+        <li>The Date Object<br>
+        Quite clear</li>
+        <li><h3>The RegExp Object</h3>
+            A regular expression (or RegExp, for short) is a pattern that can be used to search strings for matches to the pattern. A common use is 'find and replace' type operations. For example, say you were looking for any word ending in 'ing', you could use the regular expression /[a-zA-Z]+ing$/.
+        <p>At the most basic level, a regular expression will just be a string of characters, so the following will match the string, eg const vowels = /[aeiou]/</p>
+        <p>A bit advanced: pattern = /[Jj][aeiou]v[aeiou]/;</p></li>
+        <li>Special Characters or metacharacters<br>
+            . matches any character, except line breaks<br>
+
+            \w matches any word character, and is equivalent to [A-Za-z0-9_]<br>
+
+            \W matches any non-word character, and is equivalent to [\^A-Za-z0-9_]<br>
+
+            \d matches any digit character, and is equivalent to [0-9]<br>
+
+            \D matches any non-digit character, and is equivalent to [^0-9]<br>
+
+            \s matches any whitespace character, and is equivalent to [ \t\r\n\f]<br>
+
+            \S matches any non-whitespace character, and is equivalent to [^ \t\r\n\f]<br>
+        </li>
+        <li>Modifiers<br>
+            ? makes the preceding token in the regular expression optional<br>
+
+            * matches one or more occurrences of the preceding token<br>
+
+            + matches one or more occurrences of the preceding token<br>
+
+            {n} matches n occurrences of the preceding token<br>
+
+            {n,} matches at least n occurrences of the pattern<br>
+
+            {,m} matches at most m occurrences of the preceding token<br>
+
+            {n,m} matches at least n and at most m occurrences of the preceding token<br>
+
+            ^ marks the position immediately before the first character in the string<br>
+
+            $ marks the position immediately after the last character in the string<br>
+        </li>
+        <h3>Document Object Model</h3>
+        <li>The concept was easy to grasp</li>
+        <h3>Events</h3>
+        <p>Events are another part of the DOM and they are what provides the link between the web page and user interactions.</p>
+        <li>Event Listeners<br>
+            Instead of the program having to constantly check to see if an event has occurred, the event listener will let it know when the event happens, and the program can then respond appropriately. This allows the program to continue with other tasks while it waits for the event to happen.</li>
+            <p>Inline Event Handlers<br>
+            Added directly to the markup, eg, <div onclick="console.log('You Clicked Me!')">Click Me</div></p>
+            <p>This is outdated</p>
+        </section>
+    <section class="week3-examples">
+        <h3>Examples</h3>
+        <li><a href="example1.html" target="_blank">Ojects</a></li>
+        <li><a href="example2.html" target="_blank">Document Object Model</a></li>
+        <li><a href="example3.html" target="_blank">Events</a></li>
+    </section>
+</body>
+</html>
