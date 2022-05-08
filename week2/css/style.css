@@ -58,3 +58,6 @@ section#story_display {
 .week2-examples a {
     text-decoration: none;
 }
+.week2-examples {
+    display: none;
+}
