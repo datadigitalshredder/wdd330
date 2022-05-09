@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week4 - notes and exercises</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans&display=swap" rel="stylesheet">
+    <script defer src="js/week4.js"></script>
+</head>
+<body>
+    <h1>Week 4</h1>
+    <h2 class="notes-header">Notes</h2>
+    <section class="notes">
+        <h3>Forms</h3>
+        <li>Forms are made up of a ~form~ element that contains form controls such as input fields, select menus and buttons.</li>pter.
+        <li>Traditionally, when a form was submitted, it would be sent to a server where the information would be processed using a 'back end' language such as PHP or Ruby. It's possible, and becoming more and more common, to process the information in a form on the 'front end' before it is sent to the server using JavaScript.</li>
+        <form name='search' action='/search'>
+            <input type='text' name='searchInput'>
+            <button type='submit'>Search</button>
+        </form>
+        <p>The property called document.forms that returns an HTML collection of all the forms in the document in the order they appear in the markup. </p>
+        <p>A form object also has a method called elements that returns an HTML collection of all the elements contained in the form.</p>
+        <p>We can also access the form controls using their 'name' attributes as if it was a property of the form object.</p>
+        <li>Form Events
+            <p>Submit, submits the forms</p>
+            <p>Reset, resets the form to initial values. Reset buttons are considered poor as they erase everything on the value.</p>
+            <p>The form.action property can be used to set the action attribute of a form, so it's sent to a different URL to be processed on the server</p>
+        </li>
+        <li>Forms have several events, some of which are exclusive to them
+            <p>The focus event occurs when an element is focused on. In the case of an ~input~ element, this is when the cursor is placed inside the element (either by clicking or tapping on it or navigating to it using the keyboard).</p>
+            <p>The blur event occurs when the user moves the focus away from the form element.</p>
+            <p>The change event occurs when the user moves the focus away from the form element after changing it. So if a user clicks in an input field and makes no changes, and then clicks elsewhere, the change event won't fire, but the blur event will.</p>
+            <p>The submit event usually this will send the content of the form to the server to be processed, but we can use JavaScript to intercept the form before it's sent by adding a submit event listener.</p>
+        </li>
+        <li>Retrieving and Changing Values From a Form
+            <p>Text input element objects have a value property that can be used to retrieve the text inside the field. We can use this to report back what the user has searched for. </p>
+        </li>
+        <li>It's also possible to set the value using JavaScript.</li>
+        <li><h3>Form Controls</h3></li>
+        <form id='hero'>
+            <label for='heroName'>Name:
+                <input type='text' id='heroName' name='heroName' autofocus placeholder='Your Super Hero Name' maxlength=32>
+            </label>
+            <label for='realName'>Real Name:
+            <input type='password' name='realName' id='realName'></label>
+            <p>Super Powers:</p>
+            <label for='flight'>Flight:
+                <input type='checkbox' id='flight' value='Flight' name='powers'>
+            </label>
+            <label for='strength'>Super Strength:
+                <input type='checkbox' id='strength' value='Strength' name='powers'>
+            </label>
+            <label for='speed'>Super Speed:
+                <input type='checkbox' id='speed' value='Super Speed' name='powers'>
+            </label>
+            <label for='energy'>Energy Blasts:
+                <input type='checkbox' id='energy' value='Energy Blasts' name='powers'>
+                </label>
+            <label for='telekinesis'>Telekinesis:
+                <input type='checkbox' id='telekinesis' value='Telekinesis' name='powers'>
+            </label>
+            <p>What type of hero are you?</p>
+            <label for='hero'>Hero:
+                <input type='radio' name='category' value='Hero' id='hero'>
+            </label>
+            <label for='villain'>Villain:
+                <input type='radio' name='category' value='Villain' id='villain'>
+            </label>
+            <label for='anti-hero'>Anti-Hero:
+                <input type='radio' name='category' value='Antihero' id='anti-hero'>
+            </label>
+            <label for='age'>Age:
+                <input type='number' id='age' name='age' min=0 step=1></label>
+            <button type='submit'>Submit</button>
+        </form>
+        <p>The autofocus attribute give focus to this element when a page loads.</p>
+        <p>The placeholder attribute will insert the value provided in the input field until the user enters some text. This can be useful to place hints about how to fill in the form.</p>
+        <p>The maxlength attribute will limit the number of characters that can be entered in the field to the value given</p>
+        <ol>Input Fields
+            <li>Text Input Fields - for text such as username. The type='text' attribute isn't required, but it is advisable to use it as it makes the intended purpose of the field explicit, helping with maintenance, readability and future-proofing.</li>
+            <li>Password Input Fields - input type='password' is used to enter passwords or secret information. This works in the same way as an input field with type='text', except the characters are concealed as they are entered so they're unable to be read on the screen.</li>
+            <li>Checkbox Input Fields -  type='checkbox'. They are used to select different options that can be checked (true) or left unchecked (false). The user can select more than one checkbox from a list.<br> Rule of thumb, all similar form controls should have a similar name property so they be accessed as an HTML collection.<br>
+                hero.powers = [...form.powers].filter(box => box.checked).map(box => box.value);<br>
+                This uses the spread operator to turn the node list into an array. This then allows us to use the filter() method that returns an array containing only the check boxes that were checked (this is because their 'checked' property will be truthy). We then chain the map() method to the end, which replaces each checkbox in the array with its 'value' property. This array is then returned and stored in the hero.powers variable.<br></li>
+            <h4>Manipulating forms using the DOM</h4>
+                <p>document.forms.hero.powers[0].checked = true;<br>
+                Checkboxes can also be checked initially using the 'checked' attribute in the HTML:<br>
+                <input type='checkbox' value='Flight' name='powers' checked></p>
+            <li>Radio Button Input Fields - Radio buttons are created using input fields with type='radio'. Like checkboxes they allow users to check an option as true, but they provide an exclusive choice of options, so only one option can be selected. Just like checkboxes, radio buttons should have the same 'name' attribute of 'category'. This is used to group them together ― only one radio button can be checked in a group that has the same name attribute.<br>
+                Each radio button has a 'checked' property that returns the boolean values true and false, depending on if it has been selected or not. It's possible to change the 'checked' property to true using JavaScript, but because only one radio button can be checked at once, all the others with the same 'name' property will change to false. So the following line of code would check the 'antihero' radio button, but the 'hero' and 'villain' radio buttons would then be unchecked:<br>
+                form.type[2].checked = true;</li>
+            <li>Hidden Input Fields - Hidden fields can be created using input fields with type='hidden'. These are not displayed by the browser, but have a 'value' attribute that can contain information that is submitted with the form. They are often used to send information such as settings or information that the user has already provided.<br>
+                Shouldn't be used for sensitive data.</li>
+            <li>File Input Fields - A file input field can be created using input fields with type='file'. These are used to upload files, and most browsers will provide a browse button or similar that lets users select a file from their file system.</li>
+            <li>Other Input Types - There are lots of new input types included in HTML5, such as number, tel and color. As browsers start to support these, they will implement different user-interface elements depending on the input type. So a number field might use a slider, whereas a date field will show a calendar. They will also validate automatically, so an email input field will show an error message if there's no valid email address.<br>
+                Number input fields also have optional 'min' and 'max' attributes that can be used to limit the input given.</li>
+        </ol>
+    </section>
+    <p class="questions">Questions:
+        <ol>
+            <li>RegExp are quite daunting, what other good sources are there with alternative explanations?</li>
+        </ol>
+    </p>
+    <section class="week4-examples">
+        <h3>Examples</h3>
+        <li><a href="example1.html" target="_blank">Ojects</a></li>
+        <li><a href="example2.html" target="_blank">Document Object Model</a></li>
+        <li><a href="example3.html" target="_blank">Events</a></li>
+    </section>
+</body>
+</html>
