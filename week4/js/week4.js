@@ -73,6 +73,8 @@ function makeHero(event) {
 
     hero.name = formControls.heroName.value; // create a name property based on the input field's value
 
+    hero.city = formControls.city.value; //  Sets the city property to each selection object that has a value property that’s equal to the 'value' attribute of the <option> tag that was selected.
+    hero.origin = formControls.origin.value; // The text entered into this text area can now be added as a property of the hero object 
     alert(JSON.stringify(hero)); // convert object to JSON string and display in alert dialog
     return hero;
 }
@@ -106,3 +108,56 @@ formControls[2].checked = true;
 
 // Processing the age
 hero.age = formControls.age.value;
+
+// Select dropdown list
+// The 'name' attribute of the <select> element is used to access it in JavaScript as a property of the form object:
+formControls.city; 
+
+// It is also possible to find out the index of the option that has been selected, using the selectedIndex property. For example, if a user selected 'Gotham City' from the menu, form.city.selectedIndex would return 2 because it’s the third option in the list. This can then be used to access the actual text contained in the selected option
+console.log(formControls.city.options[formControls.city.selectedIndex].text);
+
+// From the example above, it should be clear that you can access the text of any option using index notation. 
+console.log(formControls.city.options[1].text);
+
+// It is also possible to change the value in the form directly:
+formControls.origin.value = 'Born as Kal-El on the planet Krypton...';
+console.log(formControls.origin.value);
+
+// FORM VALIDATION
+// Implement custom form validation using JavaScript.
+formControls.addEventListener('submit',validate,false);
+
+function validate(event) {
+    const firstLetter = formControls.heroName.value[0]; // We start by finding the first letter of the value entered in the name field using the index notation (remember that an index of 0 represents the first letter in a string).
+    if (firstLetter.toUpperCase() === 'X') { // It then checks to see if the first letter is equal to the string literal 'X', and alerts the user if this is the case.
+        event.preventDefault(); //  It also uses the preventDefault() method to stop the form from being submitted. Otherwise it returns true, which means the form is submitted as normal.
+        alert('Your name is not allowed to start with X!');
+    }
+}
+
+// Adding the validation check before submiting the form
+const label = formControls.querySelector('label');
+const error = document.createElement('div');
+error.classList.add('error');
+error.textContent = '! Your name is not allowed to start with X.';
+label.append(error);
+
+function validateInline() {
+    const heroName = this.value.toUpperCase();
+    if(heroName.startsWith('X')){
+    error.style.display = 'block';
+    } else {
+    error.style.display = 'none';
+    }
+}
+
+// Activating a disabled submit button
+function disableSubmit(event) {
+    if(event.target.value === ''){
+        document.getElementById('submit').disabled = true;
+    } else {
+        document.getElementById('submit').disabled = false;
+    }
+}
+
+formControls.heroName.addEventListener('keyup',disableSubmit,false); // We can apply this to the heroName field by adding the following event handler that will fire every time a key is pressed

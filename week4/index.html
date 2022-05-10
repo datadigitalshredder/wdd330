@@ -14,7 +14,7 @@
 </head>
 <body>
     <h1>Week 4</h1>
-    <h2 class="notes-header">Notes</h2>
+    <h2 class="notes-header">Notes and examples</h2>
     <section class="notes">
         <h3>Forms</h3>
         <li>Forms are made up of a ~form~ element that contains form controls such as input fields, select menus and buttons.</li>pter.
@@ -44,7 +44,7 @@
         <li><h3>Form Controls</h3></li>
         <form id='hero'>
             <label for='heroName'>Name:
-                <input type='text' id='heroName' name='heroName' autofocus placeholder='Your Super Hero Name' maxlength=32>
+                <input type='text' id='heroName' name='heroName' autofocus placeholder='Your Super Hero Name' maxlength=32 required>
             </label>
             <label for='realName'>Real Name:
             <input type='password' name='realName' id='realName'></label>
@@ -76,7 +76,22 @@
             </label>
             <label for='age'>Age:
                 <input type='number' id='age' name='age' min=0 step=1></label>
-            <button type='submit'>Submit</button>
+            <label for='City'>Base of Operations:
+                <select name='city' id='city'>
+                    <option value='' selected>Choose a City</option>
+                    <option value='Metropolis'>Metropolis</option>
+                    <option value='Gotham City'>Gotham City</option>
+                    <option value='Keystone City'>Keystone City</option>
+                    <option value='Coast City'>Coast City</option>
+                    <option value='Star City'>Star City</option>
+                </select>
+            </label>
+            <label for='origin'>Origin Story:
+                <textarea id='origin' name='origin' rows='20' cols='60'></textarea>
+            </label>
+            <button type='button'>Click Me</button>
+            <button type='reset'>Reset</button>
+            <button type='submit' id='submit' disabled>Submit</button>
         </form>
         <p>The autofocus attribute give focus to this element when a page loads.</p>
         <p>The placeholder attribute will insert the value provided in the input field until the user enters some text. This can be useful to place hints about how to fill in the form.</p>
@@ -99,7 +114,24 @@
             <li>File Input Fields - A file input field can be created using input fields with type='file'. These are used to upload files, and most browsers will provide a browse button or similar that lets users select a file from their file system.</li>
             <li>Other Input Types - There are lots of new input types included in HTML5, such as number, tel and color. As browsers start to support these, they will implement different user-interface elements depending on the input type. So a number field might use a slider, whereas a date field will show a calendar. They will also validate automatically, so an email input field will show an error message if there's no valid email address.<br>
                 Number input fields also have optional 'min' and 'max' attributes that can be used to limit the input given.</li>
+            <li>Select Drop-Down List - Select drop-down lists can be used to select one or more options from a list of values. The 'multiple' attribute is required if more than one option is to be selected. Note that the 'selected' attribute can be used to set the initial value in the HTML. In this example, the blank option that provides the instructional message 'Choose a City' has this attribute, so it's shown when the page loads.</li>
+            <li>Text Areas - A ~textarea~ element is used to enter long pieces of text over multiple lines such as a comment or blog post. They work in much the same way as input fields. We access them using the 'name' attribute, and use the value property to see what text was entered.</li>
+            <li>Buttons - The default botton type is 'submit', another type is reset (this not recommended). The other type is simply 'button'. This doesn't need to be inside a form element and has no default behavior. It simply creates a clickable button that can have an event listener attached to it.</li>
         </ol>
+        <li>Form Validation
+            <p>Validation can occur on the client side using JavaScript, and on the server side. It is advisable to use both client-side and server-side validation. JavaScript should not be relied upon to validate any data before it's saved to a database. This is because it's possible for a user to modify the JavaScript code and bypass the validation rules. It's also very easy to bypass the front-end completely and send arbitrary data to the application's backend. For these reasons, JavaScript validation should be used to enhance the user experience when filling in a form by giving feedback about any errors before it's submitted.</p>
+            <ol>
+                <li>A required field is completed</li>
+                <li>An email address is valid</li>
+                <li>A number is entered when numerical data is required</li>
+                <li>A password is at least a minimum number of characters</li>
+            </ol>
+            <p>HTML5 has it's own validation API, this can be customized using JS</p>
+        </li>
+        <li>
+            Disabling the Submit Button
+            <p>The technique that can aid usability is to disable the submit button if there are errors on the form.</p>
+        </li>
     </section>
     <p class="questions">Questions:
         <ol>
