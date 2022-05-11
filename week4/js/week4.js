@@ -26,17 +26,17 @@ inputFocus.addEventListener('change', () => alert('changed'), false);
 const formSubmit = document.forms['search'];
 formSubmit.addEventListener ('submit', search, false);
 
-function search() {
-    alert(' Form Submitted');
-}
+// function search() {
+//     alert(' Form Submitted');
+// }
 
-// Prevent submission
-function search(event) {
-    alert('Form Submitted');
-    event.preventDefault();
-}
+// // Prevent submission - UPDATED FROM LINE 20-31
+// function search(event) {
+//     alert('Form Submitted');
+//     event.preventDefault();
+// }
 
-// // Search function
+// // Search function - UPDATED FROM LINE 33-37
 function search(event) {
     alert(`You Searched for: ${input.value}`);
     event.preventDefault();
@@ -161,3 +161,62 @@ function disableSubmit(event) {
 }
 
 formControls.heroName.addEventListener('keyup',disableSubmit,false); // We can apply this to the heroName field by adding the following event handler that will fire every time a key is pressed
+
+// OPP
+// Using constructor functions to create objects
+const Dice = function(sides=6){
+    this.sides = sides; // The keyword this is used to represent the object that will be returned by the constructor function. 
+    this.roll = function() { // a method called roll(), which returns a random number from 1 up to the number of sides the dice has.
+        return Math.floor(this.sides * Math.random() + 1)
+    }
+}
+
+// We can now create an instance of the dice constructor function using the new operator.
+const redDice = new Dice ();
+console.log(redDice); // redDice has the sides property and 
+console.log(redDice.roll()); // redDice has the roll() method:
+
+const whiteDice = new Dice (4);
+console.log(whiteDice);
+console.log(whiteDice.roll());
+
+// ES6 Class Declarations
+class Die {
+    constructor(sides=6) {
+        this.sides = sides;
+    }
+
+    roll() {
+        return Math.floor(this.sides * Math.random() + 1)
+    }
+}
+// To create an instance of the Dice class, the new operator is again used
+const blueDice = new Die(20);
+console.log(blueDice);
+console.log(blueDice.roll());
+
+// The variable blueDice now contains an instance of the Dice class and behaves in exactly the same way as the redDice object:
+console.log(blueDice instanceof Die);
+
+console.log(blueDice.sides);
+
+console.log(blueDice.roll());
+
+// MODULAR JS
+import { PI } from './modulesexample.js'; // the PI is a variable declared in the modulesexample.js file and is imported here!
+const area = PI * 5 ** 2;
+console.log(area);
+
+import  { mean, variance } from './modulesexample.js'; // mean and variance are functions imported here
+console.log(mean([2,6,10]));
+
+console.log(variance([2,6,10]));
+
+import * as statistics from './modulesexample.js'; // Imports everything from the module (only EXPORTED function/ variable can be IMPORTED)
+// the function square was not imported, it cannot be used
+console.log(statistics.sum([2,6,10]));
+
+// Node.js Modules
+// const square = require('./modulesexample');
+// console.log(square(6));
+

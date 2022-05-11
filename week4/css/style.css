@@ -16,7 +16,7 @@ h2, .questions, .story-name {
 .questions, .story-name {
     font-weight: 900;
 }
-.questions {
+.questions, .red {
     color: red;
 }
 input {
