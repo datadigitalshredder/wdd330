@@ -148,7 +148,42 @@
         </li>
         <li>ES6 Class Declarations - ES6 introduced the new class declaration syntax that does exactly the same thing as a constructor function, but looks much similar to writing a class in a class-based programming language.</li>
         <p class="red">The ES6 class declarations are preferable to the constructor function syntax because they are more succinct, easier to read and all code in a class definition is implicitly in strict mode, so doesn't need the 'use strict' statement</p>
-        <li>The Constructor Property</li>
+        <li>The Constructor Property<br>
+            All objects have a constructor property that returns the constructor function that created it:<br>
+            blueDice.constructor<br>
+            [Function: Dice] <br>
+            We can use the constructor property to instantiate a copy of an object, without having to reference the actual constructor function or class declaration directly.</li>
+        <li>Static Methods<br>
+            The static keyword can be used in class declarations to create a static method. These are sometimes called class methods in other programming languages. A static method is called by the class directly rather than by instances of the class.
+        </li>
+        <li>Prototypal Inheritance<br>
+            JavaScript uses a prototypal inheritance model. This means that every class has a prototype property that is shared by every instance of the class. So any properties or methods of a class's prototype can be accessed by every object instantiated by that class.</li>
+        <li>The Prototype Property<br>
+            When creating a class, you would normally add any default properties and methods to the class declaration. But what if you want to augment the class with extra methods and properties after it has been created? It turns out that you can still do this using the prototype property of the class. This is particularly useful if you don't have access to the class declaration, but still want to add properties and methods to the class.<br>
+            All classes and constructor functions have a prototype property that returns an object.</li>
+        <li>Own Properties and Prototype Properties<br>
+            In the previous example, the object raph had a name property that it inherited from the class declaration, and a weapon property that it inherited from the prototype property. The object raph has access to both these properties, but the name property is considered to be its own property, while the weapon property is inherited from the prototype.</li>
+        <li>The Prototype Is Live! - The prototype object is live, so if a new property or method is added to the prototype, any instances of its class will inherit the new properties and methods automatically, even if that instance has already been created. For example, the raph object has a weapon property and attack() method that are inherited from Turtle.prototype. But the leo object that was created before we added these to the prototype will also have access to them</li>
+        <li class="red">It is not possible to overwrite the prototype by assigning it to a new object literal if class declarations are used</li>
+        <li class="red">This is another reason why it's recommended to use class declarations instead of constructor functions.</li>
+        <li>Overwriting Prototype Properties<br>
+            An object instance can overwrite any properties or methods inherited from its prototype by simply assigning a new value to them</li>
+        <li>When a property or method is called, the JavaScript engine will check to see if an object has its own property or method. If it does, it will use that one; otherwise, it will continue up the prototype chain until it finds a match or reaches the top of the chain.</li>
+        <li><span class="red">What Should the Prototype Be Used For?</span><br>
+            The prototype can be used to add any new properties and methods after the class has been declared. It should be used to define any properties that will remain the same for every instance of the class. The weapon example was unsuitable because all the turtles use a different weapon (we just used it in the example above to demonstrate overwriting). They do, however, like the same food — pizza! This makes a good candidate for a prototype property, if it wasn't included in the original class declaration:</li>
+        <li>A golden rule to remember is: Never use arrays or objects as a default value in prototype. This is not a problem if arrays or objects are set as default values from within the constructor function in the class declaration.</li>
+        <p>Summary<ol>
+            <li>Create a class declaration that deals with any initialization, shared properties and methods.</li>
+            <li>Any extra methods and properties that need to be augmented to the class declaration after it's been defined can be added to the prototype. These will be added to all instances, even those that have already been created.</li>
+            <li>Add any properties or methods that are individual to a particular instance can be augmented using assignment to that object (a mixin could be used to add multiple properties at once, as we'll see later).</li>
+            <li>Be careful when overwriting the prototype completely ― the constructor class needs to be reset.</li>
+        </ol></p>
+        <li>Public and Private Methods<br>
+            By default, an object's methods are public in JavaScript. Methods and properties are said to be public because they can be queried directly and changed by assignment. The dynamic nature of the language means that an object's properties and methods can be changed after it has been created. <br>
+            This is something you may want to avoid if your objects are public facing ― giving users or external services too much access to properties and methods could be a recipe for disaster!</li>
+        <li>Inheritance</li>
+
+
         <h3>Modular JavaScript</h3>
         <p>A module is a self-contained piece of code that provides functions and methods that can then be used in other files and by other modules. This helps to keep code organized in separate, reusable files, which improves code maintainability. The code in a module should have a single purpose, and group together functions with distinct functionality. </p>
         <p class="red">Not everything in the module needs to be used.</p>

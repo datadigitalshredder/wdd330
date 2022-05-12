@@ -202,6 +202,170 @@ console.log(blueDice.sides);
 
 console.log(blueDice.roll());
 
+// The Constructor Property
+// All objects have a constructor property that returns the constructor function that created it:
+console.log(blueDice.constructor);
+
+// When an object literal is used to create a new object, we can see that in the background, the Object constructor function is being used:
+const literalObject = {};
+
+console.log(literalObject.constructor);
+
+// We can use the constructor property to instantiate a copy of an object, without having to reference the actual constructor function or class declaration directly. For example, if we wanted to make another copy of the redDice object, but if the name of its constructor was unknown, we could use the following:
+const greenDice = new redDice.constructor(10);
+
+console.log(greenDice instanceof Dice); // True
+
+// Static method (Class Methods)
+class Dice1 {
+    constructor(sides=6) {
+        this.sides = sides;
+    }
+
+    roll() {
+        return Math.floor(this.sides * Math.random() + 1)
+    }
+
+    static description() {
+        return 'A way of choosing random numbers'
+    }
+}
+// This method is called from the Dice1 class like so:
+console.log(Dice1.description());
+// Static methods are not available to instances of the class. So, in our example, the instances of Dice such as redDice and blueDice cannot call the static description() method:
+console.log(redDice.description);
+
+// Prototypal Inheritance
+class Turtle {
+    constructor(name) {
+        this.name = name;
+        this.weapon = 'hands';
+    }
+    sayHi() {
+        return `Hi dude, my name is ${this.name}`;
+    }
+    attack(){
+        return `Feel the power of my ${this.weapon}!`;
+    }
+}
+
+// This can then be used to create a new turtle instance:
+const leo = new Turtle('Leonardo');
+// The variable leo points to an instance of the Turtle class. It has a name property and a sayHi() method that references the name property
+console.log(leo.name);
+console.log(leo.sayHi());
+
+// The Prototype Object
+// All classes and constructor functions have a prototype property that returns an object
+console.log(Turtle.prototype);
+
+// All instances of the the Turtle class share all the properties and methods of its prototype. This means they can call any methods of the prototype and access any of its properties. Since the prototype is just an object, we can add new properties by assignment
+Turtle.prototype.weapon = 'Hands';
+console.log(Turtle.prototype.weapon);
+
+// We can also add a method to the prototype in a similar way
+Turtle.prototype.attack = function(){
+    return `Feel the power of my ${this.weapon}!`;
+    }
+console.log(Turtle.prototype.attack);
+
+// Now if we create a new Turtle instance, we can see that it inherits the weapon property and attack() method from the Turtle.prototype object, as well as receiving the name property and sayHi() method from the class declaration:
+const raph = new Turtle('Innocent');
+
+console.log(raph.name);
+console.log(raph.sayHi());
+console.log(raph.weapon);
+console.log(raph.attack());
+
+// Finding Out the Prototype
+// 1. via the constructor function’s prototype property
+console.log(raph.constructor.prototype);
+// 2. use the Object.getPrototypeOf() method, which takes the object as a parameter:
+console.log(Object.getPrototypeOf(raph));
+// 3. Many JavaScript engines also support the non-standard __proto__ property. This is known as dunder proto, which is short for 'double underscore proto':
+console.log(raph.__proto__);
+
+// Every object has a hasOwnProperty() method that can be used to check if a method is its own property, or is inherited from the prototype:
+console.log(raph.hasOwnProperty('name'));
+console.log(raph.hasOwnProperty('weapon'));
+
+// So what’s the difference between an object's own properties and prototype properties? Prototype properties are shared by every instance of the Turtle class. This means they’ll all have a weapon property, and it will always be the same value.
+const don = new Turtle('Donatello');
+console.log(don.name);
+console.log(don.weapon);
+
+// Overwriting Prototype Properties
+// An object instance can overwrite any properties or methods inherited from its prototype by simply assigning a new value to them. For example, we can give our turtles their own weapon properties:
+leo.weapon = 'Katana Blades';
+console.log(leo.weapon);
+raph.weapon = 'Sai';
+console.log(raph.weapon);
+don.weapon = 'Bo Staff';
+console.log(don.weapon);
+// These properties will now become an 'own property' of the instance object:
+console.log(leo);
+// Any own properties will take precedence over the same prototype property when used in methods:
+console.log(leo.attack());
+// What Should the Prototype Be Used For?
+// The prototype can be used to add any new properties and methods after the class has been declared. It should be used to define any properties that will remain the same for every instance of the class.
+Turtle.prototype.food = 'Pizza';
+Turtle.prototype.eat = function() {
+    return `Mmm, this ${this.food} tastes great!`;
+}
+
+// Example
+const mike = new Turtle('Michelangelo');
+// Verify that the new instance has inherited properties and methods from the prototype
+console.log(mike.eat());
+// Augment the instance with its own individual weapon property:
+mike.weapon = 'Nunchakus';
+console.log(mike.weapon);
+mike.attack();
+console.log(mike.attack());
+
+// In our Ninja Turtle example, the name and weapon properties are said to be public, as can be seen if we query their value
+console.log(raph.weapon);
+
+// This means they can also be changed to any value, using assignment:
+raph.weapon = 3;
+console.log(raph.weapon);
+
+// Controlling objects in the public face
+class Turtle1 { // the Turtle() class has been modified to include a private _color property
+    constructor(name,color) {
+        this.name = name;
+        let _color = color;
+        this.setColor = (color) => {
+            if(typeof color === 'string'){
+                return _color = color;
+                } else {
+                    throw new Error('Color must be a string');
+                }
+            } // The _color property is created as a variable inside the scope of the constructor function inside the class declaration. This makes it impossible to access outside of this scope. The getColor() and setColor() methods are known as getter and setter methods and they form a closure over this variable and provide controlled access to the property instead
+        this.getColor = () => _color;
+    }
+}
+
+const raph1 = new Turtle1('Raphael','Red');
+console.log(raph1.getColor());
+console.log(raph1.setColor(4));
+
+// In this example, things don't work much differently than before, except functions are now being used to access and change the private properties. The big change, however, is that now we have full control over the getter and setter methods. This means that any private properties can only be changed in a controlled way, so we can stop certain assignments from being made by screening the data before any changes are made to a private property. For example, we could insist that the color property is a string:
+// this.setColor = (color) => {
+//     if(typeof color === 'string'){
+//         return _color = color;
+//         } else {
+//             throw new Error('Color must be a string');
+//         }
+//     }
+    
+console.log(raph1.setColor(4));
+
+
+
+
+
+
 // MODULAR JS
 import { PI } from './modulesexample.js'; // the PI is a variable declared in the modulesexample.js file and is imported here!
 const area = PI * 5 ** 2;
