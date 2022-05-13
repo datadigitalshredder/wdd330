@@ -348,7 +348,8 @@ class Turtle1 { // the Turtle() class has been modified to include a private _co
 
 const raph1 = new Turtle1('Raphael','Red');
 console.log(raph1.getColor());
-console.log(raph1.setColor(4));
+// console.log(raph1.setColor(4)); // This won't work because of the if statement above
+console.log(raph1.setColor('Blue'));
 
 // In this example, things don't work much differently than before, except functions are now being used to access and change the private properties. The big change, however, is that now we have full control over the getter and setter methods. This means that any private properties can only be changed in a controlled way, so we can stop certain assignments from being made by screening the data before any changes are made to a private property. For example, we could insist that the color property is a string:
 // this.setColor = (color) => {
@@ -358,8 +359,7 @@ console.log(raph1.setColor(4));
 //             throw new Error('Color must be a string');
 //         }
 //     }
-    
-console.log(raph1.setColor(4));
+
 
 
 
