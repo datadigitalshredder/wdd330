@@ -15,7 +15,7 @@ function ticGame() {
 
     // Adding the click/ touchend listener
     let b1ClickTouch, b2ClickTouch, b3ClickTouch, b4ClickTouch, b5ClickTouch, b6ClickTouch, b7ClickTouch, b8ClickTouch, b9ClickTouch;
-    b1ClickTouch = document.getElementById('box-1').addEventListener('click touchend', ticGame);
+    b1ClickTouch = document.getElementById('box-1').addEventListener('click', ticGame);
     b2ClickTouch = document.getElementById('box-2').addEventListener('click', ticGame);
     b3ClickTouch = document.getElementById('box-3').addEventListener('click', ticGame);
     b4ClickTouch = document.getElementById('box-4').addEventListener('click', ticGame);
@@ -44,7 +44,6 @@ function ticGame() {
 		document.getElementById("box-6").disabled = true;
 		document.getElementById("box-8").disabled = true;
 		document.getElementById("box-9").disabled = true;
-
 		window.alert('Player X won');
 	}
 	else if ((b7 == 'x' || b7 == 'X') && (b8 == 'x' || b8 == 'X') && (b9 == 'x' || b9 == 'X')) {
