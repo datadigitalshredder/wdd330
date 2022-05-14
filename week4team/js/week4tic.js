@@ -15,7 +15,7 @@ function ticGame() {
 
     // Adding the click/ touchend listener
     let b1ClickTouch, b2ClickTouch, b3ClickTouch, b4ClickTouch, b5ClickTouch, b6ClickTouch, b7ClickTouch, b8ClickTouch, b9ClickTouch;
-    b1ClickTouch = document.getElementById('box-1').addEventListener('click', ticGame);
+    b1ClickTouch = document.getElementById('box-1').addEventListener('click touchend', ticGame);
     b2ClickTouch = document.getElementById('box-2').addEventListener('click', ticGame);
     b3ClickTouch = document.getElementById('box-3').addEventListener('click', ticGame);
     b4ClickTouch = document.getElementById('box-4').addEventListener('click', ticGame);
@@ -203,26 +203,8 @@ function ticGame() {
 
 		// Here, messaging result
 		if (flag == 1) {
-			// document.getElementById('box-1').style.color = 'green';
-			// document.getElementById('box-2').style.color = 'green';
-			// document.getElementById('box-3').style.color = 'green';
-			// document.getElementById('box-4').style.color = 'green';
-			// document.getElementById('box-5').style.color = 'green';
-			// document.getElementById('box-6').style.color = 'green';
-			// document.getElementById('box-7').style.color = 'green';
-			// document.getElementById('box-8').style.color = 'green';
-			// document.getElementById('box-9').style.color = 'green';
 			document.getElementById('message').innerHTML = "Player X Turn";
 		} else {
-			// document.getElementById('box-1').style.color = 'yellow';
-			// document.getElementById('box-2').style.color = 'yellow';
-			// document.getElementById('box-3').style.color = 'yellow';
-			// document.getElementById('box-4').style.color = 'yellow';
-			// document.getElementById('box-5').style.color = 'yellow';
-			// document.getElementById('box-6').style.color = 'yellow';
-			// document.getElementById('box-7').style.color = 'yellow';
-			// document.getElementById('box-8').style.color = 'yellow';
-			// document.getElementById('box-9').style.color = 'yellow';
 			document.getElementById('message').innerHTML = "Player O Turn";
 		}
 	}
