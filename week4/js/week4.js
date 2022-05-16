@@ -471,11 +471,11 @@ Object.defineProperty(me, 'yearsToRetirement',{
     }
 });
 
-console.log(me.yearsToRetirement);
+console.log(me.yearsToRetirement); //The getter bases the yearsToRetirement property on the age and retirementAge properties, so returns the relevant value when queried:
 me.yearsToRetirement = 10;
-console.log(me.yearsToRetirement);
+console.log(me.yearsToRetirement); 
 
-console.log(me.age);
+console.log(me.age); // The setter also allows the age to be changed by setting the yearsToRetirement property:
 
 
 // MODULAR JS

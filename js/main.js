@@ -11,7 +11,7 @@ lastupdate.innerHTML = `<strong>Last updated</strong>: ${document.lastModified}`
 
 // Week 1 - Portfolio build
 // Manipulating the DOM
-//Create table of contents for the portfolio
+//Create a table of contents for the portfolio
 const links = [
     {
       label: "Week1 notes and exercises",
@@ -34,7 +34,7 @@ const links = [
       url: "week5/index.html"
     },
     {
-      label: "Week6 notes and exercises",
+      label: "Week6 Midterm Checkin",
       url: "week6/index.html"
     },
     {
@@ -64,6 +64,10 @@ const links = [
     {
       label: "Week13 notes and exercises",
       url: "week13/index.html"
+    },
+    {
+      label: "Week14 Final Submission",
+      url: "week14/index.html"
     }
   ]
 
