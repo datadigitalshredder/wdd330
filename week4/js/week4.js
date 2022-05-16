@@ -360,10 +360,122 @@ console.log(raph1.setColor('Blue'));
 //         }
 //     }
 
+// The Prototype Chain
+console.log(Object.getPrototypeOf(raph));
+// Peering further down. Shows us that the prototype of the prototype is an apparently empty object literal
+console.log(Object.getPrototypeOf(Object.getPrototypeOf(raph)));
+// Next prototype returns null
+console.log(Object.getPrototypeOf(Object.getPrototypeOf(Object.getPrototypeOf(raph))));
 
+// The Object Construtor
+// console.log(raph.makePizza());
 
+// Enumerable properties
+console.log(Turtle.prototype.propertyIsEnumerable('eat'));
 
+// Inheritanc with extends
+// class Turtle {
+//     constructor(name) {
+//         this.name = name;
+//         }
+//     sayHi() {
+//         return `Hi dude, my name is ${this.name}`;
+//     }
 
+//     swim() {
+//         return `${this.name} paddles in the water`;
+//     }
+// }
+
+// // Inside the child class declaration, the keyword super refers to the parent class, and can be used to access any properties and call any methods of the parent class.
+// class NinjaTurtle extends Turtle {
+//     constructor(name) {
+//         super(name);
+//         this.weapon = 'hands';
+//     }
+//     attack() { return `Feel the power of my ${this.weapon}!` } 
+// }
+
+// Polymorphism
+[1,2,3].toString()
+
+// Calling it on a primitive number will return a string containing that number:
+console.log(2..toString); // remember 2 dot operators for integers!
+
+class Turtle2 {
+    constructor(name) {
+        this.name = name;
+        this.weapon = 'hands';
+    }
+    sayHi() {
+        return `Hi dude, my name is ${this.name}`;
+    }
+    attack(){
+        return `Feel the power of my ${this.weapon}!`;
+    }
+    toString() {
+        return `A turtle called ${this.name}`;
+    }
+}
+const inno = new Turtle2('Innocent'); // Creating a new instance of the Turtle2 Class
+console.log(inno.toString());
+console.log(inno.name);
+
+// Adding Methods to Built-in Objects - Monkey-patching (not recommended in JS)
+Number.prototype.isEven = function() {
+    return this%2 === 0;
+}
+
+Number.prototype.isOdd = function() {
+    return this%2 === 1;
+}
+console.log(42..isEven());
+console.log(765234..isOdd());
+// Monkey-patching on Array Objects
+// Arrays are powerful objects, but seem to have some basic methods missing in JavaScript that are found in other languages. We can add a first() and last() methods that return the first and last items in the array:
+Array.prototype.first = function() {
+    return this[0];
+}
+
+Array.prototype.last = function() {
+    return this[this.length -1];
+}
+const turtles = ['Leonardo', 'Donatello', 'Michaelangelo', 'Raphael'];
+
+console.log(turtles.first());
+console.log(turtles.last());
+
+// Another useful method that arrays lack is a decent delete() method. There is the delete operator that we met in Chapter 3, but the way this works is not very intuitive as it leaves a value of null in place of the item that’s removed. In that chapter, we saw that it’s possible to remove an item completely from an array using the splice() method. We can use this to create a new method called delete() that removes an item from the array at the index provided:
+Array.prototype.delete = function(i) {
+    return self.splice(i,1);
+}
+
+// Getter and Setters
+const me = { name: 'DAZ' };
+console.log(Object.getOwnPropertyDescriptor(me,'name'));
+// { value: 'DAZ',
+// writable: true,
+// enumerable: true,
+// configurable: true }
+me.age = 21;
+me.retirementAge = 65;
+
+Object.defineProperty(me, 'yearsToRetirement',{
+    get() {
+        if(this.age > this.retirementAge) { return 0; }
+        else { return this.retirementAge - this.age; }
+    },
+    set(value) {
+        this.age = this.retirementAge - value;
+        return value;
+    }
+});
+
+console.log(me.yearsToRetirement);
+me.yearsToRetirement = 10;
+console.log(me.yearsToRetirement);
+
+console.log(me.age);
 
 
 // MODULAR JS

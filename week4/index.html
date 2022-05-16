@@ -181,10 +181,44 @@
         <li>Public and Private Methods<br>
             By default, an object's methods are public in JavaScript. Methods and properties are said to be public because they can be queried directly and changed by assignment. The dynamic nature of the language means that an object's properties and methods can be changed after it has been created. <br>
             This is something you may want to avoid if your objects are public facing ― giving users or external services too much access to properties and methods could be a recipe for disaster!</li>
-        <li>Inheritance</li>
-
-
-        <h3>Modular JavaScript</h3>
+        <li>Inheritance<br>
+            Examples above have all demonstrated inheritance by inheriting properties and methods from the prototype.<br>
+            The Prototype Chain<br>
+            We can see an example of a prototype chain by looking at the prototype of the raph instance of the Turtle class that we created in the last section.<br>
+            This is the end of the prototype chain for our Turtle instance, and shows that all prototype chains end at the Object() constructor function.<br>
+        </li>
+        <li>The Object Constructor<br>
+            When an object calls a method, the JavaScript engine will check to see if the object has that method. If it doesn't, it will check if the object's prototype has the method. If not, it will check whether the prototype's prototype has it. This continues all the way up the prototype chain, until it reaches the prototype of the Object() constructor function, from which all objects in JavaScript inherit. </li>
+        <li>Enumerable Properties<br>
+            Properties of objects in JavaScript are said to be enumerable or non-enumerable. If they aren't enumerable, this means they will not show up when a for-in loop is used to loop through an object's properties and methods.<br><span class="red">All properties and methods that are created by assignment are enumerable</span><br>
+            <span class="red">All objects inherit a toString() method from Object.prototype, but it's not enumerable, so it won't show up in any objects</span><br>
+            <span class="red">Good practice is for all built-in methods to be non-enumerable, and any user-defined methods to be made enumerable. </span>
+        </li>
+        <li>Inheritance Using extends<br>
+            A class can inherit from another class using the extends keyword in a class declaration.<br>
+            <span class="red">Inside the child class declaration, the keyword super refers to the parent class, and can be used to access any properties and call any methods of the parent class.</span></li>
+        <li>Polymorphism <br>
+            The concept of polymorphism means that different objects can have the same method, but implement it in different ways.<br>
+            For example, The Object.prototype object has a toString() method that is shared by all objects. This means every object created in JavaScript will have a toString() method. Polymorphism means that objects are able to override this method with a more specific implementation. So although every object has a toString() method, the way it's implemented can vary between different objects.<br>
+            It's often a useful exercise to override the toString() method using the prototype, so something more meaningful is displayed. For example, we could edit the Turtle() class declaration so it includes a more descriptive toString() method</li>
+        <li>Adding Methods to Built-in Objects<br>
+            It is possible to add more methods to the prototype of JavaScript's built-in objects — such as Number, String, and Array — to add more functionality. This practice is known as monkey-patching, but it's mostly frowned upon in the JavaScript community, despite it being an incredibly powerful technique (The Ruby programming community, on the other hand, generally embrace monkey-patching, so it is quite common in Ruby code examples.) .</li>
+        <li>Property Attributes and Descriptors<br>
+            We've already seen that all objects are collections of key-value paired properties.<br>
+            All object properties have the following attributes stored in a property descriptor:<br>
+        <ol>
+            <li>value ― This is the value of the property and is undefined by default</li>
+            <li> writable ― This boolean value shows whether a property can be changed or not, and is false by default</li>
+            <li>enumerable ― this boolean value shows whether a property will show up when the object is displayed in a for in loop, and is false by default</li>
+            <li>configurable ― this boolean value shows whether you can delete a property or change any of its attributes, and is false by default.</li>
+        </ol></li>
+        <li>Getters and Setters<br>
+            An object property descriptor can have get() and set() methods instead of a value attribute. All objects must have one or the other, they can't have both. The get() and set() methods can be used to control how a property is set using assignment and the value that is returned when a property is queried.</li>
+        <li>Creating Objects from Other Objects<br>
+            It's possible to avoid using classes altogether, and create new objects based on another object that acts as a 'blueprint' or prototype instead.</li>   
+        <li>Mixins<br>
+            A mixin is a way of adding properties and methods of some objects to another object without using inheritance. It allows more complex objects to be created by 'mixing' basic objects together.</li>
+            <h3>Modular JavaScript</h3>
         <p>A module is a self-contained piece of code that provides functions and methods that can then be used in other files and by other modules. This helps to keep code organized in separate, reusable files, which improves code maintainability. The code in a module should have a single purpose, and group together functions with distinct functionality. </p>
         <p class="red">Not everything in the module needs to be used.</p>
         <li>Coupling<br>

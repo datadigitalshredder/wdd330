@@ -41,64 +41,55 @@ section {
     grid-area: 1/1/2/2;
     font-family: 'Noto sans', sans-serif;
     text-align: center;
-    padding-top: 5%;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 #box-2 {
     grid-area: 1/2/2/3;
     font-family: 'Noto sans', sans-serif;
     text-align: center;
-    padding-top: 5%;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 #box-3 {
     grid-area: 1/3/2/4;
     font-family: 'Noto sans', sans-serif;
     text-align: center;
-    padding-top: 5%;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 #box-4 {
     grid-area: 2/1/3/2;
     font-family: 'Noto sans', sans-serif;
     text-align: center;
-    padding-top: 5%;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 #box-5 {
     grid-area: 2/2/3/3;
     font-family: 'Noto sans', sans-serif;
     text-align: center;
-    padding-top: 5%;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 #box-6 {
     grid-area: 2/3/3/4;
     font-family: 'Noto sans', sans-serif;
     text-align: center;
-    padding-top: 5%;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 #box-7 {
     grid-area: 3/1/4/2;
     font-family: 'Noto sans', sans-serif;
     text-align: center;
-    padding-top: 5%;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 #box-8 {
     grid-area: 3/2/4/3;
     font-family: 'Noto sans', sans-serif;
     text-align: center;
-    padding-top: 5%;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 #box-9 {
     grid-area: 3/3/4/4;
     font-family: 'Noto sans', sans-serif;
     text-align: center;
-    padding-top: 5%;
-    font-size: 5rem;
+    font-size: 4rem;
 }
 .row-1, .row-2 {
     border-bottom: 3px solid black;
