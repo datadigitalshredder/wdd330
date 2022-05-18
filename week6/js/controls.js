@@ -1,7 +1,6 @@
 export function querySelection(selectorName) {
     return document.querySelector(selectorName);
 }
-
 export function readFromLocalStorage (key) {
     return JSON.parse(localStorage.getItem(key));
 }
