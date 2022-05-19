@@ -62,5 +62,29 @@ function squareRoot(number) {
 };
 // test the function
 console.log(squareRoot(121));
-console.log(squareRoot(-1));
+// console.log(squareRoot(-1));
+
+// Exception handling - try, catch, finally
+function imaginarySquareRoot(number) {
+    'use strict';
+    let answer;
+    try {
+        answer = String(squareRoot(number));
+    } catch(error) {
+        answer = squareRoot(-number)+"i";
+    } finally {
+        return `+ or - ${answer}`;
+    }
+}
+console.log(imaginarySquareRoot(-49));
+
+// Testing
+function itSquareRoots4() {
+    return squareRoot(4) === 2;
+}
+console.log(itSquareRoots4());
+
+// JEST
+// use this code in the terminal for installation: npm install -g jest
+
 
