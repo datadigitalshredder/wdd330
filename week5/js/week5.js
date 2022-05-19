@@ -86,5 +86,20 @@ console.log(itSquareRoots4());
 
 // JEST
 // use this code in the terminal for installation: npm install -g jest
+// test jest install using in the terminal jest -v
+
+// Example
+function squareRoot1(number) {
+    'use strict';
+    if (number < 0) {
+        throw new RangeError("You can't find the square root of negative numbers")
+    }
+    return Math.sqrt(number);
+};
+
+test('square root of 4 is 2', () => {
+expect(squareRoot1(4)).toBe(2);
+});
+jest -c ;{}
 
 

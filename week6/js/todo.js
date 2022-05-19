@@ -2,7 +2,7 @@
 CODE HERE IS PRIVATE - reads and write localStorage
 */
 
-import { querySelection, writeToLocalStorage, readFromLocalStorage, bindTouch } from "./controls.js";
+import { querySelection, writeToLocalStorage, readFromLocalStorage, bindTouch } from "./handler.js";
 
 let liveToDos = null;
 
