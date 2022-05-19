@@ -26,6 +26,62 @@
             </ol>
             As programmers, we often have little influence over how external systems work, so it can be difficult to fix the root cause of system errors. Despite this, we should still be aware of them and attempt to reduce their impact by working around any problems they cause.
         </li>
+        <li>Exceptions<br>
+            An exception is an error that produces a return value that can then be used by the program to deal with the error.
+        <ol><li>Stack Traces - Produced by an exception, a sequence of functions or method calls that lead to the point where the error occurred.
+            <li>Warnings - A warning can occur if there's an error in the code that isn't enough to cause the program to crash. This means the program will continue to run after a warning. This might sound good, but it can be problematic, since the issue that produced the warning may cause the program to continue running incorrectly.<br>
+                For example, a warning is assigning a value to a variable thats undeclared: pi = 3.142;</li>
+        </ol>
+        </li>
+        <li>The Importance of Testing and Debugging - because JavaScript is a fairly forgiving language, a programmer should try to make the code fail gracefully (although not completely silently ― we still need to know there's an error), so the user experience is not affected, if possible. This is achieved by making sure exceptions are caught and dealt with, and code is tested rigorously.</li>
+        <li>Strict Mode - Strict mode encourages a better quality of JavaScript to be written that benefits a programmer, so its use is recommended.<br>
+            Strict mode simply requires the string ~'use strict';~ to be added to the first line of a JavaScript file.<br>
+            ou can even use strict mode on a per-function basis by adding the line inside a function. Strict mode will then only be applied to anything inside that function:<br>
+            function strictly(){ <br>
+            'use strict';<br>
+            <em>function code goes here</em><br>
+            The recommended way to invoke strict mode is to place all your code into a self-invoking function<br>
+            (function() {<br>
+                'use strict';<br>
+            
+                <em>All your code would go inside this function</em><br>
+            
+            }());<br>
+            Use of strict mode in ES6 modules is not required as modules are self-contained pieces of code that are in strict mode by default.
+            <ol>
+                <li>Linting Tools - go beyond simply using strict mode. They are designed to highlight any sloppy programming practices or syntax errors, and will complain if certain style conventions are not followed, such as how code is indented.<br>
+                    It's possible to add a linting tool as a text-editor plugin<br>
+                    Another option is to use an online linting tool that allows you to simply paste onto a page for feedback.<br>
+                    Another option is to install linting software on your computer using npm.</li>
+            </ol>
+        </li>
+        <li>Feature Detection - The recommended way to determine browser support for a feature is to use feature detection. This is done using an if statement to check whether an object or method exists before trying to actually call the method. </li>
+        <li>Debugging in the Browser - Debugging is the process of finding out where bugs occur in the code and then dealing with them. In many cases, the point at which an error occurs is not always where it originated, so you'll need to run through the program to see what's happening at different stages of its execution. 
+            <ol>
+                <li>The Trusty Alert - The most basic form of debugging is to use the alert() method to show a dialog at certain points in the code. Because alert() stops a program from running until OK is clicked, it allows us to effectively put breakpoints in the code that let us check the value of variables at that point to see if they're what we expect them to be. </li>
+                <li>Using the Console - Most modern JavaScript environments have a console object that provides a number of methods for logging information and debugging. It's not officially part of the ECMAScript specification, but is well supported in all the major browsers and Node.js.</li>
+                <li>The console.log() method. This can be used to log the value of variables at different stages of the program, although it will not actually stop the execution of the program in the same way as alert() does.</li>
+                <li>The console.trace() method will log an interactive stack trace in the console. This will show the functions that were called in the lead up to an exception occurring while the code is running.</li>
+            </ol>
+        </li>
+        <li>Debugging Tools - Most modern browsers also have a debugging tool that allows you to set breakpoints in your code that will pause it at certain points. You can then see the values of all the variables at those points and modify them. This can be very useful when trying to track down bugs.</li>
+        <li>Error Objects - An error object can be created by the host environment when an exception occurs, or it can be created in the code using a constructor function<br>
+            This constructor function takes a parameter that's used as the error message:<br>
+            const error = new Error('Oops, something went wrong');<br>
+            <ol>There are seven more error objects used for specific errors:
+                <li>EvalError is not used in the current ECMAScript specification and only retained for backwards compatibility. It was used to identify errors when using the global eval() function.</li>
+                <li>RangeError is thrown when a number is outside an allowable range of values.</li>
+                <li>ReferenceError is thrown when a reference is made to an item that doesn't exist. For example, calling a function that hasn't been defined.</li>
+                <li>SyntaxError is thrown when there's an error in the code's syntax.</li>
+                <li>TypeError is thrown when there's an error in the type of value used; for example, a string is used when a number is expected.</li>
+                <li>URIError is thrown when there's a problem encoding or decoding the URI.</li>
+                <li>InternalError is a non-standard error that is thrown when an error occurs in the JavaScript engine. A common cause of this too much recursion.</li>
+            </ol>
+            <li>Throwing Exceptions - It's also possible to throw your own exceptions using the throw statement. This will allow for any problems in your code to be highlighted and dealt with, rather than lurk quietly in the background.<br>
+                It is best practice, however, to throw an error object. <br>
+                throw new Error('Something has gone badly wrong!');</li>
+        </li>
+        <li>Exception Handling</li>
 
     </section>
 </body>
