@@ -34,7 +34,7 @@ function ticGame() {
 		document.getElementById("box-7").disabled = true;
 		document.getElementById("box-8").disabled = true;
 		document.getElementById("box-9").disabled = true;
-		window.alert('Player X won');
+		// window.alert('Player X won');
 	}
 	else if ((b1 == 'x' || b1 == 'X') && (b4 == 'x' || b4 == 'X') && (b7 == 'x' || b7 == 'X')) {
 		document.getElementById('message').innerHTML = "Player X won";
@@ -44,7 +44,7 @@ function ticGame() {
 		document.getElementById("box-6").disabled = true;
 		document.getElementById("box-8").disabled = true;
 		document.getElementById("box-9").disabled = true;
-		window.alert('Player X won');
+		// window.alert('Player X won');
 	}
 	else if ((b7 == 'x' || b7 == 'X') && (b8 == 'x' || b8 == 'X') && (b9 == 'x' || b9 == 'X')) {
 		document.getElementById('message').innerHTML = "Player X won";
@@ -54,7 +54,7 @@ function ticGame() {
 		document.getElementById("box-4").disabled = true;
 		document.getElementById("box-5").disabled = true;
 		document.getElementById("box-6").disabled = true;
-		window.alert('Player X won');
+		// window.alert('Player X won');
 	}
 	else if ((b3 == 'x' || b3 == 'X') && (b6 == 'x' || b6 == 'X') && (b9 == 'x' || b9 == 'X')) {
 		document.getElementById('message').innerHTML = "Player X won";
@@ -64,7 +64,7 @@ function ticGame() {
 		document.getElementById("box-5").disabled = true;
 		document.getElementById("box-7").disabled = true;
 		document.getElementById("box-8").disabled = true;
-		window.alert('Player X won');
+		// window.alert('Player X won');
 	}
 	else if ((b1 == 'x' || b1 == 'X') && (b5 == 'x' || b5 == 'X') && (b9 == 'x' || b9 == 'X')) {
 		document.getElementById('message').innerHTML = "Player X won";
@@ -74,7 +74,7 @@ function ticGame() {
 		document.getElementById("box-6").disabled = true;
 		document.getElementById("box-7").disabled = true;
 		document.getElementById("box-8").disabled = true;
-		window.alert('Player X won');
+		// window.alert('Player X won');
 	}
 	else if ((b3 == 'x' || b3 == 'X') && (b5 == 'x' || b5 == 'X') && (b7 == 'x' || b7 == 'X')) {
 		document.getElementById('message').innerHTML = "Player X won";
@@ -84,7 +84,7 @@ function ticGame() {
 		document.getElementById("box-6").disabled = true;
 		document.getElementById("box-8").disabled = true;
 		document.getElementById("box-9").disabled = true;
-		window.alert('Player X won');
+		// window.alert('Player X won');
 	}
 	else if ((b2 == 'x' || b2 == 'X') && (b5 == 'x' || b5 == 'X') && (b8 == 'x' || b8 == 'X')) {
 		document.getElementById('message').innerHTML = "Player X won";
@@ -94,7 +94,7 @@ function ticGame() {
 		document.getElementById("box-6").disabled = true;
 		document.getElementById("box-7").disabled = true;
 		document.getElementById("box-9").disabled = true;
-		window.alert('Player X won');
+		// window.alert('Player X won');
 	}
 	else if ((b4 == 'x' || b4 == 'X') && (b5 == 'x' || b5 == 'X') && (b6 == 'x' || b6 == 'X')) {
 		document.getElementById('message').innerHTML = "Player X won";
@@ -104,7 +104,7 @@ function ticGame() {
 		document.getElementById("box-7").disabled = true;
 		document.getElementById("box-8").disabled = true;
 		document.getElementById("box-9").disabled = true;
-		window.alert('Player X won');
+		// window.alert('Player X won');
 	}
 
 	// Checking for Player O starts, Is player O won or not and after that disabled all the other fields
@@ -116,7 +116,7 @@ function ticGame() {
 		document.getElementById("box-7").disabled = true;
 		document.getElementById("box-8").disabled = true;
 		document.getElementById("box-9").disabled = true;
-		window.alert('Player O won');
+		// window.alert('Player O won');
 	}
 	else if ((b1 == 'o' || b1 == 'O') && (b4 == 'o' || b4 == 'O') && (b7 == 'o' || b7 == 'O')) {
 		document.getElementById('message').innerHTML = "Player O won";
@@ -126,7 +126,7 @@ function ticGame() {
 		document.getElementById("box-6").disabled = true;
 		document.getElementById("box-8").disabled = true;
 		document.getElementById("box-9").disabled = true;
-		window.alert('Player O won');
+		// window.alert('Player O won');
 	}
 	else if ((b7 == 'o' || b7 == 'O') && (b8 == 'o' || b8 == 'O') && (b9 == 'o' || b9 == 'O')) {
 		document.getElementById('message').innerHTML = "Player O won";
@@ -136,7 +136,7 @@ function ticGame() {
 		document.getElementById("box-4").disabled = true;
 		document.getElementById("box-5").disabled = true;
 		document.getElementById("box-6").disabled = true;
-		window.alert('Player O won');
+		// window.alert('Player O won');
 	}
 	else if ((b3 == 'o' || b3 == 'O') && (b6 == 'o' || b6 == 'O') && (b9 == 'o' || b9 == 'O')) {
 		document.getElementById('message').innerHTML = "Player O won";
@@ -146,7 +146,7 @@ function ticGame() {
 		document.getElementById("box-5").disabled = true;
 		document.getElementById("box-7").disabled = true;
 		document.getElementById("box-8").disabled = true;
-		window.alert('Player O won');
+		// window.alert('Player O won');
 	}
 	else if ((b1 == 'o' || b1 == 'O') && (b5 == 'o' || b5 == 'O') && (b9 == 'o' || b9 == 'O')) {
 		document.getElementById('message').innerHTML = "Player O won";
@@ -156,7 +156,7 @@ function ticGame() {
 		document.getElementById("box-6").disabled = true;
 		document.getElementById("box-7").disabled = true;
 		document.getElementById("box-8").disabled = true;
-		window.alert('Player O won');
+		// window.alert('Player O won');
 	}
 	else if ((b3 == 'o' || b3 == 'O') && (b5 == 'o' || b5 == 'O') && (b7 == 'o' || b7 == 'O')) {
 		document.getElementById('message').innerHTML = "Player O won";
@@ -166,7 +166,7 @@ function ticGame() {
 		document.getElementById("box-6").disabled = true;
 		document.getElementById("box-8").disabled = true;
 		document.getElementById("box-9").disabled = true;
-		window.alert('Player O won');
+		// window.alert('Player O won');
 	}
 	else if ((b2 == 'o' || b2 == 'O') && (b5 == 'o' || b5 == 'O') && (b8 == 'o' || b8 == 'O')) {
 		document.getElementById('message').innerHTML = "Player O won";
@@ -176,7 +176,7 @@ function ticGame() {
 		document.getElementById("box-6").disabled = true;
 		document.getElementById("box-7").disabled = true;
 		document.getElementById("box-9").disabled = true;
-		window.alert('Player O won');
+		// window.alert('Player O won');
 	}
 	else if ((b4 == 'o' || b4 == 'O') && (b5 == 'o' || b5 == 'O') && (b6 == 'o' || b6 == 'O')) {
 		document.getElementById('message').innerHTML = "Player O won";
@@ -186,7 +186,7 @@ function ticGame() {
 		document.getElementById("box-7").disabled = true;
 		document.getElementById("box-8").disabled = true;
 		document.getElementById("box-9").disabled = true;
-		window.alert('Player O won');
+		// window.alert('Player O won');
 	}
 
 	// Here, Checking about Tie
@@ -197,7 +197,7 @@ function ticGame() {
 		(b7 == 'X' || b7 == 'O') && (b8 == 'X' ||
 		b8 == 'O') && (b9 == 'X' || b9 == 'O')) {
 			document.getElementById('message').innerHTML = "Match Tie";
-			window.alert('Match Tie');
+			// window.alert('Match Tie');
 	} else {
 
 		// Here, messaging result
