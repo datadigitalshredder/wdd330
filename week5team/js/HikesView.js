@@ -71,9 +71,14 @@
         </article><li></li>`;
         const newUl = document.createElement("ul");
         newUl.id = this.listElementId;
-        newUl.className = "hikeStyles"
-        newUl.appendChild(item)
-        this.hikeListElement.replaceWith(newUl)
-        return item
+        newUl.className = "hikeStyles";
+        newUl.appendChild(item);
+        this.hikeListElement.replaceWith(newUl);
+        return item;
     }
 }
+// const newUl1 = document.createElement("ul");
+// newUl1.id = this.listElementId;
+// newUl1.className = "hikeStyles"
+// newUl1.appendChild(item)
+// this.hikeListElement.replaceWith(newUl1)
