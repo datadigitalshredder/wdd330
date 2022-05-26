@@ -21,6 +21,13 @@ form {
   margin-bottom: 2rem;
 }
 
+h4 {
+  display: inline;
+  margin: 2%;
+  /* flex-direction: column; */
+  width: 100%;
+}
+
 [type="text"],
 button {
   display: inline-block;

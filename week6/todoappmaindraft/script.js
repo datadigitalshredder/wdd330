@@ -50,6 +50,29 @@ class Model {
   
       this._commit(this.todos);
     };
+
+    // WORK ON THIS FILTER TO DO
+    showMenu(selectedTask) {
+      let menuDiv = selectedTask.parentElement.lastElementChild;
+      menuDiv.classList.add("show");
+      document.addEventListener("click", e => {
+          if(e.target.tagName != "I" || e.target != selectedTask) {
+              menuDiv.classList.remove("show");
+          }
+      });
+    updateStatus(selectedTask) {
+      let taskName = selectedTask.parentElement.lastElementChild;
+      if(selectedTask.checked) {
+          taskName.classList.add("checked");
+          todos[selectedTask.id].status = "completed";
+      } else {
+          taskName.classList.remove("checked");
+          todos[selectedTask.id].status = "pending";
+      }
+      localStorage.setItem("todo-list", JSON.stringify(todos))
+    };
+    ///
+  }
   };
   
   /**
@@ -61,29 +84,29 @@ class Model {
     constructor() {
       this.app = this.getElement('#root');
       this.form = this.createElement('form');
-      this.allItems = this.createElement('h2');
+      this.allItems = this.createElement('h4');
       this.allItems.textContent = 'All';
-      // this.completedItems = this.createElement('h2');
-      // this.completedItems.textContent = 'Completed';
-      // this.pendingItems = this.createElement('h2');
-      // this.pendingItems.textContent = 'Pending';
+      this.completedItems = this.createElement('h4');
+      this.completedItems.textContent = 'Completed';
+      this.pendingItems = this.createElement('h4');
+      this.pendingItems.textContent = 'Pending';
       this.input = this.createElement('input');
       this.input.type = 'text';
       this.input.placeholder = 'Add todo item';
       this.input.name = 'todo';
       this.submitButton = this.createElement('button');
-      this.submitButton.textContent = 'Submission';
+      this.submitButton.textContent = 'Submit';
       // this.allItems = this.createElement('span');
       // this.allItems = document.createTextNode('All');
       // this.completedItems = this.createElement('span');
       // this.completedItems.textContent = 'Completed';
       // this.pendingItems = this.createElement('span');
       // this.pendingItems.textContent = 'Pending';
-      this.form.append(this.input, this.submitButton, this.allItems, this.completedItems, this.pendingItems);
+      this.form.append(this.input, this.submitButton);
       this.title = this.createElement('h1');
       this.title.textContent = 'My Todo List';
       this.todoList = this.createElement('ul', 'todo-list');
-      this.app.append(this.title, this.form, this.todoList);
+      this.app.append(this.title, this.form, this.todoList, this.allItems, this.completedItems, this.pendingItems);
   
       this._temporaryTodoText = ''
       this._initLocalListeners();
@@ -119,7 +142,7 @@ class Model {
       // Show default message
       if (todos.length === 0) {
         const p = this.createElement('p')
-        p.textContent = 'Nothing to do, add ;a task!';
+        p.textContent = 'Nothing to do, add a task!';
         this.todoList.append(p);
       } else {
         // Create nodes
@@ -226,6 +249,7 @@ class Controller {
       this.view.bindEditTodo(this.handleEditTodo);
       this.view.bindDeleteTodo(this.handleDeleteTodo);
       this.view.bindToggleTodo(this.handleToggleTodo);
+      this.view.sho
   
       // Display initial todos
       this.onTodoListChanged(this.model.todos);
@@ -249,6 +273,17 @@ class Controller {
     handleToggleTodo = id => {
       this.model.toggleTodo(id);
     };
+    // WORK ON THIS FILTER TODO 
+    showMenu(selectedTask) {
+      let menuDiv = selectedTask.parentElement.lastElementChild;
+      menuDiv.classList.add("show");
+      document.addEventListener("click", e => {
+          if(e.target.tagName != "I" || e.target != selectedTask) {
+              menuDiv.classList.remove("show");
+          }
+      });
+  }
+    
   };
   
   const app = new Controller(new Model(), new View());
