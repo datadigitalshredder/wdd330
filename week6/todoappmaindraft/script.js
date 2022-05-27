@@ -3,6 +3,8 @@
  *
  * Manages the data of the application.
  */
+const filters = document.querySelectorAll(".filters span"),
+clearAll = document.querySelector(".clear-btn");
 class Model {
     constructor() {
       this.todos = JSON.parse(localStorage.getItem('todos')) || [];
@@ -52,27 +54,28 @@ class Model {
     };
 
     // WORK ON THIS FILTER TO DO
+    
     showMenu(selectedTask) {
-      let menuDiv = selectedTask.parentElement.lastElementChild;
-      menuDiv.classList.add("show");
+      this.menuDiv = selectedTask.parentElement.lastElementChild;
+      this.menuDiv.classList.add("show");
       document.addEventListener("click", e => {
           if(e.target.tagName != "I" || e.target != selectedTask) {
-              menuDiv.classList.remove("show");
+              this.menuDiv.classList.remove("show");
           }
       });
-    updateStatus(selectedTask) {
-      let taskName = selectedTask.parentElement.lastElementChild;
-      if(selectedTask.checked) {
-          taskName.classList.add("checked");
-          todos[selectedTask.id].status = "completed";
-      } else {
-          taskName.classList.remove("checked");
-          todos[selectedTask.id].status = "pending";
-      }
-      localStorage.setItem("todo-list", JSON.stringify(todos))
-    };
+    }
+    // updateStatus(selectedTask) {
+    //   this.taskName = selectedTask.parentElement.lastElementChild;
+    //   if(selectedTask.checked) {
+    //       this.taskName.classList.add("checked");
+    //       todos[selectedTask.id].status = "completed";
+    //   } else {
+    //       this.taskName.classList.remove("checked");
+    //       todos[selectedTask.id].status = "pending";
+    //   }
+    //   localStorage.setItem("todo-list", JSON.stringify(todos))
+    // }
     ///
-  }
   };
   
   /**
@@ -84,12 +87,13 @@ class Model {
     constructor() {
       this.app = this.getElement('#root');
       this.form = this.createElement('form');
-      this.allItems = this.createElement('h4');
-      this.allItems.textContent = 'All';
-      this.completedItems = this.createElement('h4');
-      this.completedItems.textContent = 'Completed';
-      this.pendingItems = this.createElement('h4');
-      this.pendingItems.textContent = 'Pending';
+      // this.allItems = this.createElement('h4');
+      // this.allItems.classList.add('filters', 'span');
+      // this.allItems.textContent = 'All';
+      // this.completedItems = this.createElement('h4');
+      // this.completedItems.textContent = 'Completed';
+      // this.pendingItems = this.createElement('h4');
+      // this.pendingItems.textContent = 'Pending';
       this.input = this.createElement('input');
       this.input.type = 'text';
       this.input.placeholder = 'Add todo item';
@@ -106,8 +110,10 @@ class Model {
       this.title = this.createElement('h1');
       this.title.textContent = 'My Todo List';
       this.todoList = this.createElement('ul', 'todo-list');
-      this.app.append(this.title, this.form, this.todoList, this.allItems, this.completedItems, this.pendingItems);
-  
+      this.app.append(this.title, this.form, this.todoList);
+      // this.app.append(this.title, this.form, this.todoList, this.allItems, this.completedItems, this.pendingItems);
+      
+      
       this._temporaryTodoText = ''
       this._initLocalListeners();
     };
@@ -144,7 +150,7 @@ class Model {
         const p = this.createElement('p')
         p.textContent = 'Nothing to do, add a task!';
         this.todoList.append(p);
-      } else {
+      } else if (todos.length > 0) {
         // Create nodes
         todos.forEach(todo => {
           const li = this.createElement('li');
@@ -173,7 +179,23 @@ class Model {
           // Append nodes
           this.todoList.append(li);
         });
-      };
+      } else { showMenu() 
+            // }
+        };
+      // }
+      // updateStatus(selectedTask) {
+      //   this.taskName = selectedTask.parentElement.lastElementChild;
+      //   if(selectedTask.checked) {
+      //       this.taskName.classList.add("checked");
+      //       todos[selectedTask.id].status = "completed";
+      //   } else {
+      //       this.taskName.classList.remove("checked");
+      //       todos[selectedTask.id].status = "pending";
+      //   }
+      //   localStorage.setItem("todo-list", JSON.stringify(todos))
+      // }
+
+      // }
   
       // Debugging
       console.log(todos);

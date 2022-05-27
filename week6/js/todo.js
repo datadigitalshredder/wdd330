@@ -130,4 +130,5 @@ export default class ToDoItems {
     listToDos(hidden = true) {
         renderList(getToDos(this.key), this.listElement, this, hidden);
     }
+    
 }
