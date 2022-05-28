@@ -4,7 +4,8 @@ main {
     margin: 3rem auto;
     background-color: aqua;
     /* margin: .25rem; */
-    font-family: 'Noto sans', sans-serif;   
+    font-family: 'Noto sans', sans-serif;
+    border-radius: .5rem;   
 }
 
 section, form, ul > li {

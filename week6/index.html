@@ -20,12 +20,15 @@
             <input type="text" id="todoInput" placeholder="Enter new task here">
             <button id="addToDo">Add Task</button>
         </section>
-        <form>Filter ToDo
-            <select name="todos" class="filter-todos">
-                <option value="all">All</option>
-                <option value="completed">Completed</option>
-                <option value="pending">Pending</option>
-              </select>
+        <form>Filter ToDos
+            <div class="controls">
+                <div class="filters">
+                  <span class="active" id="all">All</span>
+                  <span id="pending">Pending</span>
+                  <span id="completed">Completed</span>
+                </div>
+                <button class="clear-btn">Clear All</button>
+              </div>
         </form>
         <section>
             <ul id="todoList"></ul>
