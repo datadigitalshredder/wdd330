@@ -1,23 +1,23 @@
 main {
+    box-sizing: border-box;
     max-width: 400px;
-    /* border: 1px solid black; */
     margin: 3rem auto;
     background-color: aqua;
-    /* margin: .25rem; */
     font-family: 'Noto sans', sans-serif;
     border-radius: .5rem;   
 }
 
-section, form, ul > li {
+section, .filters span, ul > li {
     max-width: 400px;
-    margin-left: 2%;
+    width: 100%;
     margin-bottom: .5rem;
-    /* background-color: aqua; */
     padding: .25rem;
 }
-li:nth-last-child() {
-    margin-bottom: .5rem;
+
+ul > li {
+    width: 95%;
 }
+
 ul {
     list-style-type: none;
 }
@@ -29,8 +29,14 @@ h1 {
     font-family: 'Montserrat', sans-serif;
     padding: .25rem;
 }
-li > button {
-    margin-right: 1%;
-    justify-content: end;
-    flex: 0 0 44px;
+#todoList li {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.filters span:hover {
+    cursor: pointer;
+    color: white;
+    background-color: blue;
+    border-radius: .25rem;
 }

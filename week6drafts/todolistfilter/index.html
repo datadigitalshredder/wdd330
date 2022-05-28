@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--ClockPicker libraries-->
+    <link rel="stylesheet" href="https://weareoutman.github.io/clockpicker/dist/jquery-clockpicker.min.css"></link>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Moment JS library CDN -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.25.1/moment.min.js"></script> -->
+    <!--Material Icons and Fonts-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;1,100&display=swap" rel="stylesheet">
+    <!--Small view-->
+    <link rel="stylesheet" href="css/small.css" media="screen">
+
+    <title>Document</title>
+  
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><span class="material-icons">done</span></li>
+                <li class="drop-down" ><div class="dropdown"><button class="dropbtn" onclick="showModal()">All Lists<span class="material-icons" style="vertical-align: middle;">arrow_drop_down</span></button><div id="myDropdown" class="dropdown-content"><span id="select1">All Lists</span><span  id="select2">Active</span><span  id="select3">Completed</span></div></div></li>
+                <li><span class="label_list">BYU-Idaho To do List</span></li>
+                <li><span class="material-icons">search</span></li>
+                <li><img src="images/b2-removebg-preview.png" alt="logo"></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="notes">
+        <img id="no_tasks" src="images/palms-300x220.png" alt="No tasks">
+    </div>
+    <div class="main_list" id="main_list">
+        <ul id="parentList">
+
+        </ul>
+    </div>
+    <div class="new_task_container" id="container_schedule">
+    <div class="new_task" id="new_todo">
+        <label>What is to be done?</label>
+        <div class="new_input">
+            <input type="text" name="todo" id="todo" placeholder="Enter task here">
+        <span class="material-icons">keyboard_voice</span>
+        </div>
+        <label>Due Date</label>
+        <input type="date" id="date" name="date" placeholder="Date not set">
+    </div>
+    <div class="new_task_group2">
+        <div class="new_time" id="new_time_container">
+        <input type="text" name="time" id="time" placeholder="Time not set(all day)">
+        <span class="material-icons">schedule</span>
+        <!-- <input type="checkbox" style="display: none;"> -->
+        </div>
+    </div>
+    </div>
+    </main>
+    <div class="add_task">
+        <button id="add" class="bounce">+</button>
+    </div>
+    <script src="https://weareoutman.github.io/clockpicker/dist/jquery-clockpicker.min.js"></script>
+    <script src="todo.js"></script>
+</body>
+</html>

@@ -1,8 +1,58 @@
+// CODE HERE ONWARDS IS PUBLIC
+export default class ToDoItems {
+    constructor(listElement, key) {
+        this.listElement = listElement; // Store the listelement inside the class
+        this.key = key;
+        bindTouch("#addToDo", this.newToDo.bind(this));
+        this.listToDos();
+    }
+
+    newToDo() {
+        const newTask = document.getElementById("todoInput");
+        addToDo(newTask.value, this.key);
+        newTask.value = "";
+        this.listToDos();
+    }
+
+    findToDo(id) {
+        let toDo = liveToDos.find( element => {
+            return element.id === id;
+        });
+        return toDo;
+    }
+
+    completeToDoItem(id) {
+        console.log(id + 'checked');
+        let toDo = this.findToDo(id);
+
+        if(toDo){
+            toDo.completed = !toDo.completed;
+            writeToLocalStorage(this.key, liveToDos);
+            renderList(liveToDos, this.listElement, this, true);
+        }
+    }
+
+    removeToDoItem(id) {
+        console.log(id + 'removed');
+        let toDo = this.findToDo(id);
+
+        if(toDo){
+            deleteTodo(id);
+            renderList(liveToDos, this.listElement, this, true);
+        }
+    }
+
+    listToDos(hidden = true) {
+        renderList(getToDos(this.key), this.listElement, this, hidden);
+    }
+    
+}
+
 /*
 CODE HERE IS PRIVATE - reads and write localStorage
 */
 
-import { querySelection, writeToLocalStorage, readFromLocalStorage, bindTouch } from "./handler.js";
+import { querySelection, writeToLocalStorage, readFromLocalStorage, bindTouch } from "./utilitis.js";
 
 let liveToDos = null;
 // const filterOptions = document.querySelector('.filter-todos')
@@ -49,17 +99,6 @@ function renderList (list, element, toDos, hidden) {
         }
 
         element.appendChild(item);
-        // elementDate.appendChild(formattedDate);
-
-        // const filterOptions = document.querySelector('.filter-todos');
-        // filterSelect = filterOptions.childNodes[0];
-        if (select) {
-            select.addEventListener('click', function () {
-                toDos.filterToDoItems(todoItem.id);
-            });
-        }
-
-        element.appendChild(item);
 
     });
 }
@@ -89,108 +128,3 @@ function deleteTodo(key) {
     writeToLocalStorage(key, liveToDos);
 }
 
-function filterToDos(key, completed = true) {
-    let toDos = getToDos(key);
-
-    // return a list of completed or uncompleted todos based on the parameter
-    return toDos.filter(item => item.completed === hidden);
-}
-
-// function filterTodos(e) {
-//     const todos = todoList.querySelectorAll('li');
-//     todos.forEach(function (todoEl) {
-//         const tgt = todoEl.parentElement;
-//         switch (e.target.value) {
-//             case "all":
-//                 tgt.id.style.display = "flex"
-//                 break;
-
-//             case "completed":
-//                 // if (todoEl.classList.contains("completed")) {
-//                 //     tgt.style.display = "flex"
-//                 // } else {
-//                 //     tgt.style.display = "none"
-//                 // }
-//                 if (todoEl.ischecked) {
-//                     tgt.id.style.display = "flex"
-//                 } else {
-//                     tgt.id.style.display = "none"
-//                 }
-
-//                 break;
-//             case "pending":
-//                 // if (todoEl.classList.contains("completed")) {
-//                 //     tgt.style.display = "none"
-//                 // } else {
-//                 //     tgt.style.display = "flex"
-//                 // }
-//                 // break;
-//                 if (todoEl.ischecked) {
-//                     tgt.id.style.display = "none"
-//                 } else {
-//                     tgt.id.style.display = "flex"
-//                 }
-
-//                 break;
-//         }
-//     })
-// }
-
-// CODE HERE ONWARDS IS PUBLIC
-export default class ToDoItems {
-    constructor(listElement, key) {
-        this.listElement = listElement; // Store the listelement inside the class
-        this.key = key;
-        bindTouch("#addToDo", this.newToDo.bind(this));
-        this.listToDos();
-    }
-
-    newToDo() {
-        const newTask = document.getElementById("todoInput");
-        addToDo(newTask.value, this.key);
-        newTask.value = "";
-        this.listToDos();
-    }
-
-    findToDo(id) {
-        let toDo = liveToDos.find( element => {
-            return element.id === id;
-        });
-        return toDo;
-    }
-
-    completeToDoItem(id) {
-        console.log(id + 'checked');
-        let toDo = this.findToDo(id);
-
-        if(toDo){
-            toDo.completed = !toDo.completed;
-            writeToLocalStorage(this.key, liveToDos);
-            renderList(liveToDos, this.listElement, this, true);
-        }
-    }
-
-    removeToDoItem(id) {
-        console.log(id + 'removed');
-        let toDo = this.findToDo(id);
-
-        if(toDo){
-            deleteTodo(id);
-            renderList(liveToDos, this.listElement, this, true);
-        }
-    }
-
-    filterToDoItems(id) {
-        let toDo = this.findToDo(id);
-
-        if(toDo){
-            filterToDos(id);
-            renderList(liveToDos, this.listElement, this, true);
-        }
-    }
-
-    listToDos(hidden = true) {
-        renderList(getToDos(this.key), this.listElement, this, hidden);
-    }
-    
-}

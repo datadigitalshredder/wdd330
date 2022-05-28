@@ -1,15 +1,11 @@
-import ToDoItems from './todo.js';
-const listOfTodos = document.querySelector('#todoList');
-const myToDos = new ToDoItems(listOfTodos, 'todo');
-
 const taskInput = document.querySelector(".task-input input"),
-filters = document.querySelectorAll(".filters span"),
-clearAll = document.querySelector(".clear-btn"),
-taskBox = document.querySelector(".task-box");
+filters = document.querySelectorAll(".filters span");
+clearAll = document.querySelector(".clear-btn");
+// taskBox = document.querySelector(".task-box");
 
 let editId,
 isEditTask = false,
-todos = JSON.parse(localStorage.getItem("todo-list"));
+todos = JSON.parse(localStorage.getItem("todoList"));
 
 filters.forEach(btn => {
     btn.addEventListener("click", () => {
@@ -41,10 +37,10 @@ function showTodo(filter) {
             }
         });
     }
-    taskBox.innerHTML = liTag || `<span>You don't have any task here</span>`;
-    let checkTask = taskBox.querySelectorAll(".task");
-    !checkTask.length ? clearAll.classList.remove("active") : clearAll.classList.add("active");
-    taskBox.offsetHeight >= 300 ? taskBox.classList.add("overflow") : taskBox.classList.remove("overflow");
+    // taskBox.innerHTML = liTag || `<span>You don't have any task here</span>`;
+    // let checkTask = taskBox.querySelectorAll(".task");
+    // !checkTask.length ? clearAll.classList.remove("active") : clearAll.classList.add("active");
+    // taskBox.offsetHeight >= 300 ? taskBox.classList.add("overflow") : taskBox.classList.remove("overflow");
 }
 showTodo("all");
 
@@ -62,12 +58,12 @@ function updateStatus(selectedTask) {
     let taskName = selectedTask.parentElement.lastElementChild;
     if(selectedTask.checked) {
         taskName.classList.add("checked");
-        todos[selectedTask.id].status = "completed";
+        todos[selectedTask.id].status === "completed";
     } else {
         taskName.classList.remove("checked");
-        todos[selectedTask.id].status = "pending";
+        todos[selectedTask.id].status === "pending";
     }
-    localStorage.setItem("todo-list", JSON.stringify(todos))
+    localStorage.setItem("todoList", JSON.stringify(todos));
 }
 
 function editTask(taskId, textName) {
@@ -81,16 +77,16 @@ function editTask(taskId, textName) {
 function deleteTask(deleteId, filter) {
     isEditTask = false;
     todos.splice(deleteId, 1);
-    localStorage.setItem("todo-list", JSON.stringify(todos));
+    localStorage.setItem("todoList", JSON.stringify(todos));
     showTodo(filter);
 }
 
-clearAll.addEventListener("click", () => {
-    isEditTask = false;
-    todos.splice(0, todos.length);
-    localStorage.setItem("todo-list", JSON.stringify(todos));
-    showTodo()
-});
+// clearAll.addEventListener("click", () => {
+//     isEditTask = false;
+//     todos.splice(0, todos.length);
+//     localStorage.setItem("todoList", JSON.stringify(todos));
+//     showTodo()
+// });
 
 taskInput.addEventListener("keyup", e => {
     let userTask = taskInput.value.trim();
@@ -104,7 +100,7 @@ taskInput.addEventListener("keyup", e => {
             todos[editId].name = userTask;
         }
         taskInput.value = "";
-        localStorage.setItem("todo-list", JSON.stringify(todos));
+        localStorage.setItem("todoList", JSON.stringify(todos));
         showTodo(document.querySelector("span.active").id);
     }
 });
