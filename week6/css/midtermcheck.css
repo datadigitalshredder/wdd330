@@ -1,0 +1,35 @@
+main {
+    max-width: 400px;
+    /* border: 1px solid black; */
+    margin: 3rem auto;
+    background-color: aqua;
+    /* margin: .25rem; */
+    font-family: 'Noto sans', sans-serif;   
+}
+
+section, form, ul > li {
+    max-width: 400px;
+    margin-left: 2%;
+    margin-bottom: .5rem;
+    /* background-color: aqua; */
+    padding: .25rem;
+}
+li:nth-last-child() {
+    margin-bottom: .5rem;
+}
+ul {
+    list-style-type: none;
+}
+
+h1 {
+    background-color: blue;
+    text-align: center;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    padding: .25rem;
+}
+li > button {
+    margin-right: 1%;
+    justify-content: end;
+    flex: 0 0 44px;
+}

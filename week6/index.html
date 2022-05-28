@@ -14,13 +14,21 @@
     <script defer src="js/midtermcheck.js" type="module"></script>
 </head>
 <body>
-    <h1>My ToDo List</h1>
-    <section>
-        <ul id="todoList"></ul>
-    </section>
-    <section>
-        <input type="text" id="todoInput" placeholder="Enter new task here">
-        <button id="addToDo">Add Task</button>
-    </section>
+    <main>
+        <h1>My ToDo List</h1>
+        <section>
+            <input type="text" id="todoInput" placeholder="Enter new task here">
+            <button id="addToDo">Add Task</button>
+        </section>
+        <form>Filter ToDo
+            <select name="todos" class="filter-todos">
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="pending">Pending</option>
+              </select>
+        </form>
+        <section>
+            <ul id="todoList"></ul>
+        </section></main>
 </body>
 </html>

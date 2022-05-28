@@ -5,6 +5,7 @@ CODE HERE IS PRIVATE - reads and write localStorage
 import { querySelection, writeToLocalStorage, readFromLocalStorage, bindTouch } from "./handler.js";
 
 let liveToDos = null;
+// const filterOptions = document.querySelector('.filter-todos')
 
 // Rendering code function
 function renderList (list, element, toDos, hidden) {
@@ -18,9 +19,10 @@ function renderList (list, element, toDos, hidden) {
 
         let checkBox = null;
         let button = null;
+        let select = null;
 
-        if(hidden && todoItem.completed) {
-            item.innerHTML = `<label><input type="checkbox" checked><strike>${todoItem.content}</strike></label>`;
+        if (hidden && todoItem.completed) {
+            item.innerHTML = `<label><input type="checkbox" checked><strike>${todoItem.content}</strike></label><button>❌</buton>`;
             // formattedDate.innerHTML = `<label><input type="date" checked><strike>${todoItem.content}</strike></label>`;
             
         } else {
@@ -48,7 +50,18 @@ function renderList (list, element, toDos, hidden) {
 
         element.appendChild(item);
         // elementDate.appendChild(formattedDate);
-    })
+
+        // const filterOptions = document.querySelector('.filter-todos');
+        // filterSelect = filterOptions.childNodes[0];
+        if (select) {
+            select.addEventListener('click', function () {
+                toDos.filterToDoItems(todoItem.id);
+            });
+        }
+
+        element.appendChild(item);
+
+    });
 }
  
 function getToDos(key) {
@@ -82,6 +95,46 @@ function filterToDos(key, completed = true) {
     // return a list of completed or uncompleted todos based on the parameter
     return toDos.filter(item => item.completed === hidden);
 }
+
+// function filterTodos(e) {
+//     const todos = todoList.querySelectorAll('li');
+//     todos.forEach(function (todoEl) {
+//         const tgt = todoEl.parentElement;
+//         switch (e.target.value) {
+//             case "all":
+//                 tgt.id.style.display = "flex"
+//                 break;
+
+//             case "completed":
+//                 // if (todoEl.classList.contains("completed")) {
+//                 //     tgt.style.display = "flex"
+//                 // } else {
+//                 //     tgt.style.display = "none"
+//                 // }
+//                 if (todoEl.ischecked) {
+//                     tgt.id.style.display = "flex"
+//                 } else {
+//                     tgt.id.style.display = "none"
+//                 }
+
+//                 break;
+//             case "pending":
+//                 // if (todoEl.classList.contains("completed")) {
+//                 //     tgt.style.display = "none"
+//                 // } else {
+//                 //     tgt.style.display = "flex"
+//                 // }
+//                 // break;
+//                 if (todoEl.ischecked) {
+//                     tgt.id.style.display = "none"
+//                 } else {
+//                     tgt.id.style.display = "flex"
+//                 }
+
+//                 break;
+//         }
+//     })
+// }
 
 // CODE HERE ONWARDS IS PUBLIC
 export default class ToDoItems {
@@ -123,6 +176,15 @@ export default class ToDoItems {
 
         if(toDo){
             deleteTodo(id);
+            renderList(liveToDos, this.listElement, this, true);
+        }
+    }
+
+    filterToDoItems(id) {
+        let toDo = this.findToDo(id);
+
+        if(toDo){
+            filterToDos(id);
             renderList(liveToDos, this.listElement, this, true);
         }
     }
