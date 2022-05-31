@@ -19,9 +19,17 @@
         <h3>Further Functions - JavaScript: Novice to Ninja</h3>
         <p>In JavaScript, functions are first-class objects, which means they can be passed around in the same way as every other value.<br>
         This means they have property and methods themselves. For example, functions have the length method</p>
-        <p>Call and Apply Methods<br>
+        <p><li>Call and Apply Methods</li><br>
             The call() method can be used to set the value of this inside a function to an object that is provided as the first argument.</p>
-        
+        <p><li>Memiozation</li><br>
+            A useful feature of this is that it provides result caching, or memoization.<br>
+
+            If a function takes some time to compute a return value, we can save the result in a cache property. Then if the same argument is used again later, we can return the value from the cache, rather than having to compute the result again. For example, say squaring a number was an expensive computational operation that took a long time. We could rewrite the square() function so it saved each result in a cache object that is a property of the function</p>
+        <p><li>Immediately Invoked Function Expressions</li><br>
+            An Immediately Invoked Function Expression - or IIFE - (pronounced 'iffy') is an anonymous function that, as the name suggests, is invoked as soon as it’s defined. This is easily achieved by placing parentheses at the end of the function definition (remember we use parentheses to invoke a function). The function also has to be made into an expression, which is done by placing the whole declaration inside parentheses.
+        </p>
+        <p><li>Temporary Variables</li>
+        </p>
     </section>
     <p class="questions">Questions:
         <ol>
