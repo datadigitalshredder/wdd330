@@ -69,3 +69,24 @@ console.log(square.cache);
 // << 'Hello World'
 
 // IIFEs are a useful way of performing a task while keeping any variables wrapped up within the scope of the function. This means the global namespace is not polluted with lots of variable names.
+
+// FILTER AN OBJECT ARRAY
+let arr = [
+    {id:1,
+        title:'A', 
+        status:false
+    }, 
+    {id:3,
+        title:'B',
+        status:true
+    }, 
+    {id:2, 
+        title:'xys', 
+        status:false
+    }
+];
+//find where title=B
+let x = arr.filter((a)=>{
+    if(a.status == false)
+    {return a.title}});
+console.log(x)//[{id:3,title:'B',status:true}]

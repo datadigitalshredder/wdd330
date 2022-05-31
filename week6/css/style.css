@@ -18,6 +18,9 @@ ul > li {
     width: 95%;
 }
 
+input, button {
+    padding: .25rem;
+}
 ul {
     list-style-type: none;
 }

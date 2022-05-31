@@ -45,6 +45,24 @@ export default class ToDoItems {
     listToDos(hidden = true) {
         renderList(getToDos(this.key), this.listElement, this, hidden);
     }
+
+    filterCompleted(completed) {
+        console.log(completed + "completed");
+        let toDo = this.findToDo(completed);
+        if (toDo) {
+            filterTodoComplete(completed);
+            renderList(liveToDos, this.listElement, this, true)
+        }
+    }
+    filterPending(pending) {
+        console.log(pending + "pending");
+        let toDo = this.findToDo(pending);
+        if (toDo) {
+            filterTodoPending(pending);
+            renderList(liveToDos, this.listElement, this, true)
+        }
+    }
+
     
 }
 
@@ -65,6 +83,8 @@ function renderList (list, element, toDos, hidden) {
 
     list.forEach(todoItem => {
         const item = document.createElement('li');
+        const completedTodoItem = document.querySelector("#completed");
+        const pendingTodoItem = document.querySelector("#pending");
         const formattedDate = new Date(todoItem.id).toLocaleDateString('en-US');
 
         let checkBox = null;
@@ -97,8 +117,23 @@ function renderList (list, element, toDos, hidden) {
                 toDos.removeToDoItem(todoItem.id);
             });
         }
-
+        // attach event listener to the Complete button
+        select = completedTodoItem;
+        if (select) {
+            select.addEventListener("click", function () {
+                toDos.filterCompleted(todoItem.id)
+            })
+        }
+        // attach event listener to the pending button
+        select = pendingTodoItem;
+        if (select) {
+            select.addEventListener("click", function () {
+                toDos.filterPending(todoItem.id)
+            })
+        }
         element.appendChild(item);
+        // element.appendChild(completedTodoItem);
+        // element.appendChild(pendingTodoItem);
 
     });
 }
@@ -112,7 +147,7 @@ function getToDos(key) {
 }
 
 function addToDo(value, key) {
-    // add the todo with Date using UTC millesecond string as the id
+    // add the todo with Date using UTC millisecond string as the id
     const newToDoItem = {
         id: new Date(),
         content: value,
@@ -126,5 +161,17 @@ function deleteTodo(key) {
     let newList = liveToDos.filter(item => item.id != key);
     liveToDos = newList;
     writeToLocalStorage(key, liveToDos);
+}
+
+function filterTodoComplete() {
+    let newList = liveToDos.filter(item => item.completed == true);
+    liveToDos = newList;
+    writeToLocalStorage(liveToDos);
+}
+
+function filterTodoPending() {
+    let newList = liveToDos.filter(item => item.completed == false);
+    liveToDos = newList;
+    writeToLocalStorage(liveToDos);
 }
 
