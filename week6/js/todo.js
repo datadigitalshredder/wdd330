@@ -59,7 +59,7 @@ export default class ToDoItems {
         let toDo = this.findToDo(pending);
         if (toDo) {
             filterTodoPending(pending);
-            renderList(liveToDos, this.listElement, this, true)
+            renderList(liveToDos, this.listElement, this, false)
         }
     }
 
@@ -89,7 +89,9 @@ function renderList (list, element, toDos, hidden) {
 
         let checkBox = null;
         let button = null;
-        let select = null;
+        let selectComplete = null;
+        let selectPending = null;
+
 
         if (hidden && todoItem.completed) {
             item.innerHTML = `<label><input type="checkbox" checked><strike>${todoItem.content}</strike></label><button>❌</buton>`;
@@ -118,16 +120,16 @@ function renderList (list, element, toDos, hidden) {
             });
         }
         // attach event listener to the Complete button
-        select = completedTodoItem;
-        if (select) {
-            select.addEventListener("click", function () {
+        selectComplete = completedTodoItem;
+        if (selectComplete) {
+            selectComplete.addEventListener("click", function () {
                 toDos.filterCompleted(todoItem.id)
             })
         }
         // attach event listener to the pending button
-        select = pendingTodoItem;
-        if (select) {
-            select.addEventListener("click", function () {
+        selectPending = pendingTodoItem;
+        if (selectPending) {
+            selectPending.addEventListener("click", function () {
                 toDos.filterPending(todoItem.id)
             })
         }
@@ -164,13 +166,13 @@ function deleteTodo(key) {
 }
 
 function filterTodoComplete() {
-    let newList = liveToDos.filter(item => item.completed == true);
+    let newList = liveToDos.filter(item => item.completed === true);
     liveToDos = newList;
     writeToLocalStorage(liveToDos);
 }
 
 function filterTodoPending() {
-    let newList = liveToDos.filter(item => item.completed == false);
+    let newList = liveToDos.filter(item => item.completed === false);
     liveToDos = newList;
     writeToLocalStorage(liveToDos);
 }
