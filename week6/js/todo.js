@@ -48,42 +48,26 @@ export default class ToDoItems {
     }
 
     filterCompleted(completed) {
-        // renderList(liveToDos, this.listElement, this, true);
-            renderList(liveToDos, this.listElement, this, true);
-            // renderList(getToDos(this.key), this.listElement, this, hidden);
-
-        // liveToDos();
-        // complete.addEventListener("click", function () {
-        //     listToDos((hidden = true) => {
-        //         renderList(getToDos(this.key), this.listElement, this, hidden);
-        //     });
-        // });
+        renderList(liveToDos, this.listElement, this, true);
         console.log(completed + "completed");
         let toDo = this.findToDo(completed);
         if (toDo) {
             filterTodoComplete(completed);
-            renderList(liveToDos, this.listElement, this, true)
+            renderList(getToDos(this.key), this.listElement, this, true);
+
         }
-        renderList(getToDos(this.key), this.listElement, this, hidden);
 
     }
-    filterPending(pending, hidden = true) {
-        // renderList(liveToDos, this.listElement, this, true);
+    filterPending(pending) {
         renderList(liveToDos, this.listElement, this, true);
-        // renderList(getToDos(this.key), this.listElement, this, hidden = false);
-        // liveToDos();
-        
-            // listToDos((hidden = true) => {
-            //     renderList(getToDos(this.key), this.listElement, this, hidden);
-            // });
         
         console.log(pending + "pending");
         let toDo = this.findToDo(pending);
         if (toDo) {
             filterTodoPending(pending);
-            renderList(liveToDos, this.listElement, this, false)
+            renderList(getToDos(this.key), this.listElement, this, false);
+
         }
-        renderList(getToDos(this.key), this.listElement, this, hidden = false);
         
     }
 
@@ -96,13 +80,11 @@ CODE HERE IS PRIVATE - reads and write localStorage
 import { querySelection, writeToLocalStorage, readFromLocalStorage, bindTouch } from "./utilitis.js";
 
 let liveToDos = null;
-// const filterOptions = document.querySelector('.filter-todos')
 
 // Rendering code function
 function renderList (list, element, toDos, hidden) {
     console.log(list); // Start by displaying the list
     element.innerHTML = '';
-    // elementDate.innerHTML = '';
 
     list.forEach(todoItem => {
         const item = document.createElement('li');
@@ -120,11 +102,9 @@ function renderList (list, element, toDos, hidden) {
 
         if (hidden && todoItem.completed) {
             item.innerHTML = `<label><input type="checkbox" checked><strike>${todoItem.content}</strike></label><button>❌</buton>`;
-            // formattedDate.innerHTML = `<label><input type="date" checked><strike>${todoItem.content}</strike></label>`;
             
         } else {
             item.innerHTML = `<label><input type="checkbox"> ${todoItem.content}</label><button>❌</buton>`;
-            // elementDate.innerHTML = `${formattedDate}`;
 
         }
 
@@ -158,18 +138,16 @@ function renderList (list, element, toDos, hidden) {
                 toDos.filterPending(todoItem.id)
             });
         }
-        // attache event listener to the all button
-        selectAll = allItems;
-        if (selectAll) {
-            selectAll.addEventListener("click", function () {
-                toDos.listToDos((hidden = true) => {
-                    renderList(getToDos(this.key), this.listElement, this, hidden);
-                });
-            });
-        }
+        // attach event listener to the all button
+        // selectAll = allItems;
+        // if (selectAll) {
+        //     selectAll.addEventListener("click", function () {
+        //         toDos.listToDos((hidden = true) => {
+        //             renderList(getToDos(this.key), this.listElement, this, hidden);
+        //         });
+        //     });
+        // }
         element.appendChild(item);
-        // element.appendChild(completedTodoItem);
-        // element.appendChild(pendingTodoItem);
 
     });
 }
@@ -200,16 +178,14 @@ function deleteTodo(key) {
 }
 
 function filterTodoComplete() {
-    let newList = liveToDos.filter(item => item.completed === true);
+    let newList = getToDos().filter(item => item.completed === true);
     liveToDos = newList;
-    // writeToLocalStorage(liveToDos);
     return liveToDos;
 }
 
 function filterTodoPending() {
-    let newList = liveToDos.filter(item => item.completed === false);
+    let newList = getToDos().filter(item => item.completed === false);
     liveToDos = newList;
-    // writeToLocalStorage(liveToDos);
     return liveToDos;
 }
 
