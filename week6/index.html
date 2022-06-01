@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans&display=swap" rel="stylesheet">
-    <script defer src="js/filter.js"></script>
     <script defer src="js/index.js" type="module"></script>
 </head>
 <body>
@@ -23,9 +22,10 @@
         </section>
         <div class="controls">
             <div class="filters">
-                <span class="active" id="all">All</span>
-                <span id="pending">Pending</span>
-                <span id="completed">Completed</span>
+                <!-- <span class="active" id="all">All</span> -->
+                <button id="pending">Pending</button>
+                <button id="completed">Completed</button>
+                <p class="disclaimer">Refesh page to reload todos and alternate between pending and complete items</p>
             </div>
             <!-- <button class="clear-btn">Clear All</button> -->
         </div>

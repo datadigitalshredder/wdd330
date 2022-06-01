@@ -1,4 +1,4 @@
-// CODE HERE ONWARDS IS PUBLIC
+// CODE HERE IS PUBLIC
 export default class ToDoItems {
     constructor(listElement, key) {
         this.listElement = listElement; // Store the listelement inside the class
@@ -46,24 +46,44 @@ export default class ToDoItems {
         renderList(getToDos(this.key), this.listElement, this, hidden);
     }
 
-    filterCompleted(completed) {
+    filterCompleted(completed, hidden = true) {
+        // renderList(liveToDos, this.listElement, this, true);
+        renderList(getToDos(this.key), this.listElement, this, hidden);
+
+        // liveToDos();
+        // complete.addEventListener("click", function () {
+        //     listToDos((hidden = true) => {
+        //         renderList(getToDos(this.key), this.listElement, this, hidden);
+        //     });
+        // });
         console.log(completed + "completed");
         let toDo = this.findToDo(completed);
         if (toDo) {
             filterTodoComplete(completed);
             renderList(liveToDos, this.listElement, this, true)
         }
+        renderList(getToDos(this.key), this.listElement, this, hidden);
+
     }
-    filterPending(pending) {
+    filterPending(pending, hidden = true) {
+        // renderList(liveToDos, this.listElement, this, true);
+        renderList(getToDos(this.key), this.listElement, this, hidden = false);
+        // liveToDos();
+        
+            // listToDos((hidden = true) => {
+            //     renderList(getToDos(this.key), this.listElement, this, hidden);
+            // });
+        
         console.log(pending + "pending");
         let toDo = this.findToDo(pending);
         if (toDo) {
             filterTodoPending(pending);
             renderList(liveToDos, this.listElement, this, false)
         }
+        renderList(getToDos(this.key), this.listElement, this, hidden = false);
+        
     }
 
-    
 }
 
 /*
@@ -85,12 +105,14 @@ function renderList (list, element, toDos, hidden) {
         const item = document.createElement('li');
         const completedTodoItem = document.querySelector("#completed");
         const pendingTodoItem = document.querySelector("#pending");
+        const allItems = document.querySelector("#all");
         const formattedDate = new Date(todoItem.id).toLocaleDateString('en-US');
 
         let checkBox = null;
         let button = null;
         let selectComplete = null;
         let selectPending = null;
+        let selectAll = null;
 
 
         if (hidden && todoItem.completed) {
@@ -124,14 +146,23 @@ function renderList (list, element, toDos, hidden) {
         if (selectComplete) {
             selectComplete.addEventListener("click", function () {
                 toDos.filterCompleted(todoItem.id)
-            })
+            });
         }
         // attach event listener to the pending button
         selectPending = pendingTodoItem;
         if (selectPending) {
             selectPending.addEventListener("click", function () {
                 toDos.filterPending(todoItem.id)
-            })
+            });
+        }
+        // attache event listener to the all button
+        selectAll = allItems;
+        if (selectAll) {
+            selectAll.addEventListener("click", function () {
+                toDos.listToDos((hidden = true) => {
+                    renderList(getToDos(this.key), this.listElement, this, hidden);
+                });
+            });
         }
         element.appendChild(item);
         // element.appendChild(completedTodoItem);
@@ -168,12 +199,14 @@ function deleteTodo(key) {
 function filterTodoComplete() {
     let newList = liveToDos.filter(item => item.completed === true);
     liveToDos = newList;
-    writeToLocalStorage(liveToDos);
+    // writeToLocalStorage(liveToDos);
+    return liveToDos;
 }
 
 function filterTodoPending() {
     let newList = liveToDos.filter(item => item.completed === false);
     liveToDos = newList;
-    writeToLocalStorage(liveToDos);
+    // writeToLocalStorage(liveToDos);
+    return liveToDos;
 }
 

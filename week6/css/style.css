@@ -37,9 +37,18 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
 }
-.filters span:hover {
+
+.filters button {
+    margin: 1%;    
+}
+.filters button:hover {
     cursor: pointer;
     color: white;
     background-color: blue;
     border-radius: .25rem;
+}
+.disclaimer {
+    font-size: .8rem;
+    color: yellow;
+    margin: 1% 2%;
 }
