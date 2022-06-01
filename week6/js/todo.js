@@ -38,6 +38,7 @@ export default class ToDoItems {
 
         if(toDo){
             deleteTodo(id);
+            writeToLocalStorage(this.key, liveToDos);
             renderList(liveToDos, this.listElement, this, true);
         }
     }
@@ -46,9 +47,10 @@ export default class ToDoItems {
         renderList(getToDos(this.key), this.listElement, this, hidden);
     }
 
-    filterCompleted(completed, hidden = true) {
+    filterCompleted(completed) {
         // renderList(liveToDos, this.listElement, this, true);
-        renderList(getToDos(this.key), this.listElement, this, hidden);
+            renderList(liveToDos, this.listElement, this, true);
+            // renderList(getToDos(this.key), this.listElement, this, hidden);
 
         // liveToDos();
         // complete.addEventListener("click", function () {
@@ -67,7 +69,8 @@ export default class ToDoItems {
     }
     filterPending(pending, hidden = true) {
         // renderList(liveToDos, this.listElement, this, true);
-        renderList(getToDos(this.key), this.listElement, this, hidden = false);
+        renderList(liveToDos, this.listElement, this, true);
+        // renderList(getToDos(this.key), this.listElement, this, hidden = false);
         // liveToDos();
         
             // listToDos((hidden = true) => {
