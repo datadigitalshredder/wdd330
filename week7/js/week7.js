@@ -85,8 +85,146 @@ let arr = [
         status:false
     }
 ];
-//find where title=B
+//find where status = false
 let x = arr.filter((a)=>{
-    if(a.status == false)
+    if(a.status == false);
     {return a.title}});
-console.log(x)//[{id:3,title:'B',status:true}]
+console.log(x);
+
+// Temporary Variables
+let a = 1;
+let b = 2;
+
+(()=>{
+    const temp = a;
+    a = b;
+    b = temp;
+})();
+
+console.log(a);
+//<< 2
+
+console.log(b);
+//<< 1
+
+// console.log(temp);
+//<< Error: "temp is not defined"
+
+// Destructuring two variables
+let [a1,b1] = [1,2];
+[a1,b1] = [b1,a1];
+
+console.log(a1);
+//<< 2
+
+console.log(b1);
+//<< 1
+
+// IFFE can be used to set up initialization code
+(function() {
+    const name = 'Peter Parker'; // This might be obtained from a cookie in reality
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday', 'Friday','Saturday'];
+    const date = new Date(),today = days[date.getDay()];
+    console.log(`Welcome back ${name}. Today is ${today}`);
+
+})();
+//<< 'Welcome back Peter Parker. Today is Tuesday'
+
+// Safe Use of Strict Mode
+(function() {
+    'use strict';
+
+// All your code would go inside this function
+
+})();
+
+// Self contained code blocks - ensures codes blocks run independent of each other.
+(function() {
+    // block A
+    const name = 'Block A';
+    console.log(`Hello from ${name}`);
+    }());
+
+    (function() {
+    // block B
+    const name = 'Block B';
+    console.log(`Hello from ${name}`);
+}());
+
+//Hello from Block A
+//Hello from Block B
+
+//Functions that Define and Rewrite Themselves
+function party(){
+    console.log('Wow this is amazing!');
+    party = function(){
+        console.log('Been there, got the T-Shirt');
+    }
+}
+// Every time the function is called after the first time, it will log the message 'Been there, got the T-Shirt':
+party();
+//<< 'Wow this is amazing!'
+party();
+//<< 'Been there, got the T-Shirt'
+party();
+//<< 'Been there, got the T-Shirt'
+
+// Recursive functions
+function factorial(n) {
+    if (n === 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+console.log(factorial(3));
+
+// Collatz Conjencture
+//Another example from the world of mathematics is the Collatz Conjecture. This is a problem that is simple to state, but, so far, has not been solved. It involves taking any positive integer and following these rules:
+
+//If the number is even, divide it by two
+
+//If the number is odd, multiply it by three and add one
+function collatz(n, sequence=[n]) {
+    if (n === 1){
+        return `Sequence took ${sequence.length} steps. It was ${sequence}`;
+    }
+
+    if (n%2 === 0) {
+        n = n/2;
+    } else { 
+        n = 3*n + 1;
+    }
+
+    return collatz(n,[...sequence,n]);
+}
+console.log(collatz(18));
+
+// Event-driven Asynchronous Programming
+function wait(message, callback, seconds){
+    setTimeout(callback,seconds * 1000);
+    console.log(message);
+}
+function selfDestruct(){
+    console.log('BOOOOM!');
+}
+
+wait('This tape will self-destruct in five seconds ... ', selfDestruct, 5);
+console.log('Hmmm, should I accept this mission or not ... ?');
+
+//<< 'This tape will self-destruct in five seconds ... '
+//<< 'Hmmm, should I accept this mission or not ... ? '
+//<< 'BOOOOM!'
+
+// The Fetch APU
+const url = 'https:example.com/data';
+
+fetch(url)
+.then((response) => {
+    if(response.ok) {
+        return response;
+    }
+    throw Error(response.statusText);
+})
+.then( response => // do something with response )
+.catch( error => console.log('There was an error!') )

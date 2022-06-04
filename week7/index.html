@@ -28,8 +28,66 @@
         <p><li>Immediately Invoked Function Expressions</li><br>
             An Immediately Invoked Function Expression - or IIFE - (pronounced 'iffy') is an anonymous function that, as the name suggests, is invoked as soon as it’s defined. This is easily achieved by placing parentheses at the end of the function definition (remember we use parentheses to invoke a function). The function also has to be made into an expression, which is done by placing the whole declaration inside parentheses.
         </p>
-        <p><li>Temporary Variables</li>
+        <p><li>Temporary Variables<br>
+            There is no way to remove a variable from a scope once it’s been declared. If a variable is only required temporarily, it may cause confusion if it’s still available later in the code. Placing any code that uses the temporary variable inside an IIFE will ensure it’s only available while the IIFE is invoked, then it will disappear.</li>
         </p>
+        <p>
+            <li>Safe Use of Strict Mode<br>
+                The recommended way to use strict mode is to place all your code inside an IIFE</li>
+        </p>
+        <p>
+            <li>Recursive Functions<br>
+                A recursive function is one that invokes itself until a certain condition is met. It’s a useful tool to use when iterative processes are involved.</li>
+        </p>
+        <p>
+            <li>Callbacks<br>
+                Functions passed to other functions as arguments and then invoked inside the function they are passed to.</li>
+        </p>
+        <p>
+            <p>
+                <li>Promises<br>
+                    A promise represents the future result of an asynchronous operation. Promises don't do anything that can't already be achieved using callbacks, but they help simplify the process, and avoid the convoluted code that can result from using multiple callbacks.<br>
+                    When a promise is created, it calls an asynchronous operation and is then said to be pending. It remains in this state while the operation is taking place. At this stage, the promise is said to be unsettled. Once the operation has completed, the promise is said to have been settled. A settled promise can result in two different outcomes:
+                    <ol>
+                        <li>Resolved ― the asynchronous operation was completed successfully.</li>
+                        <li>Rejected ― the asynchronous operation didn’t work as expected, wasn't successfully completed or resulted in an error.</li>
+                    </ol>
+                </li>
+            </p>
+            <li>Event-driven Asynchronous Programming<br>
+                Callbacks can be used to facilitate event-driven asynchronous programming. JavaScript is a single-threaded environment, which means only one piece of code will ever be processed at a time. This may seem like a limitation, but non-blocking techniques can be used to ensure that the program continues to run. Instead of waiting for an event to occur, a callback can be created that’s invoked when the event happens.</li>
+        </p>
+        <p>
+            <li>Closures<br>
+                A closure is a reference to a variable that was created inside the scope of another function, but is then kept alive and used in another part of the program.<br>
+                A closure is formed when the inner function is returned by the outer function, maintaining access to any variables declared inside the enclosing function.</li>
+        </p>
+        <p>
+            <li>Functions that Define and Rewrite Themselves<br>
+                The dynamic nature of JavaScript means that a function is able to not only call itself, but define itself, and even redefine itself. This is done by assigning an anonymous function to a variable that has the same name as the function.</li>
+        </p>
+        <h3>AJAX - JavaScript: Novice to Ninja</h3>
+        <p>
+            <li>JavaScript was originally designed as a client-side scripting language, meaning that it ran locally in the browser, adding dynamic features to the web page that was returned from the server. Ajax allows JavaScript to request resources from a server on behalf of the client. The resources requested are usually JSON data or small fragments of text or HTML rather than a whole web page.</li>
+        </p>
+        <p>APIs<br>
+            An application programming interface (API) is a collection of methods that allows external access to another program or service. Many websites allow controlled access to their data via public APIs. This means that developers are able to interact with the data and create mashups of third-party services. A weather site, for example, might have an API that provides methods that return information about the weather in a given location, such as temperature, wind speed, and so on.</p>
+        <p>The Fetch API<br>
+            Currently a living standard for requesting and sending data asynchronously across a network.<br>
+            The Fetch API provides a global fetch() method that only has one mandatory argument, which is the URL of the resource you wish to fetch.<br>
+            The fetch() method returns a promise that resolves to the response returned from the URL that was provided as an argument. In the example above, the promise will be resolved when a response is received from the URL 'https:example.com/data'. Because it’s a promise, we can also use a catch statement at the end to deal with any errors that may occur.<br>
+            The Fetch API introduced the Response interface that deals with the object that’s returned when the promise is fulfilled. Response objects have a number of properties and methods that allow us to process the response effectively.<br>
+            JSON is probably the most common format for AJAX responses. The json() method is used to deal with these by transforming a stream of JSON data into a promise that resolves to a JavaScript object.<br>
+        </p>
+        <a href="ajax.html">JSON Receiving Information Example</a>
+        <a href="todolist.html">JSON Sending Information Example</a>
+        <p>FormData<br>
+            The Fetch API includes the FormData interface, which makes it much easier to submit information in forms using Ajax.<br>
+            The FormData interface helps to reduce the amount of code needed when submitting forms.
+        </p>
+        <p>A living standard<br>
+            The Fetch API is, at the time of writing, what is known as a 'living standard', which means that the specification is being developed 'in the wild'. This means that, despite it being available to use, it’s still subject to change as developers, browser vendors and end-users provide feedback about how it works. It’s an experimental technology.<br>
+            <span class="red">Check the level of support before using it in production.</span></p>
     </section>
     <p class="questions">Questions:
         <ol>
