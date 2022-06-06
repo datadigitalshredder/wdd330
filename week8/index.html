@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week8 - notes and exercises</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans&display=swap" rel="stylesheet">
+    <script defer src="js/week8.js"></script>
+</head>
+<body>
+    <h1>Week 8</h1>
+    <h2 class="notes-header">Notes and examples</h2>
+    <section class="notes">
+        <h3>CSS3 Transforms and Transitions - HTML5 and CSS for the Real World</h3>
+        <p>Transforms<br>
+            The CSS3 transform property lets you lets you translate, rotate, scale, and/(or) skew any element on the page with ease.
+            <li>Translation<br>
+                Translation functions allow you to move elements left, right, up, or down. These functions are similar to the behavior of position: relative; when declaring top and left, moving elements up and down or left and right along the x and y axes. When you employ a translation function, you’re moving elements without impacting the flow of the document. Unlike position: relative, which allows you to position an element either against its current position or against a parent or other ancestor, a translated element can only be moved relative to its current position.</li>
+                Transforms don’t work on inline elements. But that’s easy enough to fix. We’ll just add display: inline-block; to our span<br> 
+            <li>Scaling
+                The scale(x,y) function scales an element by the defined factors horizontally then vertically. If only one value is provided, it will be used for both the x and y values, growing or shrinking your element or pseudo-element while maintaining the original aspect ratio. For example, scale(1) would leave the element the same size, scale(2) would double its proportions, scale(0.5) would halve them, and so on. Providing different values will distort the element, as you’d expect<br>
+                A scaled element will grow outwards from or shrink inwards towards its center; in other words, the element’s center will stay in the same place as its dimensions change. To change this default behavior, you can include the transform-origin property, which we’ll be covering a bit later.<br>
+                <span class="red">It’s also worth remembering that scaling, like translation, has no impact on the document flow. This means that if you scale inline-block elements, text around it will fail to accommodate it with reflowing.</span><br>
+                In cases where this is an issue, you may consider adjusting the element’s height, width, or font-size instead of using a scale() transform.
+            </li>
+            <li>Rotation<br>
+                The rotate() function rotates an element around the point of origin by a specified angle value. As with scale, by default the point of origin is the element’s center. Generally, angles are declared in degrees, with positive degrees moving clockwise and negative moving counterclockwise. In addition to degrees, values can be provided in grads, radians, or turns</li>
+            <li>Skewing<br>
+                The rotate() function rotates an element around the point of origin by a specified angle value. As with scale, by default the point of origin is the element’s center. Generally, angles are declared in degrees, with positive degrees moving clockwise and negative moving counterclockwise. In addition to degrees, values can be provided in grads, radians, or turns</li>
+        </p>
+        <p>Changing the Origin of the Transform<br>
+            You can control the origin from which your transforms are applied. This is done using the transform-origin property. It has the same syntax as the background-position property, and defaults to the center of the object (so that scales and rotations will be around the center of the box by default).<br>
+            Let’s say that you were transforming a circle. Because the default transform-origin is the center of the circle, applying a rotate() transform to a circle would have no visible effect—a circle rotated 90 degrees still looks exactly the same as it did before being rotated. An ellipse rotated 180 degrees around its center would also look the same as it did before being rotated upside down. However, if you gave your circle or ellipse a transform-origin of 10% 10% or top center, you would notice the rotation.<br>
+            <span class="red">The order of transform functions does matter: if you rotate before translating, your translate direction will be on the rotated axis.</span><br>
+            While CSS3 transforms are unsupported in IE before version 9, you can mimic these effects with other CSS properties, including filters. To mimic translation use position: relative;, and top and left values
+        </p>
+        <p>Transitions<br>
+            Animation has certainly been possible for some time with JavaScript, but native CSS transitions generally require less client-side processing, so they’ll usually appear smoother.<br>
+            <span class="red">CSS transitions are declared along with the regular styles on an element.</span>
+            <li>The transition-property<br>
+                The transition-property property defines the CSS properties of the element that should be transitioned, with all for all properties being the default.<br>
+                Any property changing from one value to another for which you can find a valid midpoint can be transitioned. For example, in transitioning from a 1px red border to a 15px blue border, we transition the color and width of the border. The midpoint of 1px and 15px is obvious (8px), so we know that is a transitionable property value. The midpoint between red and blue might not seem obvious, but the browser converts named colors to their numeric values, which have a midpoint. If the border-style were declared as changing from solid to dashed, that would not be a transitionable property as there is no midpoint between these key terms.<br>
+                <span class="red">It is important to include a pre-state and a post-state. For example, to transition from rectangular corners to rounded corners, set the original state to border-radius: 0;.</span><br>
+                To support older WebKit browsers, you need to include the -webkit- prefix for all of your transition properties. You may also need to specify the -webkit- prefixed forms of properties. For example, you’re unable to animate transform in a browser that only understands -webkit-transform.<br>
+                In itself, the transition-property property has no effect; that’s because we still need to specify the duration of the transition.</li>  
+            <li>The transition-duration Property<br>
+                The transition-duration property sets how long the transition will take: the duration of time it takes to go from the default state to the transitioned state.
+
+            </li> 
+            <li>The transition-timing-function Property<br>
+            </li>   
+        </p>
+            
+
+        
+        <h3>Canvas, SVG, and Drag and Drop - HTML5 and CSS for the Real World</h3>
+        <p>
+            <li>JavaScript was originally designed as a client-side scripting language, meaning that it ran locally in the browser, adding dynamic features to the web page that was returned from the server. Ajax allows JavaScript to request resources from a server on behalf of the client. The resources requested are usually JSON data or small fragments of text or HTML rather than a whole web page.</li>
+        </p>
+        <p>APIs<br>
+            An application programming interface (API) is a collection of methods that allows external access to another program or service. Many websites allow controlled access to their data via public APIs. This means that developers are able to interact with the data and create mashups of third-party services. A weather site, for example, might have an API that provides methods that return information about the weather in a given location, such as temperature, wind speed, and so on.</p>
+        <p>The Fetch API<br>
+            Currently a living standard for requesting and sending data asynchronously across a network.<br>
+            The Fetch API provides a global fetch() method that only has one mandatory argument, which is the URL of the resource you wish to fetch.<br>
+            The fetch() method returns a promise that resolves to the response returned from the URL that was provided as an argument. In the example above, the promise will be resolved when a response is received from the URL 'https:example.com/data'. Because it’s a promise, we can also use a catch statement at the end to deal with any errors that may occur.<br>
+            The Fetch API introduced the Response interface that deals with the object that’s returned when the promise is fulfilled. Response objects have a number of properties and methods that allow us to process the response effectively.<br>
+            JSON is probably the most common format for AJAX responses. The json() method is used to deal with these by transforming a stream of JSON data into a promise that resolves to a JavaScript object.<br>
+        </p>
+        <div><a href="transforms.html">Transforms and Transitions Examples</a></div>
+        <div><a href="canvas.html">Canvas, SVG, and Drag and Drop Examples</a></div>
+        <p>FormData<br>
+            The Fetch API includes the FormData interface, which makes it much easier to submit information in forms using Ajax.<br>
+            The FormData interface helps to reduce the amount of code needed when submitting forms.
+        </p>
+        <p>A living standard<br>
+            The Fetch API is, at the time of writing, what is known as a 'living standard', which means that the specification is being developed 'in the wild'. This means that, despite it being available to use, it’s still subject to change as developers, browser vendors and end-users provide feedback about how it works. It’s an experimental technology.<br>
+            <span class="red">Check the level of support before using it in production.</span></p>
+    </section>
+    <p class="questions">Questions:
+        <ol>
+            
+        </ol>
+    </p>
+</body>
+</html>
