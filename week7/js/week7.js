@@ -226,5 +226,5 @@ fetch(url)
     }
     throw Error(response.statusText);
 })
-.then( response => console.log(url)// do something with response )
-.catch( error => console.log('There was an error!') ))
+.then( (response) => console.log(url))// do something with response )
+.catch( error => console.log('There was an error!') )
