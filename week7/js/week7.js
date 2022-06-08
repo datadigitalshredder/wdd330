@@ -216,7 +216,7 @@ console.log('Hmmm, should I accept this mission or not ... ?');
 //<< 'Hmmm, should I accept this mission or not ... ? '
 //<< 'BOOOOM!'
 
-// The Fetch APU
+// The Fetch API
 const url = 'https:example.com/data';
 
 fetch(url)
@@ -226,5 +226,5 @@ fetch(url)
     }
     throw Error(response.statusText);
 })
-.then( response => // do something with response )
-.catch( error => console.log('There was an error!') )
+.then( response => console.log(url)// do something with response )
+.catch( error => console.log('There was an error!') ))
