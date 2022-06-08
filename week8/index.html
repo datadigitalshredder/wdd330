@@ -53,7 +53,21 @@
 
             </li> 
             <li>The transition-timing-function Property<br>
-            </li>   
+                The transition-timing-function lets you control the pace of the transition in even more granular detail. Do you want your animation to start off slow and become faster, start off fast and end slower, advance at an even keel, or some other variation?<br>
+                The most common timing functions include the key terms ease, linear, ease-in, ease-out, or ease-in-out. The default ease has a slow start, then it speeds up, and ends slowly. ease-in-out is similar to ease, but accelerates more sharply at the beginning. linear creates a transition that animates at a constant speed.<br>
+            </li> 
+            <li>The transition delay function<br>
+                Finally, by using the transition-delay property, it’s possible to introduce a delay before the transition begins.<br>
+                We don’t want our transition to start immediately, because that might be a bad user experience if the user accidentally mouses through our ad on the way from one part of the document to the next. A 50ms delay is enough time to wait to be sure they are intentionally hovering over our advertisement</li>  
+            <li>Multiple Transitions<br>
+                The transition properties allow for multiple transitions in one call. For example, if we want to change the color at the same time as changing the rotation and size, we can.<br>
+                Let’s say instead of just transitioning the rotation, we transition the text’s color property as well. We’d have to first include a color property in the transitioned style declaration, and then either add the color property in the transition-property value list, or use the key term all</li>
+        </p>
+        <p>Animations<br>
+            CSS animations, unlike transitions, allow you to control each step of an animation via keyframes.
+            <li>Keyframes<br>
+                A keyframe is a snapshot that defines a starting or end point of any smooth transition. With CSS transitions, we’re essentially limited to defining a first and a last keyframe. CSS animations allow us to add any number of keyframes in between, to guide our animation in more complex ways.<br>
+            <span>To animate an element in CSS, you first create a named animation, then attach it to an element in that element’s property declaration block. Animations in themselves don’t do anything; in order to animate an element, you’ll need to associate the animation with that element.</span></li>
         </p>
             
 
@@ -61,6 +75,7 @@
         <h3>Canvas, SVG, and Drag and Drop - HTML5 and CSS for the Real World</h3>
         <p>
             <li>JavaScript was originally designed as a client-side scripting language, meaning that it ran locally in the browser, adding dynamic features to the web page that was returned from the server. Ajax allows JavaScript to request resources from a server on behalf of the client. The resources requested are usually JSON data or small fragments of text or HTML rather than a whole web page.</li>
+        
         </p>
         <p>APIs<br>
             An application programming interface (API) is a collection of methods that allows external access to another program or service. Many websites allow controlled access to their data via public APIs. This means that developers are able to interact with the data and create mashups of third-party services. A weather site, for example, might have an API that provides methods that return information about the weather in a given location, such as temperature, wind speed, and so on.</p>
