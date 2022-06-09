@@ -12,6 +12,8 @@ fetch(dataSwapi)
 
         const people = jsObject['results'];
         people.forEach(displayPeople);
+        people.forEach(navigationBtn);
+        
     })
     .catch( error => console.log('There was an error!') )
 function displayPeople(person) { // Create elements to add to the document
@@ -29,9 +31,9 @@ function displayPeople(person) { // Create elements to add to the document
     skinColor.textContent = `Skin Color: ${person.skin_color}`;
     more.innerHTML = `
                         <ul class="more-details">
-                            <li class="homeworld" id="${person.homeworld}"></li>
-                            <li class="starship" id="${person.starship}"></li>
-                            <li class="films" id="${person.films}"></li>
+                            <li class="homeworld" id="${person.homeworld}"><a href="${person.homeworld}" target="_blank">Homeworld</li>
+                            <li class="starship" id="${person.starships}"><a href="${person.homeworld}" target="_blank">Starship</li>
+                            <li class="films" id="${person.films}"><a href="${person.homeworld}" target="_blank">Films</li>
                         </ul>`
 
     // Add/append the section(card) with the elements
@@ -43,4 +45,29 @@ function displayPeople(person) { // Create elements to add to the document
 
     // Add/append the existing HTML div with the cards class with the section(card)
     document.querySelector('section#display').appendChild(card);
+    
     }
+    
+
+function navigationBtn(navigation) {
+    // let next = document.getElementById('next');
+    // let prev = document.getElementById('prev');
+    const link = `${navigation.next}`;
+    console.log(link);
+    if (navigation.next) {
+        const next = document.getElementById("next");
+        // normally we would prefer the addEventListener method of adding a listener. Using something like 'element.onEvent = event_function' has the limitation of only being able to hold one listener of the type we choose. In this case that is a good thing however. Because we are not re-creating the buttons each time we load a new batch of data we could end up with several listeners attached to each button by the last page. We won't have that issue here.
+        next.ontouchend = () => {
+          // notice to show the next page we just re-call the showShips function with a new URL
+          displayPeople(navigation.next);
+        };
+      }
+      if (navigation.previous) {
+        const prev = document.getElementById("prev");
+  
+        prev.ontouchend = () => {
+          displayPeople(navigation.previous);
+        };
+      }
+
+}
