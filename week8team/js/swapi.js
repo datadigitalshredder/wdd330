@@ -11,8 +11,9 @@ fetch(dataSwapi)
         console.log(jsObject);
 
         const people = jsObject['results'];
+        const more = jsObject['results'];
         people.forEach(displayPeople);
-        people.forEach(navigationBtn);
+        more.forEach(navigationBtn);
         
     })
     .catch( error => console.log('There was an error!') )
@@ -52,9 +53,9 @@ function displayPeople(person) { // Create elements to add to the document
 function navigationBtn(navigation) {
     // let next = document.getElementById('next');
     // let prev = document.getElementById('prev');
-    const link = `${navigation.next}`;
+    const link = `${navigation.next.results}`;
     console.log(link);
-    if (navigation.next) {
+    if (`${navigation.next.results}`) {
         const next = document.getElementById("next");
         // normally we would prefer the addEventListener method of adding a listener. Using something like 'element.onEvent = event_function' has the limitation of only being able to hold one listener of the type we choose. In this case that is a good thing however. Because we are not re-creating the buttons each time we load a new batch of data we could end up with several listeners attached to each button by the last page. We won't have that issue here.
         next.ontouchend = () => {
@@ -62,12 +63,12 @@ function navigationBtn(navigation) {
           displayPeople(navigation.next);
         };
       }
-      if (navigation.previous) {
-        const prev = document.getElementById("prev");
-  
-        prev.ontouchend = () => {
-          displayPeople(navigation.previous);
-        };
-      }
+    if (`${navigation.previous}`) {
+      const prev = document.getElementById("prev");
+
+      prev.ontouchend = () => {
+        displayPeople(navigation.previous);
+      };
+    }
 
 }
