@@ -53,7 +53,7 @@ function displayPeople(person) { // Create elements to add to the document
 function navigationBtn(navigation) {
     // let next = document.getElementById('next');
     // let prev = document.getElementById('prev');
-    const link = `${navigation.next.results}`;
+    const link = `${navigation.next}`;
     console.log(link);
     if (`${navigation.next.results}`) {
         const next = document.getElementById("next");
