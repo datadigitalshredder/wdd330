@@ -67,3 +67,7 @@ section#story_display {
     border: #900 1px solid;
     display: none;
 }
+ /* WEEK 8 CANVAS */
+.myCanvas {
+    border: dotted 2px black;
+}

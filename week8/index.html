@@ -68,36 +68,52 @@
             <li>Keyframes<br>
                 A keyframe is a snapshot that defines a starting or end point of any smooth transition. With CSS transitions, we’re essentially limited to defining a first and a last keyframe. CSS animations allow us to add any number of keyframes in between, to guide our animation in more complex ways.<br>
             <span>To animate an element in CSS, you first create a named animation, then attach it to an element in that element’s property declaration block. Animations in themselves don’t do anything; in order to animate an element, you’ll need to associate the animation with that element.</span></li>
+            <li>Animation Properties<br>
+            <ol>
+                <li>animation-name</li>
+                <li>animation duration</li>
+                <li>animation-timing-function<br>
+                    Like the transition-timing-function property, the animation-timing-function determines how the animation will progress over its duration. The options are the same as for transition-timing-function: ease, linear, ease-in, ease-out, ease-in-out, a developer-defined cubic-bezier() function, step-start, step-end, or a developer-defined number of steps with the steps(number, direction) function</li>
+                <li>animation-iteration-count<br>
+                    The animation-iteration-count property lets you define how many times the animation will play through. The value is generally an integer, but you can also use numbers with decimal points (in which case, the animation will end partway through an iteration), or the value infinite for endlessly repeating animations. If omitted, it will default to 1, in which case the animation will occur only once. The following is an example of using this property</li>
+                <li>animation-direction</li>
+                <li>animation-delay</li>
+                <li>The Shorthand animation Property<br>
+                    Fortunately, there’s a shorthand for all of these animation properties, especially since we’re still including the -webkit- prefix. The animation property takes as its value a space-separated list of values for the longhand animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode, and animation-play-state properties</li>
+                    .verbose {<br>
+                        animation-name: appearDisappear; <br>
+                        animation-duration: 300ms; <br>
+                        animation-timing-function: ease-in;<br>
+                        animation-iteration-count: 1;<br>
+                        animation-direction: alternate;<br>
+                        animation-delay: 5s;<br>
+                        animation-fill-mode: backwards;<br>
+                        animation-play-state: running;<br>
+                    }
+                    
+                    /* shorthand */<br>
+                    .concise {<br>
+                        animation: 300ms ease-in alternate 5s backwards appearDisappear;<br>
+                    }<br>
+                </ol></li>
         </p>
-            
-
-        
         <h3>Canvas, SVG, and Drag and Drop - HTML5 and CSS for the Real World</h3>
-        <p>
-            <li>JavaScript was originally designed as a client-side scripting language, meaning that it ran locally in the browser, adding dynamic features to the web page that was returned from the server. Ajax allows JavaScript to request resources from a server on behalf of the client. The resources requested are usually JSON data or small fragments of text or HTML rather than a whole web page.</li>
-        
+        <p>Canvas<br>
+            With HTML5’s Canvas API, we can draw anything we can imagine, all through JavaScript. This can improve the performance of our websites by avoiding the need to download images off the network. With canvas, we can draw shapes and lines, arcs and text, gradients and patterns. In addition, canvas gives us the power to manipulate pixels in images and even video.
         </p>
-        <p>APIs<br>
-            An application programming interface (API) is a collection of methods that allows external access to another program or service. Many websites allow controlled access to their data via public APIs. This means that developers are able to interact with the data and create mashups of third-party services. A weather site, for example, might have an API that provides methods that return information about the weather in a given location, such as temperature, wind speed, and so on.</p>
-        <p>The Fetch API<br>
-            Currently a living standard for requesting and sending data asynchronously across a network.<br>
-            The Fetch API provides a global fetch() method that only has one mandatory argument, which is the URL of the resource you wish to fetch.<br>
-            The fetch() method returns a promise that resolves to the response returned from the URL that was provided as an argument. In the example above, the promise will be resolved when a response is received from the URL 'https:example.com/data'. Because it’s a promise, we can also use a catch statement at the end to deal with any errors that may occur.<br>
-            The Fetch API introduced the Response interface that deals with the object that’s returned when the promise is fulfilled. Response objects have a number of properties and methods that allow us to process the response effectively.<br>
-            JSON is probably the most common format for AJAX responses. The json() method is used to deal with these by transforming a stream of JSON data into a promise that resolves to a JavaScript object.<br>
-        </p>
-        <div><a href="transforms.html">Transforms and Transitions Examples</a></div>
+        <li>Creating a canvas Element</li>
+        <p>SVG<br>
+            Scalable Vector Graphics, a specific file format that allows you to describe vector graphics using XML. A major selling point of vector graphics in general is that, unlike bitmap images (such as GIF, JPEG, PNG, and TIFF), vector images preserve their quality even as you blow them up or shrink them down. </p>
+        <p>Drag and Drop<br>
+            This API allows us to specify that certain elements are draggable, and then specify what should happen when these draggable elements are dragged over or dropped onto other elements on the page.</p>
+           
         <div><a href="canvas.html">Canvas, SVG, and Drag and Drop Examples</a></div>
-        <p>FormData<br>
-            The Fetch API includes the FormData interface, which makes it much easier to submit information in forms using Ajax.<br>
-            The FormData interface helps to reduce the amount of code needed when submitting forms.
-        </p>
-        <p>A living standard<br>
-            The Fetch API is, at the time of writing, what is known as a 'living standard', which means that the specification is being developed 'in the wild'. This means that, despite it being available to use, it’s still subject to change as developers, browser vendors and end-users provide feedback about how it works. It’s an experimental technology.<br>
-            <span class="red">Check the level of support before using it in production.</span></p>
+        
     </section>
     <p class="questions">Questions:
         <ol>
+            <li>In preparation for the second project, do you have recommendatins or suggestions of projects we can do?</li>
+            <li>My internet is very bad in the evenings when the office hour is conducted, the alternative solution for me for that to not miss important announcements is the recording. Is it possible to have recordings of the meetings sent out?</li>
             
         </ol>
     </p>
