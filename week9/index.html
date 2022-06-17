@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week8 - notes and exercises</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans&display=swap" rel="stylesheet">
+    <script defer src="js/week8.js"></script>
+</head>
+<body>
+    <h1>Week 8</h1>
+    <h2 class="notes-header">Notes and examples</h2>
+    <section class="notes">
+        <h3>The window Object - JavaScript - Novice to Ninja</h3>
+        <p>The Browser Object Model (BOM)<br>
+            The Browser Object Model (or BOM for short) is a collection of properties and methods that contain information about the browser and computer screen. For example, we can find out which browser is being used to view a page (though, this method is unreliable). We can also find out the dimensions of the screen it is viewed on, and which pages have been visited before the current page. It can also be used for the rather dubious practice of creating pop-up windows, if you’re into annoying your users.
+        <p>Global Variables - These are variables that are created without using the const, let or var keywords. Global variables can be accessed in all parts of the program.</p>  
+        <p>Three functions that produced dialogs in the browsers: alert(), confirm() and prompt(). These are not part of the ECMAScript standard, although all major browsers support them as methods of the window object.</p>
+        <p>Browser Information<br>
+            The window object has a navigator property that returns a reference to the Navigator object. The Navigator object contains information about the browser being used. Its userAgent property will return information about the browser and operating system being used.<br>
+            Don’t rely on this information though, as it can be modified by a user to masquerade as a different browser. It can also be difficult to make any sense of the string returned, because all browsers pretend to be others to some degree.</p>
+        <p>The window.location property is an object that contains information about the URL of the current page. It contains a number of properties that provide information about different fragments of the URL.</p>
+        <p>This property (as well as most of the others in this section) is a read/write property, which means it can also be changed by assignment. If this is done, the page will be reloaded using the new property. F</p>
+        <p>The protocol property returns a string describing the protocol used (such as http, https, pop2, ftp etc.). Note that there is a colon (:) at the end:</p>
+        <p>The host property returns a string describing the domain of the current URL and the port number (this is often omitted if the default port 80 is used):</p>
+        <p>The hostname property returns a string describing the domain of the current URL</p>
+        <p>The port property returns a string describing the port number, although it will return an empty string if the port is not explicitly stated in the URL</p>
+        <p>The pathname property returns a string of the path that follows the domain:</p>
+        <p>The search property returns a string that starts with a “?” followed by the query string parameters. It returns an empty string if there are no query string parameters.</p>
+        <p>The hash property returns a string that starts with a “#” followed by the fragment identifier. It returns an empty string if there is no fragment identifier:</p>
+        <p>The origin property returns a string that shows the protocol and domain where the current page originated from. This property is read-only, so cannot be changed:</p>
+        <p>The window.location object also has the following methods:<br>
+            The reload() method can be used to force a reload of the current page. If it’s given a parameter of true, it will force the browser to reload the page from the server, instead of using a cached page.<br>    
+            The assign() method can be used to load another resource from a URL provided as a parameter<br>
+            The replace() method is almost the same as the assign() method, except the current page will not be stored in the session history, so the user will be unable to navigate back to it using the back button.<br>
+            The toString() method returns a string containing the whole URL
+        </p>
+        <p>The Browser History<br>
+            The window.history property can be used to access information about any previously visited pages in the current browser session. Avoid confusing this with the new HTML5 History API. (See http://www.sitepoint.com/javascript-history-pushstate/ post for details.)<br>
+            The window.history.length property shows how many pages have been visited before arriving at the current page.<br>
+            The window.history.go() method can be used to go to a specific page, where 0 is the current page</p>
+        <p>Controlling Windows<br>
+            A new window can be opened using the window.open() method. This takes the URL of the page to be opened as its first parameter, the window title as its second parameter, and a list of attributes as the third parameter. This can also be assigned to a variable, so the window can then be referenced later in the code</p>
+        <p>The close() method can be used to close a window, assuming you have a reference to it:</p>
+        <p>It is also possible to move a window using the window.moveTo() method. This takes two parameters that are the X and Y coordinates of the screen that the window is to be moved to:</p>    
+        <p>You can resize a window using the window.resizeTo() method. This takes two parameters that specify the width and height of the resized window’s dimensions</p>
+        <p>Screen Information<br>
+            The window.screen object contains information about the screen the browser is displayed on. You can find out the height and width of the screen in pixels using the height and width properties respectively<br>
+            The availHeight and availWidth can be used to find the height and width of the screen, excluding any operating system menus</p>
+        <p>The Document Object<br>
+            Each window object contains a document object. This object has properties and methods that deal with the page that has been loaded into the window.</p>
+        <p>
+            The document.write() method simply writes a string of text to the page. If a page has already loaded, it will completely replace the current document:</p>
+        <p>The use of document.write() is heavily frowned upon as it can only be realistically used by mixing JavaScript within an HTML document. There are still some extremely rare legitimate uses of it, but a ninja programmer will hardly ever need to use it.</p>
+        <p>Cookies<br>
+            Cookies are small files that are saved locally on a user’s computer. They were invented by Netscape as a way of getting round HTTP being a stateless protocol. This means that a browser does not remember anything from one request to another. So every time a user visits a page, nothing about any previous visits is remembered. Cookies can be used to sidestep this problem by storing information that can then be retrieved between requests.</p>
+        <p>To create a cookie, you assign it to JavaScript’s “cookie jar”, using the document.cookie property</p>
+        <p>The document.cookie property acts like a special type of string. Assigning another cookie to it won’t overwrite the entire property, it will just append it to the end of the string. So we can add more cookies by assigning them to document.cookie</p>
+        </section>
+    <p class="questions">Questions:
+        <ol>
+            <li>In preparation for the second project, do you have recommendatins or suggestions of projects we can do?</li>
+            <li>My internet is very bad in the evenings when the office hour is conducted, the alternative solution for me for that to not miss important announcements is the recording. Is it possible to have recordings of the meetings sent out?</li>
+            
+        </ol>
+    </p>
+</body>
+</html>
