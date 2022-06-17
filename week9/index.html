@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week8 - notes and exercises</title>
+    <title>Week9 - notes and exercises</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans&display=swap" rel="stylesheet">
-    <script defer src="js/week8.js"></script>
+    <script defer src="js/canvas.js"></script>
 </head>
 <body>
-    <h1>Week 8</h1>
+    <h1>Week 9</h1>
     <h2 class="notes-header">Notes and examples</h2>
     <section class="notes">
         <h3>The window Object - JavaScript - Novice to Ninja</h3>
@@ -61,11 +61,93 @@
             Cookies are small files that are saved locally on a user’s computer. They were invented by Netscape as a way of getting round HTTP being a stateless protocol. This means that a browser does not remember anything from one request to another. So every time a user visits a page, nothing about any previous visits is remembered. Cookies can be used to sidestep this problem by storing information that can then be retrieved between requests.</p>
         <p>To create a cookie, you assign it to JavaScript’s “cookie jar”, using the document.cookie property</p>
         <p>The document.cookie property acts like a special type of string. Assigning another cookie to it won’t overwrite the entire property, it will just append it to the end of the string. So we can add more cookies by assigning them to document.cookie</p>
-        </section>
+        <p>Timing Functions<br>
+            The window.setTimeout() method accepts a callback to a function as its first parameter and a number of milliseconds as its second parameter. Try entering the following example into a console. It should show an alert dialog after three seconds (that’s 3000 milliseconds)<br>
+            window.setTimeout( () => alert("Time's Up!"), 3000);<br>
+            Notice that the method returns an integer. This is an ID used to reference that particular timeout. It can also cancel the timeout using the window.clearTimeout() method. Try calling the code again and make a note of the number that is returned:<br>
+            window.setTimeout( () => alert("Time's Up!"), 3000);<br>
+            setInterval()<br>
+            The window.setInterval() method works in a similar way to window.setTimeout(), except that it will repeatedly invoke the callback function after every given number of milliseconds.
+        </p>
+        <p>Animation<br>
+            The setTimeOut() and setInterval() methods can be used to animate elements on a web page. As an example, let’s create a web page that shows a colored square, and make it rotate.</p>
+        <p>requestAnimationFrame<br>
+            This method of the window object works in much the same way as the window.setInterval() method, although it has a number of improvements to optimize its performance. These include making the most of the browser’s built-in graphics-handling capabilities, and not running the animation when the tab is inactive, resulting in a much smoother performance. It’s supported in all major browsers, including Internet Explorer from version 10 onwards. </p>
+        <p>CSS animation<br>
+            <span class="red">In general, it is typically better to use CSS for any animation effects, although there may be times when JavaScript might be the better solution.</span></p>
+        <div><a href="animation.html">Examples of animation</a></div>
+        <h3>HTML5 APIs</h3>
+        <p>HTML5 was for HTML what ES6 was for JavaScript – it added a large number of new features to the specification.</p>
+        <li>The data- attribute<br>
+            The data- attribute is a way of embedding data in a web page using custom attributes that are ignored by the browser. They’re also private to a page, so are not intended to be used by an external service – their sole purpose is to be used by a JavaScript program. <br>
+            The names of these attributes can be decided by the developer, but they must use the following format:
+
+            <ol><li>Start with data-.</li>
+            <li>Contain only lowercase letters, numbers, hyphens, dots, colons or underscores.</li>
+            <li>Include an optional string value.</li></ol>
+        </li>
+        <p>HTML5 APIs<br>
+            The HTML5 specification contains a number of APIs that help to gain access to hardware, such as cameras, batteries, geolocation, and the graphics card. Hardware evolves quickly, and APIs are frequently introduced to give developers access, and control new features that appear in the latest devices.</p>
+        <li>HTML5 Web Storage<br>
+            The Web Storage API provides a key-value store on the client’s computer that is similar to using cookies but has fewer restrictions, more storage capacity, and is generally easier to use. This makes it perfect for storing information about users, as well as storing application-specific information that can then be used during future sessions.</li>
+            The Web Storage API has some crucial differences with cookies:
+
+            <ol><li>Information stored is not shared with the server on every request.</li>
+                <li>Information is available in multiple windows of the browser (but only if the domain is the same).</li>
+                <li>Storage capacity limit is much larger than the 4KB limit for cookies ( There is no actual limit in the specification, but most browsers have a limit set at 5GB per domain.).</li>
+                <li>Any data stored does not automatically expire as it does with cookies. This potentially makes cookies a better choice for something like showing a popup once a day.</li></ol>
+
+        </li>
+        <p>If a browser supports the Web Storage API, the window object will have a property called localStorage, which is a native object with a number of properties and methods used to store data. The information is saved in the form of key-value pairs, and the values can only be strings. There is also a sessionStorage object that works in the same way, although the data is only saved for the current session.</p>
+        <li>Geolocation<br>
+            The Geolocation API is used to obtain the geographical position of the device. This means it can be used to find the user’s exact location, then link to nearby places or measure the speed at which the user is moving. This information can then be used to filter data based on the user's location or speed and direction of travel. An example of this might be a search function that returns results based on your location. Because of privacy concerns, permission to use this has to be granted by the user first.</li>
+        <li>Web Workers<br>
+            We saw in earlier chapters that JavaScript is a single-threaded language, meaning that only one process can run at one time. Web workers allow processes to be run in the background, adding support for concurrency in JavaScript. The idea is that any processes that could take a long time are carried out in the background, so a website will continue to function without fear of the dreaded 'script has become unresponsive' message that occurs when a script runs for too long</li>
+        <div><a href="factors.html">Web workers - Factorization example</a></div>
+        <li>Websockets<br>
+            Websocket is a new protocol that allows two-way communication with a server – also known as push messaging. This means that a connection is kept open and responses are ‘pushed’ to the client as soon as they are received.</li>
+        <li>Notifications<br>
+            The Notification API allows you to show messages using the system's notifications. This is usually a popup in the corner of the screen, but it changes depending on the operating system. An advantage of using the system notification is that they will still be displayed even if the web page that calls them isn't the current tab.</li>
+        <li>Multimedia<br>
+            HTML5 introduced the audio and video tags used to insert audio and video clips into a web page. It also introduced a Media API for controlling the playback of the clips using JavaScript.<br>
+                <audio src='/song.mp3' controls>
+                    Your browser does not support the audio element.
+                </audio>
+                <video src='http://movie.mp4' controls>
+                    Your browser does not support the video element.
+                </video>
+                Audio and video elements have a number of properties and methods to control the playback of the clip.
+                <li>play</li>
+                <li>pause</li>
+                <li>volume</li>
+                <li>muted</li>
+                <li>current time</li>
+                <li>playbackRate</li>
+                <li>loop</li>
+                <li>duration</li>
+        </li>
+        <li>Other APIs<br>
+            The list of APIs is constantly growing, and includes APIs for accessing a device’s camera, uploading files, accessing the battery status, handling push notifications, building drag-and-drop functionality, creating 3D effects with WebGL, and many more!
+            <ol><li>Drawing in Canvas</li>
+                <canvas id='canvas' width='400' height='400'>Sorry, but your browser does not support the canvas element</canvas>
+            <li>Shims and Polyfills<br>
+                These are libraries of code that allow you to use the APIs as usual. They then fill in the necessary code that's not provided natively by the user’s browser.</li></ol>
+        </li>
+    </section>
     <p class="questions">Questions:
         <ol>
-            <li>In preparation for the second project, do you have recommendatins or suggestions of projects we can do?</li>
-            <li>My internet is very bad in the evenings when the office hour is conducted, the alternative solution for me for that to not miss important announcements is the recording. Is it possible to have recordings of the meetings sent out?</li>
+            <li>Is it allowed to work on another project different from the one I initially propose to do?</li>
+            <li>I'm getting a list of errors when I type npm install in command line in the directory were the exercise folder is. Node and npm installations are both confirmed.<br>
+                npm ERR! code ENOENT<br>
+                npm ERR! syscall open<br>
+                npm ERR! path C:\Users\admin\Documents\BYUPathway\webdevcertificate\wdd330/package.json<br>
+                npm ERR! errno -4058<br>
+                npm ERR! enoent ENOENT: no such file or directory, open 'C:\Users\admin\Documents\BYUPathway\webdevcertificate\wdd330\package.json'<br>
+                npm ERR! enoent This is related to npm not being able to find a file.<br>
+                npm ERR! enoent<br>
+                npm ERR! A complete log of this run can be found in:<br>
+                npm ERR!     C:\Users\admin\AppData\Local\npm-cache\_logs\2022-06-17T12_44_41_344Z-debug-0.log</li>
+            <li>The new directory called node_modules is nowhere to be found, probably because of the above error</li>
             
         </ol>
     </p>
