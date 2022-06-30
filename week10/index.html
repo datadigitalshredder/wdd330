@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week10 - notes and exercises</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Noto+Sans&display=swap" rel="stylesheet">
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+    <h1>Week 10</h1>
+    <h2 class="notes-header">Notes</h2>
+    <section class="notes">
+        <h3>Validating Forms - MDN</h3>
+        <p>Client side validation - validates the form before it is sent to the server. Not very exhaustive.</p>
+        <li>Using built-in form validation<br>
+            This validation generally doesn't require much JavaScript. Built-in form validation has better performance than JavaScript, but it is not as customizable as JavaScript validation.<br>
+            <li>required: Specifies whether a form field needs to be filled in before the form can be submitted.</li>
+            <li>minlength and maxlength: Specifies the minimum and maximum length of textual data (strings)</li>
+            <li>min and max: Specifies the minimum and maximum values of numerical input types</li>
+            <li>type: Specifies whether the data needs to be a number, an email address, or some other specific preset type.</li>
+            <li>pattern: Specifies a regular expression that defines a pattern the entered data needs to follow.</li>
+            <p>Validating against a regular expression<br>
+                The pattern attribute, which expects a Regular Expression as its value. A regular expression (regex) is a pattern that can be used to match character combinations in text strings, so regexps are ideal for form validation and serve a variety of other uses in JavaScript.</p>
+        </li>
+        <form>
+            <p>
+              <fieldset>
+                <legend>Do you have a driver's license?<abbr title="This field is mandatory" aria-label="required">*</abbr></legend>
+                <!-- While only one radio button in a same-named group can be selected at a time,
+                     and therefore only one radio button in a same-named group having the "required"
+                     attribute suffices in making a selection a requirement -->
+                <input type="radio" required name="driver" id="r1" value="yes"><label for="r1">Yes</label>
+                <input type="radio" required name="driver" id="r2" value="no"><label for="r2">No</label>
+              </fieldset>
+            </p>
+            <p>
+              <label for="n1">How old are you?</label>
+              <!-- The pattern attribute can act as a fallback for browsers which
+                   don't implement the number input type but support the pattern attribute.
+                   Please note that browsers that support the pattern attribute will make it
+                   fail silently when used with a number field.
+                   Its usage here acts only as a fallback -->
+              <input type="number" min="12" max="120" step="1" id="n1" name="age"
+                     pattern="\d+">
+            </p>
+            <p>
+              <label for="t1">What's your favorite fruit?<abbr title="This field is mandatory" aria-label="required">*</abbr></label>
+              <input type="text" id="t1" name="fruit" list="l1" required
+                     pattern="[Bb]anana|[Cc]herry|[Aa]pple|[Ss]trawberry|[Ll]emon|[Oo]range">
+              <datalist id="l1">
+                <option>Banana</option>
+                <option>Cherry</option>
+                <option>Apple</option>
+                <option>Strawberry</option>
+                <option>Lemon</option>
+                <option>Orange</option>
+              </datalist>
+            </p>
+            <p>
+              <label for="t2">What's your e-mail address?</label>
+              <input type="email" id="t2" name="email">
+            </p>
+            <p>
+              <label for="t3">Leave a short message</label>
+              <textarea id="t3" name="msg" maxlength="140" rows="5"></textarea>
+            </p>
+            <p>
+              <button>Submit</button>
+            </p>
+        </form>
+        <li>Validating forms using JavaScript</li>
+        <p>Used to take control over the look and feel of native error messages or to deal with legacy browsers that do not support HTML's built-in form validation.</p>
+        <li>The Constraint Validation API<br>
+          Consists of a set of methods and properties available on the following form element DOM interfaces.<br>
+          The <span class="red">novalidate</span> attribute to turn off the browser's automatic validation; this lets our script take control over validation. However, this doesn't disable support for the constraint validation API nor the application of CSS pseudo-classes like :valid, etc. That means that even though the browser doesn't automatically check the validity of the form before sending its data, you can still do it yourself and style the form accordingly.</li>
+        <li>Validating forms without a built-in API<br>
+          In some cases, such as legacy browser support or custom controls, you won't be able to or won't want to use the Constraint Validation API.You're still able to use JavaScript to validate your form, but you'll just have to write your own.</li>
+        <p>Important Questions to Ask When Validating a Form:<br>
+
+          What kind of validation should I perform?
+          You need to determine how to validate your data: string operations, type conversion, regular expressions, and so on. It's up to you.
+          
+          What should I do if the form doesn't validate?
+          This is clearly a UI matter. You have to decide how the form will behave. Does the form send the data anyway? Should you highlight the fields that are in error? Should you display error messages?
+          
+          How can I help the user to correct invalid data?
+          In order to reduce the user's frustration, it's very important to provide as much helpful information as possible in order to guide them in correcting their inputs. You should offer up-front suggestions so they know what's expected, as well as clear error messages.</p>
+        <h3>Using the Fetch</h3>
+          <p>The Fetch API provides a JavaScript interface for accessing and manipulating parts of the HTTP pipeline, such as requests and responses.<br>
+          It also provides a global fetch() method that provides an easy, logical way to fetch resources asynchronously across the network.</p>
+          <p>Files can be uploaded using an HTML input type="file" input element, FormData() and fetch().</p>
+          <p>Processing a text file line by line<br>
+            The chunks that are read from a response are not broken neatly at line boundaries and are Uint8Arrays, not strings. If you want to fetch a text file and process it line by line, it is up to you to handle these complications.</p>
+    </section>
+    <p class="questions">Questions:
+        <ol>
+            <li>Is it allowed to work on another project different from the one I initially propose to do?</li>
+            
+        </ol>
+    </p>
+</body>
+</html>
