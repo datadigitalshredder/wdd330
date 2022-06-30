@@ -21,7 +21,7 @@ const swapiApp = {
         pageNavigation.addEventListener('click', swapiApp.getData);
     },
     buildNav: () => {
-        // build the navigation by looping through the urls and skip the base url (skip the url with name base)
+        // build the navigation by looping through the urls and skip the base url (skip the base url)
         let df = new DocumentFragment();
         for (let named in swapiApp.urls) {
             if (named != 'base') {

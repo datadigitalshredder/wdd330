@@ -23,6 +23,8 @@ function displayPeople(person) { // Create elements to add to the document
     let birthYear = document.createElement('p');
     let eyeColor = document.createElement('p');
     let skinColor = document.createElement('p');
+    let img = document.createElement('img');
+  
     let more = document.createElement('p');
 
     // Change the textContent property of the h2 and p elements to contain the person's full name and other details
@@ -30,6 +32,8 @@ function displayPeople(person) { // Create elements to add to the document
     birthYear.textContent = `Birth Year: ${person.birth_year}`;
     eyeColor.textContent = `Eye Color: ${person.eye_color}`;
     skinColor.textContent = `Skin Color: ${person.skin_color}`;
+    // img.setAttribute('src', person.url);
+    // img.setAttribute('alt', `Potrait of ${person.name}`);
     more.innerHTML = `
                         <ul class="more-details">
                             <li class="homeworld" id="${person.homeworld}"><a href="${person.homeworld}" target="_blank">Homeworld</li>
