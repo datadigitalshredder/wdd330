@@ -54,15 +54,15 @@ const links = [
       url: "week10/index.html"
     },
     {
-      label: "Week11 notes and exercises",
+      label: "Week11 Project Build",
       url: "week11/index.html"
     },
     {
-      label: "Week12 notes and exercises",
+      label: "Week12 Project Build",
       url: "week12/index.html"
     },
     {
-      label: "Week13 notes and exercises",
+      label: "Week13 Project Build",
       url: "week13/index.html"
     },
     {
