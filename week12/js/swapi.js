@@ -2,12 +2,12 @@ const swapiApp = {
     // Call the swapiApp.urls.base to see the contents of the APP urls
     urls: {
         base: 'https://swapi.dev/api/',
+        films: 'films/',
         people: 'people/',
         planets: 'planets/',
-        films: 'films/',
         species: 'species/',
-        vehicles: 'vehicles/',
-        starships: 'starships/'
+        starships: 'starships/',
+        vehicles: 'vehicles/' 
     },
     init: () => {
         swapiApp.addListeners();

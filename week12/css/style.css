@@ -143,21 +143,12 @@ main picture {
 }
 
 picture img {
-    /* display: block;
-    overflow: hidden;
-    position: relative; */
     /* Add the blur effect */
-    filter: blur(1px);
-    -webkit-filter: blur(1px);
+    /* filter: blur(1px);
+    -webkit-filter: blur(1px); */
   
     /* Full height */
     /* height: 100%; */
-  
-    /* Center and scale the image nicely */
-    /* background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; */
-    /* marging: 0; */
     width: 100%;
 }
 
@@ -165,7 +156,9 @@ picture img {
 div#render-items {
     display: block;
     color: white;
-    font-weight: bold;
+    font-weight: 500;
+    text-shadow: 1px 1px #ad7d37;
+    font-size: 1rem;
     position: absolute;
     top: 2%;
     left: 5%;
