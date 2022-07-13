@@ -47,6 +47,7 @@ nav ul li a {
 	padding: .5rem .5vw;
 	border-top: 1px solid rgba(0, 0, 0, 0.9);
     font-family: 'Montserrat', sans-serif;
+    font-size: 3vw;
 }
 
 nav ul li.active {
@@ -121,11 +122,13 @@ section#nav {
     flex-direction: row;
     text-transform: uppercase;
     background-color: #381010;
+    font-size: 3vw;
+    /* width: 95%; */
 }
 
 section#nav a {
     text-decoration: none;
-    padding: 0.5rem;
+    padding: 0.5rem .5vw;
     color: white;
 }
 
@@ -158,19 +161,20 @@ div#render-items {
     color: white;
     font-weight: 500;
     text-shadow: 1px 1px #ad7d37;
-    font-size: 1rem;
+    font-size: 100%;
     position: absolute;
     top: 2%;
     left: 5%;
+    /* bottom: 2%; */
     /* transform: translate(-5%, -5%); */
-    line-height: 2.5rem; 
+    line-height: 150%;
+    padding: 5% 0; 
     /* z-index: 2;
     width: auto;
     height: auto;
     padding: 20px; */
     text-align: left;
 }
-
 
 footer {
     background-color: #334e30;
@@ -181,6 +185,8 @@ footer {
 	padding: 1rem;
     color: white;
     font-family: 'Poller One', cursive;
+    font-size: 3vw;
+    /* font-size: 2em; */
 }
 
 section#page-navigation a {

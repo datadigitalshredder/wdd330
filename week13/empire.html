@@ -26,19 +26,28 @@
             </ul>
         </nav> 
     </header>
-    <section id="nav"></section>
+    <!-- <section id="nav"></section> -->
     <main>
-        <picture>
-            <img src="images/star-wars-stars.webp" alt="Tralleving through the stars image">
-        </picture>
-        <div id="render-items"></div>
-    </main>
-    
-    <footer>
-        <section id="page-navigation"></section>
-        <div class="footer-update">
-            <p>© <span id="year"></span> Innocent Hove .:|:. BYU-I .:|:. Star Wars</p>
-        </div>
-    </footer>
+        <h1>EMPIRE GROUP</h1>
+        <section class="task-input">
+            <input type="text" id="todoInput" placeholder="Enter Group Name">
+            <button id="addToDo">Create Group</button>
+            <input type="text" id="homePlanet" placeholder="Select Home Planet">
+            <button id="addToDo">Add Planet</button>
+            <input type="text" id="groupCaptian" placeholder="Select Captain">
+            <button id="addToDo">Add Captain</button>
+            <input type="text" id="members" placeholder="Select Members">
+            <button id="addToDo">Add Member</button>
+        </section>
+        <!-- <div>
+            <div class="filters">
+                <button id="pending">Pending</button>
+                <button id="completed">Completed</button>
+                <p class="disclaimer">Refresh page after filtering todos, adding or removing items from the list to reload ALL todos</p>
+            </div>
+        </div> -->
+        <section class="list">
+            <ul id="todoList"></ul>
+        </section></main>
 </body>
 </html>
