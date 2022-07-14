@@ -8,7 +8,7 @@ font-family: 'Poller One', cursive; */
     -webkit-box-sizing: border-box; 
     box-sizing: border-box; 
     margin: 0 auto;
-    max-width: 35rem;
+    max-width: 25rem;
 }
 
 header {
@@ -47,7 +47,7 @@ nav ul li a {
 	padding: .5rem .5vw;
 	border-top: 1px solid rgba(0, 0, 0, 0.9);
     font-family: 'Montserrat', sans-serif;
-    font-size: 3vw;
+    font-size: 1vw;
 }
 
 nav ul li.active {
@@ -122,7 +122,7 @@ section#nav {
     flex-direction: row;
     text-transform: uppercase;
     background-color: #381010;
-    font-size: 3vw;
+    /* font-size: 1vw; */
     /* width: 95%; */
 }
 
@@ -161,7 +161,7 @@ div#render-items {
     color: white;
     font-weight: 500;
     text-shadow: 1px 1px #ad7d37;
-    font-size: 100%;
+    /* font-size: 100%; */
     position: absolute;
     top: 2%;
     left: 5%;
@@ -185,7 +185,7 @@ footer {
 	padding: 1rem;
     color: white;
     font-family: 'Poller One', cursive;
-    font-size: 3vw;
+    /* font-size: 1vw; */
     /* font-size: 2em; */
 }
 
