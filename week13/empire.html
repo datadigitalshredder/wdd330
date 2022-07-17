@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates&family=Montserrat+Subrayada:wght@700&family=Noto+Sans&family=Poller+One&display=swap" rel="stylesheet">
     <script defer src="js/main.js"></script>
-    <!-- <script defer src="js/swapi.js"></script> -->
+    <script defer src="js/groups.js"></script>
     <script defer src="js/index.js" type="module"></script>
 </head>
 <body>
@@ -39,14 +39,22 @@
                 <input type="text" id="homePlanet" placeholder="Select Home Planet">
                 <button id="addPlanet">Add Planet</button>
             </div>
-                <div><input type="text" id="groupCaptian" placeholder="Select Captain">
-                <button id="addCaptain">Add Captain</button>
+            <div>
+                <select id="groupCaptain" onchange="show(this)">
+                    <option value="">-- Select --</option>
+                </select>
+                <div><p id="msg"></p><button id="addCaptain">Add Captain</button></div>
             </div>
             <div>
                 <input type="text" id="members" placeholder="Select Members">
                 <button id="addMember">Add Member</button>
             </div>
-            <div class="container">
+            <select id="sel" onchange="show(this)">
+                <option value="">-- Select --</option>
+            </select>
+        
+            
+            <!-- <div class="container">
                 <form action="#" method="POST">
                 <h2>Course 1</h2>
                 <div class="select-box">
@@ -64,7 +72,7 @@
                   </div>
                 </div>
                 </form>
-            </div>
+            </div> -->
         </section>
         <!-- <div>
             <div class="filters">
