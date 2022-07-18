@@ -36,22 +36,30 @@
                 <button id="addToDo">Create Group</button>
             </div>
             <div>
-                <input type="text" id="homePlanet" placeholder="Select Home Planet">
-                <button id="addPlanet">Add Planet</button>
-            </div>
-            <div>
-                <select id="groupCaptain" onchange="show(this)">
-                    <option value="">-- Select --</option>
+                <!-- <input type="text" id="homePlanet" placeholder="Select Home Planet"> -->
+                <select id="homePlanet" onchange="showPlanet(this)">
+                    <option value="">-- Select Home Planet --</option>
                 </select>
-                <div><p id="msg"></p><button id="addCaptain">Add Captain</button></div>
+                <div><p id="details-1"></p><button id="addPlanet" onclick="addPlanet()">Add Planet</button></div>
+                <!-- <button id="addPlanet">Add Planet</button> -->
             </div>
             <div>
-                <input type="text" id="members" placeholder="Select Members">
-                <button id="addMember">Add Member</button>
+                <select id="groupCaptain" onchange="showCaptain(this)">
+                    <option value="">-- Select Group Captain --</option>
+                </select>
+                <div><p id="details-2"></p><button id="addCaptain" onclick="addCaptain()">Add Captain</button></div>
             </div>
-            <select id="sel" onchange="show(this)">
+            <div>
+                <!-- <input type="text" id="members" placeholder="Select Members"> -->
+                <select id="members" onchange="showMember(this)">
+                    <option value="">-- Select Members --</option>
+                </select>
+                <div><p id="details-3"></p><button id="addMember" onclick="addMember()">Add Member</button></div>
+            </div>
+            <!-- <select id="sel" onchange="show(this)">
                 <option value="">-- Select --</option>
-            </select>
+            </select> -->
+
         
             
             <!-- <div class="container">
@@ -83,8 +91,8 @@
         </div> -->
         <section class="list">
             <ol id="todoList">
-                <div id="details"></div>
-            </ul>
+            </ol>
+            <div id="details"></div>
         </section>
     </main>
     <footer>

@@ -14,11 +14,11 @@
 //           // Parse JSON data.
 //           var birds = JSON.parse(xhr.responseText);
 
-//           var ele = document.getElementById('sel');
+//           var captain = document.getElementById('sel');
 //           for (var i = 0; i < birds.length; i++) {
           
 //             // Bind data to <select> element.
-//             ele.innerHTML = ele.innerHTML +
+//             captain.innerHTML = captain.innerHTML +
 //               '<option value="' + birds[i].ID + '">' + birds[i].Name + '</option>';
 //           }
 //         }
@@ -27,11 +27,11 @@
 //       xhr.send();
 //     }
 
-//     function show(ele) {
+//     function show(captain) {
 //         // Get the selected value from <select> element and show it.
 //         var msg = document.getElementById('msg');
-//         msg.innerHTML = 'Selected Bird: <b>' + ele.options[ele.selectedIndex].text + '</b> </br>' +
-//             'ID: <b>' + ele.value + '</b>';
+//         msg.innerHTML = 'Selected Bird: <b>' + captain.options[captain.selectedIndex].text + '</b> </br>' +
+//             'ID: <b>' + captain.value + '</b>';
 //     }
 
 
@@ -43,27 +43,76 @@ fetch(groups)
     .then((jsObject) => {
 
             //Randomly select 1st temple
-            let peopleDetails = jsObject.people;
-            console.log(peopleDetails);
-                
-            // const iconsrcdetailed1 = `${templeDetails1.photo}`;
-            // const descdetailed1 = `Photo of ${templeDetails1.name}`;
+            let planets = jsObject.planets,
+            peopleDetails = jsObject.people,
+            starships = jsObject.starships;
+
+            // console.log(peopleDetails);
+            let planet = document.getElementById('homePlanet');
+            for (let i = 0; i < planets.length; i++) {
             
-            // document.querySelector('#random-name1').innerHTML = templeDetails1.name;
-            let ele = document.getElementById('groupCaptain');
+              // Bind data to <select> element.
+              planet.innerHTML = planet.innerHTML +
+              '<option value="' + planets[i].ID + '">' + planets[i].name + '</option>';
+            }
+
+            let captain = document.getElementById('groupCaptain');
             for (let i = 0; i < peopleDetails.length; i++) {
             
               // Bind data to <select> element.
-              ele.innerHTML = ele.innerHTML +
+              captain.innerHTML = captain.innerHTML +
               '<option value="' + peopleDetails[i].ID + '">' + peopleDetails[i].name + '</option>';
             }
             
+            let members = document.getElementById('members');
+            for (let i = 0; i < peopleDetails.length; i++) {
+            
+              // Bind data to <select> element.
+              members.innerHTML = members.innerHTML +
+              '<option value="' + peopleDetails[i].ID + '">' + peopleDetails[i].name + '</option>';
+            }
           });
-          function show(ele) {
+          function showPlanet(planet) {
             // Get the selected value from <select> element and show it.
-            let msg = document.getElementById('msg');
-            msg.innerHTML = '<b>' + ele.options[ele.selectedIndex].text + '</b>';
-        }
+            let homePlanet = document.getElementById('details-1');
+            homePlanet.innerHTML = `<strong>${planet.options[planet.selectedIndex].text}</strong>`;
+          }
+          function showCaptain(captain) {
+            // Get the selected value from <select> element and show it.
+            let groupCaptain = document.getElementById('details-2');
+            groupCaptain.innerHTML = '<b>' + captain.options[captain.selectedIndex].text + '</b>';
+
+          // const element = document.getElementById("myBtn");
+          // element.addEventListener("click", function() {
+          //   document.getElementById("demo").innerHTML = "Hello World";
+          // });
+          }
+          function showMember(members) {
+            // Get the selected value from <select> element and show it.
+            let groupMembers = document.getElementById('details-3');
+            groupMembers.innerHTML = '<b>' + members.options[members.selectedIndex].text + '</b>';
+          }
+
+          function addPlanet() {
+            const addPlanet = document.getElementById("addPlanet");
+            addPlanet.addEventListener("click", function() {
+              document.getElementById("details").innerHTML = document.getElementById("details-1").textContent;
+            });
+          }
+
+          function addCaptain() {
+            const addCaptain = document.getElementById("addCaptain");
+            addCaptain.addEventListener("click", function() {
+              document.getElementById("details").innerHTML = document.getElementById("details-2").textContent;
+            });
+          }
+
+          function addMember() {
+            const addMember = document.getElementById("addMember");
+            addMember.addEventListener("click", function() {
+              document.getElementById("details").innerHTML = document.getElementById("details-3").textContent;
+            });
+          }
 //             document.querySelector('#random-temple1').setAttribute('src', iconsrcdetailed1);
 //             document.querySelector('#random-temple1').setAttribute('alt', descdetailed1);
 //             document.querySelector('#random-address1').innerHTML = templeDetails1.address;
