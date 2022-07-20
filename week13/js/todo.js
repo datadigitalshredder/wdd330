@@ -48,6 +48,7 @@ export default class ToDoItems {
     }
 
     filterCompleted(completed) {
+        readFromLocalStorage(completed);
         renderList(liveToDos, this.listElement, this, true);
         console.log(completed + "completed");
         let toDo = this.findToDo(completed);
@@ -59,6 +60,7 @@ export default class ToDoItems {
 
     }
     filterPending(pending) {
+        readFromLocalStorage(pending);
         renderList(liveToDos, this.listElement, this, true);
         
         console.log(pending + "pending");

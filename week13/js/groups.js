@@ -34,6 +34,7 @@
 //             'ID: <b>' + captain.value + '</b>';
 //     }
 
+// import { querySelection, writeToLocalStorage, readFromLocalStorage, bindTouch } from "./utilitis.js";
 
 const groups = "https://datadigitalshredder.github.io/wdd330/week13/json/data.json";
 console.log(groups);
@@ -96,22 +97,56 @@ fetch(groups)
           function addPlanet() {
             const addPlanet = document.getElementById("addPlanet");
             addPlanet.addEventListener("click", function() {
-              document.getElementById("details").innerHTML = document.getElementById("details-1").textContent;
+              document.getElementById("detailsPlanet").innerHTML = document.getElementById("details-1").textContent;
             });
           }
 
           function addCaptain() {
             const addCaptain = document.getElementById("addCaptain");
             addCaptain.addEventListener("click", function() {
-              document.getElementById("details").innerHTML = document.getElementById("details-2").textContent;
+              document.getElementById("detailsCaptain").innerHTML = document.getElementById("details-2").textContent;
+            });
+          }
+          
+          function addMember() {
+            const addMember = document.getElementById("addMember");
+            // const members = [];
+            // let groupMember = document.getElementById("details-3").textContent;
+
+            // let groupMember = '';
+            addMember.addEventListener("click", function() {
+              document.getElementById("membersList").innerHTML = document.getElementById("details-3").textContent;
+              // let groupMember = document.getElementById("details-3").textContent;
+              // document.getElementById("membersList").innerHTML = groupMember;
+              // members.push(groupMember);
+              // console.log(members);
             });
           }
 
-          function addMember() {
-            const addMember = document.getElementById("addMember");
-            addMember.addEventListener("click", function() {
-              document.getElementById("details").innerHTML = document.getElementById("details-3").textContent;
-            });
+          function displayMembers() { // Maybe just use create element (see prophets activity)
+            let members = [];
+            // let groupMember = document.getElementById("details-3").textContent;
+            // members.push(groupMember);
+            // members = [...members, ...[`${groupMember}`]]
+            for (i = 0; i < members.length; i++) {
+              let groupMember = document.getElementById("details-3").textContent;
+              // members = [...members, ...[`${groupMember}`]]
+              members = [...members, ...[groupMember]]
+              // members.push(`${groupMember}`);
+              members.push(groupMember);
+
+
+              console.log(members[i]);
+              console.log(members);
+
+              // let groupMembers = document.getElementById('membersList');
+              // groupMembers.innerHTML = '<b>' + members.options[members.selectedIndex].text + '</b>';
+            }
+            
+            
+            // console.log(members);
+
+
           }
 //             document.querySelector('#random-temple1').setAttribute('src', iconsrcdetailed1);
 //             document.querySelector('#random-temple1').setAttribute('alt', descdetailed1);
@@ -123,3 +158,15 @@ fetch(groups)
 //             document.querySelector('#random-session1').innerHTML = templeDetails1.sessionschedule;
 //             document.querySelector('#random-dates1').innerHTML = templeDetails1.closuredates;
 //             document.querySelector('#random-history1').innerHTML = templeDetails1.history;
+let array = [];
+let variable = "what you want to add";
+let variable1 = '';
+document.getElementById("details-3").innerHTML = variable1;
+console.log(variable1);
+
+//Add the variable to the end of the array
+array.push(variable);
+array.push(variable1);
+
+//===========================
+console.log(array);

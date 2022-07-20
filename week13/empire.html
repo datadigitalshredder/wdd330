@@ -45,7 +45,7 @@
             </div>
             <div>
                 <select id="groupCaptain" onchange="showCaptain(this)">
-                    <option value="">-- Select Group Captain --</option>
+                    <option value="">-- Select Captain --</option>
                 </select>
                 <div><p id="details-2"></p><button id="addCaptain" onclick="addCaptain()">Add Captain</button></div>
             </div>
@@ -54,7 +54,7 @@
                 <select id="members" onchange="showMember(this)">
                     <option value="">-- Select Members --</option>
                 </select>
-                <div><p id="details-3"></p><button id="addMember" onclick="addMember()">Add Member</button></div>
+                <div><p id="details-3"></p><button id="addMember" onclick="addMember(); displayMembers()">Add Member</button></div>
             </div>
             <!-- <select id="sel" onchange="show(this)">
                 <option value="">-- Select --</option>
@@ -92,7 +92,12 @@
         <section class="list">
             <ol id="todoList">
             </ol>
-            <div id="details"></div>
+            <p id="detailsPlanet"></p>
+            <p id="detailsCaptain"></p>
+            <p id="detailsMembers">
+                <ul id="membersList"></ul>
+            <!-- </p><button onclick="displayMembers()">Show Members</button> -->
+
         </section>
     </main>
     <footer>
