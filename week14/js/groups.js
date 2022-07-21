@@ -113,16 +113,3 @@ form.addEventListener('submit', function(event){
      console.log("submitted")
 
 })
-
-// let array = [];
-// let variable = "what you want to add";
-// let variable1 = '';
-// document.getElementById("details-3").innerHTML = variable1;
-// console.log(variable1);
-
-// //Add the variable to the end of the array
-// array.push(variable);
-// array.push(variable1);
-
-// //===========================
-// console.log(array);

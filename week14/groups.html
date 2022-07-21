@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAR WARS | Star Wars Groups | WDD330</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates&family=Montserrat+Subrayada:wght@700&family=Noto+Sans&family=Poller+One&display=swap" rel="stylesheet">
+    <script defer src="js/main.js"></script>
+    <script defer src="js/groups.js"></script>
+    <script defer src="js/index.js" type="module"></script>
+</head>
+<body>
+    <header>
+        <h1>Star Wars</h1>
+        <nav id="menu">
+            <button id='hamburgerButton'><span>&#9776;</span><span>❌</span></button>
+            <ul id='primaryNavigation'>
+                <li><a href="index.html">Star Wars</a></li>
+                <li><a href="groups.html">Star Wars Groups</a></li>
+
+                <li><a href="films.html">Films</a></li>
+            </ul>
+        </nav> 
+    </header>
+    <main>
+        <h1 class="group">EMPIRE/ REBEL GROUP</h1>
+        <picture>
+            <img src="images/star-wars-stars.webp" alt="Tralleving through the stars image">
+        </picture>
+        <picture class="displayImg3">
+            <img src="images/starwarsbattlefront.jpg" alt="Battlefront image">
+        </picture>
+        <section id="render-items">
+            <form action="" class="form">
+                <section class="task-input">
+                    <div>
+                        <input type="text" id="todoInput" placeholder="Enter Group Name" required oninput="validateForm()" minlength="5">
+                        <button type="submit" id="addToDo">Create Group</button>
+                        <ol id="todoList"></ol>
+                    </div>
+                </section>
+            </form>
+            <section>
+                <div class="group-details">
+                    <select id="homePlanet" onchange="showPlanet(this)">
+                        <option value="">-- Select Home Planet --</option>
+                    </select>
+                    <div><p id="details-1"></p><button id="addPlanet" onclick="addPlanet()">Add Planet</button></div>
+                </div>
+                <div class="group-details">
+                    <select id="groupCaptain" onchange="showCaptain(this)">
+                        <option value="">-- Select Captain --</option>
+                    </select>
+                    <div><p id="details-2"></p><button id="addCaptain" onclick="addCaptain()">Add Captain</button></div>
+                </div>
+                <div class="group-details">
+                    <select id="members" onchange="showMember(this)">
+                        <option value="">-- Select Members --</option>
+                    </select>
+                    <div><p id="details-3"></p><button id="addMember" onclick="addMember(); displayMembers()">Add Member</button></div>
+                </div>
+            </section>
+            
+            <section class="list">
+                
+                <strong><p id="detailsPlanet"></p></strong>
+                <strong><p id="detailsCaptain"></p></strong>
+                <p id="detailsMembers">
+                    <ul id="membersList"></ul>
+                </p>
+                <div class="cards"></div>
+                <!-- </p><button onclick="displayMembers()">Show Members</button> -->
+
+            </section>
+        </section>
+    </main>
+    <footer>
+        <section id="page-navigation"></section>
+        <div class="footer-update">
+            <p>© <span id="year"></span> Innocent Hove .:|:. BYU-I .:|:. Star Wars</p>
+        </div>
+    </footer>
+</body>
+</html>
