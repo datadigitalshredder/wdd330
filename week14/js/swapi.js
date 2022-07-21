@@ -60,24 +60,6 @@ const swapiApp = {
                 return `<p>${itemname}</p>`;
             })
             .join(' ');
-
-            // randomly load images to display on each section
-            // const templeUrl = "https://datadigitalshredder.github.io/wdd230/finalproject/jsonfolder/templedata.json";
-
-            // fetch(templeUrl)
-            //     .then((response) => response.json())
-            
-            //     .then((jsObject) => {
-            //             // Randomly select a temple for the home banner
-            //             let temple =  jsObject.temples;
-            //             randomTemple = temple[Math.floor(Math.random() * temple.length)];
-            //             for (let i = 0; i < temple.length; i++){
-            //                 const iconsrc = randomTemple.photo;
-            //                 const desc = `Photo of ${randomTemple.name}`;
-            //                 document.querySelector('#home-image').setAttribute('src', iconsrc);
-            //                 document.querySelector('#home-image').setAttribute('alt', desc);
-            //             };
-            //         })
         // add the prev/next navigation
         let pageNav = document.getElementById('page-navigation');
         pageNav.innerHTML = '';

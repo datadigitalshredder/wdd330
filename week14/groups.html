@@ -28,7 +28,7 @@
         </nav> 
     </header>
     <main>
-        <h1 class="group">EMPIRE/ REBEL GROUP</h1>
+        <h3 class="group">EMPIRE/ REBEL GROUP</h3>
         <picture>
             <img src="images/star-wars-stars.webp" alt="Tralleving through the stars image">
         </picture>
@@ -39,13 +39,14 @@
             <form action="" class="form">
                 <section class="task-input">
                     <div>
-                        <input type="text" id="todoInput" placeholder="Enter Group Name" required oninput="validateForm()" minlength="5">
-                        <button type="submit" id="addToDo">Create Group</button>
-                        <ol id="todoList"></ol>
+                        <input type="text" id="groupInput" placeholder="Enter Group Name" required oninput="validateForm()">
+                        <button type="submit" id="addGroup">Create Group</button>
+                        <span class="error" aria-live="polite"></span>
+                        <ol id="groupList"></ol>
                     </div>
                 </section>
             </form>
-            <section>
+            <section class="group-details">
                 <div class="group-details">
                     <select id="homePlanet" onchange="showPlanet(this)">
                         <option value="">-- Select Home Planet --</option>
@@ -74,7 +75,6 @@
                     <ul id="membersList"></ul>
                 </p>
                 <div class="cards"></div>
-                <!-- </p><button onclick="displayMembers()">Show Members</button> -->
 
             </section>
         </section>

@@ -1,5 +1,3 @@
-// import { querySelection, writeToLocalStorage, readFromLocalStorage, bindTouch } from "./utilitis.js";
-
 const groups = "https://datadigitalshredder.github.io/wdd330/week13/json/data.json";
 console.log(groups);
 fetch(groups)
@@ -36,9 +34,6 @@ fetch(groups)
               members.innerHTML = members.innerHTML +
               '<option value="' + peopleDetails[i].ID + '">' + peopleDetails[i].name + '</option>';
             }
-            // const people = jsObject['people'];
-    
-            // people.forEach(displayMemberNames);
           });
           function showPlanet(planet) {
             // Get the selected value from <select> element and show it.
@@ -49,12 +44,6 @@ fetch(groups)
             // Get the selected value from <select> element and show it.
             let groupCaptain = document.getElementById('details-2');
             groupCaptain.innerHTML = `Captain: ${captain.options[captain.selectedIndex].text}`;
-            // `Planet: <strong>${planet.options[planet.selectedIndex].text}</strong>`;
-
-          // const element = document.getElementById("myBtn");
-          // element.addEventListener("click", function() {
-          //   document.getElementById("demo").innerHTML = "Hello World";
-          // });
           }
           function showMember(members) {
             // Get the selected value from <select> element and show it.
@@ -94,13 +83,13 @@ fetch(groups)
           }
 
 // VALIDATION
-let inputName = document.getElementById('todoInput');
-let regularEx = /^[0-9a-zA-Z]+$/;
-let button = document.querySelector('#addToDo');
+let inputName = document.getElementById('groupInput');
+let regularExp = /^[0-9a-zA-Z -]+$/;
+let button = document.querySelector('#addGroup');
 let form = document.querySelector('.form');
 
 function validateForm(){
-    if (inputName.value !== "" && regularEx.test(inputName.value)){
+    if (inputName.value !== "" && regularExp.test(inputName.value)){
        button.style.backgroundColor = '#334e30';
        button.disabled = false;
     } else {
@@ -109,7 +98,8 @@ function validateForm(){
     }
 }
 form.addEventListener('submit', function(event){
-     event.preventDefault();
-     console.log("submitted")
-
+  event.preventDefault();
+  console.log("submitted")
 })
+
+
